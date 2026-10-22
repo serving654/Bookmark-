@@ -47,7 +47,6 @@ header{display:flex;align-items:center;gap:10px;padding:0 16px}
 .orow span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:15px}
 .orow button{width:40px;height:36px;border-radius:10px;background:var(--fill);color:var(--ac);font-size:14px}
 .orow button:disabled{opacity:.3}
-#rsug .chip.on{background:var(--rd);color:#fff;box-shadow:none}
 h2{font-size:20px;font-weight:700;letter-spacing:-.022em;margin:22px 2px 12px}
 main>h2:first-child{margin-top:14px}
 .grid{display:grid;grid-template-columns:var(--gc,repeat(auto-fill,minmax(62px,1fr)));gap:var(--gap) 2px}
@@ -607,7 +606,7 @@ header .mswitch{margin-left:auto}
  <div class="mswitch" id="modes" role="tablist" aria-label="Switch between bookmarks and saved" data-m="books"><button type="button" role="tab" data-mode="books">Bookmarks</button><button type="button" role="tab" data-mode="watch">Saved<b id="wc"></b></button></div>
  <button class="ib" id="cfg" aria-label="Settings"><svg viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg></button>
 </header>
-<nav class="tabs" id="tags" aria-label="Filter by tag"></nav>
+<nav class="tabs" id="tags" aria-label="Filter by category"></nav>
 </div>
 
 <main id="main"></main>
@@ -619,7 +618,6 @@ header .mswitch{margin-left:auto}
  <label for="fu">Link</label><input id="fu" type="text" inputmode="url" autocapitalize="off" placeholder="example.com" required>
  <label for="ft">Name</label><input id="ft" maxlength="80" placeholder="Site name">
  <label for="fc">Category</label><input id="fc" maxlength="30" placeholder="Optional, e.g. Work"><div class="sg" id="csug"></div>
- <label for="fg">Tags</label><input id="fg" placeholder="work, reading, tools"><div class="sg" id="sug"></div>
  <details class="advanced-fields">
   <summary>Icon options <span>Optional</span></summary>
   <div class="advanced-fields-body">
@@ -631,15 +629,6 @@ header .mswitch{margin-left:auto}
  <label class="chk"><input type="checkbox" id="fp"> Pin to top</label>
  <div class="err" id="err" role="alert"></div>
  <div class="row"><button class="btn d" type="button" id="del" hidden>Delete</button><button class="btn" type="button" id="x1">Cancel</button><button class="btn p" type="submit">Save</button></div>
-</form></dialog>
-
-<dialog id="tdlg"><form id="tf" autocomplete="off">
- <h3 id="tt">Add tags</h3>
- <label for="tg">Tags</label><input id="tg" placeholder="work, reading, tools"><div class="sg" id="tsug"></div>
- <label id="rml" hidden>Remove from selected (tap to mark)</label><div class="sg" id="rsug"></div>
- <p class="hint">New tags are added to each selected bookmark. Marked tags are removed from them.</p>
- <div class="err" id="terr" role="alert"></div>
- <div class="row"><button class="btn" type="button" id="x5">Cancel</button><button class="btn p" type="submit">Add tags</button></div>
 </form></dialog>
 
 <dialog id="mdlg"><form id="mf" autocomplete="off">
@@ -668,8 +657,8 @@ header .mswitch{margin-left:auto}
 </dialog>
 
 <dialog id="odlg">
- <h3>Reorder tags</h3>
- <p class="hint" style="margin-top:6px">Use the arrows to move a tab. "All" and "★ Pinned" can go anywhere, too.</p>
+ <h3>Reorder categories</h3>
+ <p class="hint" style="margin-top:6px">Use the arrows to move a category tab. "All" and "★ Pinned" can go anywhere, too.</p>
  <div id="olist" style="margin-top:8px"></div>
  <div class="row"><button class="btn" type="button" id="orst">Reset order</button><button class="btn p" type="button" id="x6">Done</button></div>
 </dialog>
@@ -734,14 +723,14 @@ header .mswitch{margin-left:auto}
   <p class="hint">Preview closes this panel so you can watch live, then tap Back to settings.</p>
  </details>
  <details class="custom-section">
-  <summary><i class="ci"><svg viewBox="0 0 24 24"><path d="M3 8h7l2 3h9v9H3z"/></svg></i><b>Tabs &amp; behavior</b><span>Tag bar, links, startup</span></summary>
+  <summary><i class="ci"><svg viewBox="0 0 24 24"><path d="M3 8h7l2 3h9v9H3z"/></svg></i><b>Tabs &amp; behavior</b><span>Category bar, links, startup</span></summary>
   <div class="custom-grid">
    <label>Tab style<select id="tabStyle"><option value="pills">Pills</option><option value="underline">Underline</option><option value="minimal">Minimal</option></select></label>
    <label>Tab counts<select id="tabCounts"><option value="show">Show</option><option value="hide">Hide</option></select></label>
    <label>Tab size<select id="tabSize"><option value="small">Small</option><option value="medium">Medium</option><option value="large">Large</option></select></label>
   </div>
   <div class="ctl" id="ctl2" style="margin-top:12px"></div>
-  <button class="btn" id="tord" type="button" style="width:100%;margin-top:12px">Reorder tabs</button>
+  <button class="btn" id="tord" type="button" style="width:100%;margin-top:12px">Reorder categories</button>
  </details>
  <details class="custom-section">
   <summary><i class="ci"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></i><b>Data &amp; sync</b><span>Backup, import, devices</span></summary>
@@ -753,7 +742,7 @@ header .mswitch{margin-left:auto}
   </div>
  </details>
  <input type="file" id="file" accept=".html,.htm" hidden>
- <p class="hint">Press and hold an icon to move it, or let go without moving to open its menu. Swipe left or right to change tag. Press and hold a tag to delete it everywhere. On a computer: drag to move, right-click for menus.</p>
+ <p class="hint">Press and hold an icon to move it, or let go without moving to open its menu. Swipe left or right to change category. Press and hold a category to delete it everywhere. On a computer: drag to move, right-click for menus.</p>
 </dialog>
 
 <dialog id="cdlg"><form id="cf" autocomplete="off">
@@ -916,7 +905,7 @@ $("#resetLooks").onclick=()=>{looks={...LD};theme();saveLooks()};
 /* ---- render ---- */
 /* Categories are stored as one tag starting with "@" (no database change needed). */
 const isC=t=>t[0]==="@",catOf=b=>((b.tags||[]).find(isC)||"").slice(1);
-const allTagsX=()=>{const m={};B.forEach(b=>(b.tags||[]).forEach(t=>m[t]=(m[t]||0)+1));return Object.entries(m).sort((a,b)=>(isC(b[0])-isC(a[0]))||b[1]-a[1]||a[0].localeCompare(b[0]))};
+const allTagsX=()=>{const m={};B.forEach(b=>(b.tags||[]).forEach(t=>m[t]=(m[t]||0)+1));return Object.entries(m).filter(x=>isC(x[0])).sort((a,b)=>(isC(b[0])-isC(a[0]))||b[1]-a[1]||a[0].localeCompare(b[0]))};
 const allTags=()=>allTagsX().filter(x=>!isC(x[0])),allCats=()=>allTagsX().filter(x=>isC(x[0]));
 const catTag=v=>{v=(v||"").trim().replace(/^@+/,"").replace(/,/g," ").trim().slice(0,30);if(!v)return[];const ex=allCats().find(x=>x[0].slice(1).toLowerCase()===v.toLowerCase());return["@"+(ex?ex[0].slice(1):v)]};
 function chipsC(s,i){const cur=catTag($(i).value)[0]||"";$(s).innerHTML=allCats().slice(0,14).map(([t])=>`<button type="button" class="chip s ${t===cur?"on":""}" data-s="${esc(t.slice(1))}">${esc(t.slice(1))}</button>`).join("")}
@@ -924,37 +913,38 @@ const csug=()=>chipsC("#csug","#fc");
 const hue=s=>{let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%360;return h};
 function icErr(i){const d=i.parentNode;d.classList.remove("f");d.style.background=i.dataset.g;d.textContent=i.dataset.fb}
 const openLink=u=>{cfg.open==="same"?(location.href=u):window.open(u,"_blank","noopener,noreferrer")};
-function icon(b){const h=hue(b.title||"?"),l=((b.title||"").match(/[A-Za-z0-9]/)||["?"])[0].toUpperCase(),g=`linear-gradient(160deg,hsl(${h} calc(78% * var(--isat,1)) 62%),hsl(${(h+30)%360} calc(80% * var(--isat,1)) 48%))`,fb=b.emoji?esc(b.emoji):l;if(!b.icon_url&&b.emoji)return `<div class="ic" style="background:${g}">${fb}</div>`;const src=b.icon_url||`https://www.google.com/s2/favicons?domain=${encodeURIComponent(host(b.url))}&sz=128`;return `<div class="${b.icon_url?"ic":"ic f"}"><img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" data-fb="${esc(fb)}" data-g="${esc(g)}" onerror="icErr(this)"></div>`}
+function icon(b){const h=hue(b.title||"?"),l=((b.title||"").match(/[A-Za-z0-9]/)||["?"])[0].toUpperCase(),g=`linear-gradient(160deg,hsl(${h} calc(78% * var(--isat,1)) 62%),hsl(${(h+30)%360} calc(80% * var(--isat,1)) 48%))`,fb=b.emoji?esc(b.emoji):l;if(!b.icon_url&&b.emoji)return `<div class="ic" style="background:${g}">${fb}</div>`;const src=b.icon_url||`https://www.google.com/s2/favicons?domain=${encodeURIComponent(host(b.url))}&sz=128`;return `<div class="${b.icon_url?"ic":"ic f"}"><img src="${esc(src)}" alt="" decoding="sync" referrerpolicy="no-referrer" data-fb="${esc(fb)}" data-g="${esc(g)}" onerror="icErr(this)"></div>`}
 function card(b,i=0){return `<a class="card${sel?.has(b.id)?" sel":""}" style="--i:${i}" draggable="false" href="${esc(b.url)}" ${cfg.open==="same"?"":'target="_blank" '}rel="noopener noreferrer" data-id="${b.id}">${icon(b)}${b.pinned?'<i class="pin"></i>':""}<div class="col"><div class="t">${esc(b.title)}</div><div class="h">${esc(host(b.url))}</div></div><button class="more" data-edit="${b.id}" aria-label="Edit ${esc(b.title)}">⋯</button></a>`}
 function sorted(a){const f={manual:(x,y)=>(x.position||0)-(y.position||0)||y.created_at.localeCompare(x.created_at),recent:(x,y)=>y.created_at.localeCompare(x.created_at),popular:(x,y)=>(y.open_count||0)-(x.open_count||0)||x.title.localeCompare(y.title),az:(x,y)=>x.title.localeCompare(y.title)}[cfg.sort]||(()=>0);return a.slice().sort(f)}
 function visible(){const q=$("#q").value.trim().toLowerCase();return B.filter(b=>(tag==="all"||(tag==="★"?b.pinned:(b.tags||[]).includes(tag)))&&(!q||b.title.toLowerCase().includes(q)||b.url.toLowerCase().includes(q)||(b.tags||[]).some(t=>t.toLowerCase().includes(q))))}
 let userPicked=false;
-function initTag(){if(userPicked)return;const tg=allTagsX().map(x=>x[0]),pins=B.some(b=>b.pinned);tag=(cfg.start==="last"&&ls.lp_lasttag&&(ls.lp_lasttag==="all"||(ls.lp_lasttag==="★"&&pins)||tg.includes(ls.lp_lasttag))?ls.lp_lasttag:null)||tordKeys().find(k=>k==="all"||(k==="★"&&pins)||tg.includes(k))||"all"}
+let pendReveal=false;function revealTab(){const tb=$("#tags"),c=tb.querySelector(".chip.on");if(!c)return false;tb.scrollLeft=c.getBoundingClientRect().left-tb.getBoundingClientRect().left+tb.scrollLeft-(tb.clientWidth-c.offsetWidth)/2;return true}
+function initTag(){if(userPicked)return;pendReveal=true;const tg=allTagsX().map(x=>x[0]),pins=B.some(b=>b.pinned);tag=(cfg.start==="last"&&ls.lp_lasttag&&(ls.lp_lasttag==="all"||(ls.lp_lasttag==="★"&&pins)||tg.includes(ls.lp_lasttag))?ls.lp_lasttag:null)||tordKeys().find(k=>k==="all"||(k==="★"&&pins)||tg.includes(k))||"all"}
 function tordKeys(){const tg=allTagsX().map(x=>x[0]);return[...new Set([...(cfg.tord||[]),"all","★",...tg])].filter(k=>k==="all"||k==="★"||tg.includes(k))}
 function draw(){modesUI();if(mode==="watch"){drawW();return}
  const tg=allTagsX(),pins=B.some(b=>b.pinned);
  if(tag!=="all"&&tag!=="★"&&!tg.some(t=>t[0]===tag))tag="all";
  const tb=$("#tags"),sl=tb.scrollLeft;const chips=new Map([["all",`<button class="chip ${tag==="all"?"on":""}" data-tag="all">All<b>${B.length}</b></button>`]]);if(pins)chips.set("★",`<button class="chip ${tag==="★"?"on":""}" data-tag="★">★ Pinned</button>`);tg.forEach(([t,n])=>chips.set(t,`<button class="chip${isC(t)?" cat":""} ${tag===t?"on":""}" data-tag="${esc(t)}">${esc(isC(t)?t.slice(1):t)}<b>${n}</b></button>`));
- tb.innerHTML=B.length?tordKeys().filter(k=>chips.has(k)).map(k=>chips.get(k)).join(""):"";tb.scrollLeft=sl;tabWatch(tb);
+ const ks=B.length?tordKeys().filter(k=>chips.has(k)):[],sig=ks.map(k=>chips.get(k).replace(/class="[^"]*"/,"")).join("");
+ if(sig&&tb.dataset.sig===sig&&tb.querySelector("[data-tag]")){tb.querySelectorAll("[data-tag]").forEach(c=>c.classList.toggle("on",c.dataset.tag===tag))}
+ else{tb.innerHTML=ks.map(k=>chips.get(k)).join("");tb.dataset.sig=sig;tb.scrollLeft=sl;tabWatch(tb)}
+ if(pendReveal&&revealTab())pendReveal=false;
  const m=$("#main");m.className=(cfg.view==="list"?"list ":"")+(canDrag()?"manual":"")+(sel?" selecting":"");
  if(C.url.startsWith("YOUR_")){m.innerHTML='<div class="empty"><h3>Connect your database</h3>Add your Supabase project URL and key to start saving bookmarks.<br><button class="cta" data-setup>Set up</button></div>';return}
  if(!loaded&&!B.length){m.innerHTML='<div class="grid">'+'<div class="sk"></div>'.repeat(15)+"</div>";return}
  const v=sorted(visible());$("#cnt").textContent=B.length?v.length+"/"+B.length:"";
- if(!v.length){if(!B.length&&loadErr){m.innerHTML='<div class="empty"><h3>Couldn\'t load bookmarks</h3>'+esc(loadErr)+'<br><button class="cta" data-retry>Try again</button></div>';return}m.innerHTML=B.length?'<div class="empty"><h3>No matches</h3>Try a different word or choose another tag.</div>':'<div class="empty"><h3>Your launchpad is empty</h3>Add a link with ＋, or import bookmarks from your browser in Settings.</div>';return}
+ if(!v.length){if(!B.length&&loadErr){m.innerHTML='<div class="empty"><h3>Couldn\'t load bookmarks</h3>'+esc(loadErr)+'<br><button class="cta" data-retry>Try again</button></div>';return}m.innerHTML=B.length?'<div class="empty"><h3>No matches</h3>Try a different word or choose another category.</div>':'<div class="empty"><h3>Your launchpad is empty</h3>Add a link with ＋, or import bookmarks from your browser in Settings.</div>';return}
  const top=tag==="all"&&!$("#q").value&&v.some(b=>b.pinned),cn=tordKeys().filter(k=>isC(k)).map(k=>k.slice(1)),grp=tag==="all"&&!$("#q").value.trim()&&cfg.group!==false&&cn.length>0,G=a=>`<div class="grid">${a.map(card).join("")}</div>`,grouped=()=>{const by={};v.filter(b=>!(top&&b.pinned)).forEach(b=>{const c=catOf(b);(by[c]=by[c]||[]).push(b)});let h=top?`<h2 class="cg">Pinned</h2>${G(v.filter(b=>b.pinned))}`:"";[...cn,""].forEach(c=>{const a=by[c];if(a&&a.length)h+=`<h2 class="cg">${c?esc(c):"Other"}<small>${a.length}</small></h2>${G(a)}`});return h};
  m.innerHTML=grp?grouped():top?`<h2>Pinned</h2><div class="grid">${v.filter(b=>b.pinned).map(card).join("")}</div><h2>All bookmarks</h2><div class="grid">${v.filter(b=>!b.pinned).map(card).join("")}</div>`:`<div class="grid">${v.map(card).join("")}</div>`;
  if(anim){anim=false;const dir=swDir;swDir=0;if(dir){void m.offsetWidth;m.style.setProperty("--sd",dir);m.classList.add("sw")}m.classList.add("intro");setTimeout(()=>m.classList.remove("intro","sw"),2000)}
 }
 
 /* ---- add / edit ---- */
-function sug(){const cur=parse($("#fg").value);$("#sug").innerHTML=allTags().slice(0,14).map(([t])=>`<button type="button" class="chip s ${cur.includes(t)?"on":""}" data-s="${esc(t)}">${esc(t)}</button>`).join("")}
-function openForm(id=null){if($("#dlg").open)return;editing=id;const b=B.find(x=>x.id===id);$("#dt").textContent=b?"Edit bookmark":"Add bookmark";$("#fu").value=b?.url||"";$("#ft").value=b?.title||"";$("#fg").value=(b?.tags||(tag!=="all"&&tag!=="★"&&!isC(tag)?[tag]:[])).filter(t=>!isC(t)).join(", ");$("#fc").value=b?catOf(b):(isC(tag)?tag.slice(1):"");csug();$("#fp").checked=!!b?.pinned;tmpImg=b?.icon_url?.startsWith("data:")?b.icon_url:"";$("#fim").value="";$("#fi").value=tmpImg?"":(b?.icon_url||"");$("#fe").value=b?.emoji||"";$("#del").hidden=!b;$("#err").textContent="";sug();pv();$("#dlg").showModal();if(!b)$("#fu").focus()}
-$("#f").onsubmit=async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;try{const url=norm($("#fu").value),title=$("#ft").value.trim()||host(url),tags=parse($("#fg").value).filter(t=>!isC(t)).concat(catTag($("#fc").value)),pinned=$("#fp").checked,icon_url=tmpImg||($("#fi").value.trim()?norm($("#fi").value):null),emoji=$("#fe").value.trim().slice(0,8)||null;if(editing){const r=await db(`lp_bookmarks?id=eq.${editing}`,{m:"PATCH",b:{url,title,tags,pinned,icon_url,emoji,updated_at:new Date().toISOString()}});B=B.map(x=>x.id===editing?(r[0]||x):x)}else{const r=await db("lp_bookmarks",{m:"POST",b:{url,title,tags,pinned,icon_url,emoji,position:B.length?Math.min(...B.map(x=>x.position||0))-1:0}});B.unshift(r[0])}cache();draw();$("#dlg").close();toast("Saved")}catch(er){$("#err").textContent=/duplicate|23505/.test(er.message)?"You already saved this link.":er.message}btn.disabled=false};
+function openForm(id=null){if($("#dlg").open)return;editing=id;const b=B.find(x=>x.id===id);$("#dt").textContent=b?"Edit bookmark":"Add bookmark";$("#fu").value=b?.url||"";$("#ft").value=b?.title||"";$("#fc").value=b?catOf(b):(isC(tag)?tag.slice(1):"");csug();$("#fp").checked=!!b?.pinned;tmpImg=b?.icon_url?.startsWith("data:")?b.icon_url:"";$("#fim").value="";$("#fi").value=tmpImg?"":(b?.icon_url||"");$("#fe").value=b?.emoji||"";$("#del").hidden=!b;$("#err").textContent="";pv();$("#dlg").showModal();if(!b)$("#fu").focus()}
+$("#f").onsubmit=async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;try{const url=norm($("#fu").value),title=$("#ft").value.trim()||host(url),tags=catTag($("#fc").value),pinned=$("#fp").checked,icon_url=tmpImg||($("#fi").value.trim()?norm($("#fi").value):null),emoji=$("#fe").value.trim().slice(0,8)||null;if(editing){const r=await db(`lp_bookmarks?id=eq.${editing}`,{m:"PATCH",b:{url,title,tags,pinned,icon_url,emoji,updated_at:new Date().toISOString()}});B=B.map(x=>x.id===editing?(r[0]||x):x)}else{const r=await db("lp_bookmarks",{m:"POST",b:{url,title,tags,pinned,icon_url,emoji,position:B.length?Math.min(...B.map(x=>x.position||0))-1:0}});B.unshift(r[0])}cache();draw();$("#dlg").close();toast("Saved")}catch(er){$("#err").textContent=/duplicate|23505/.test(er.message)?"You already saved this link.":er.message}btn.disabled=false};
 $("#del").onclick=async()=>{if(!confirm("Delete this bookmark?"))return;try{await db(`lp_bookmarks?id=eq.${editing}`,{m:"DELETE",p:"return=minimal"});B=B.filter(x=>x.id!==editing);cache();draw();$("#dlg").close();toast("Deleted")}catch(e){$("#err").textContent=e.message}};
-$("#fg").oninput=sug;
 $("#fc").oninput=csug;
 $("#csug").onclick=e=>{const t=e.target.dataset.s;if(t===undefined)return;$("#fc").value=catTag($("#fc").value)[0]==="@"+t?"":t;csug()};
-$("#sug").onclick=e=>{const t=e.target.dataset.s;if(!t)return;const c=parse($("#fg").value);$("#fg").value=(c.includes(t)?c.filter(x=>x!==t):[...c,t]).join(", ");sug()};
 
 /* ---- live icon preview in the add/edit sheet ---- */
 let pt;const pv=()=>{clearTimeout(pt);pt=setTimeout(()=>{const u=$("#fu").value.trim(),t=$("#ft").value.trim();$("#ft").placeholder=u?host(u):"Site name";$("#pv").innerHTML=u?icon({url:u,title:t||host(u),icon_url:tmpImg||$("#fi").value.trim()||null,emoji:$("#fe").value.trim()||null}):'<div class="ic" style="background:var(--sf2);color:var(--mu)">+</div>'},250)};
@@ -962,7 +952,7 @@ for(const i of["#fu","#ft","#fi","#fe"])$(i).addEventListener("input",pv);
 let tmpImg="";
 $("#fim").onchange=e=>{const f=e.target.files[0];if(!f)return;const im=new Image(),u=URL.createObjectURL(f);im.onload=()=>{const c=document.createElement("canvas");c.width=c.height=128;const x=c.getContext("2d"),s=Math.min(im.width,im.height);x.drawImage(im,(im.width-s)/2,(im.height-s)/2,s,s,0,0,128,128);tmpImg=c.toDataURL("image/webp",.85);URL.revokeObjectURL(u);pv()};im.src=u};
 $("#rimg").onclick=()=>{tmpImg="";$("#fim").value="";pv()};
-/* ---- swipe left/right to change tag ---- */
+/* ---- swipe left/right to change category ---- */
 let sx=0,sy=0,sok=false;
 document.addEventListener("touchstart",e=>{const t=e.touches[0];sx=t.clientX;sy=t.clientY;sok=!e.target.closest("#tags,dialog,input,select,.top")},{passive:true});
 document.addEventListener("touchend",e=>{if(!sok||dg?.on||justDragged||mode==="watch")return;const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.abs(dx)<70||Math.abs(dx)<Math.abs(dy)*1.6)return;const ks=[...document.querySelectorAll("#tags .chip")].map(b=>b.dataset.tag),i=ks.indexOf(tag)+(dx<0?1:-1);if(i<0||i>=ks.length)return;setTag(ks[i])});
@@ -1055,55 +1045,39 @@ $("#wf").onsubmit=async e=>{e.preventDefault();const btn=e.submitter;btn.disable
 $("#kx").onclick=()=>$("#kdlg").close();
 $("#kcp").onclick=()=>{const t=$("#kta");t.focus();t.select();t.setSelectionRange(0,t.value.length);try{if(document.execCommand("copy"))toast("Copied")}catch{}};
 /* ---- select several ---- */
-const bar=document.createElement("div");bar.id="sb";bar.hidden=true;bar.innerHTML='<span id="sn"></span><button data-a="all">All</button><button data-a="move">Move</button><button data-a="tag">Tag</button><button data-a="del" class="x">Delete</button><button data-a="done">Done</button>';document.body.appendChild(bar);
-function selUI(){$("#sn").textContent=sel?sel.size+" selected":"";bar.querySelector("[data-a=del]").disabled=!sel||!sel.size;bar.querySelector("[data-a=tag]").disabled=!sel||!sel.size;bar.querySelector("[data-a=move]").disabled=!sel||!sel.size}
+const bar=document.createElement("div");bar.id="sb";bar.hidden=true;bar.innerHTML='<span id="sn"></span><button data-a="all">All</button><button data-a="move">Move</button><button data-a="del" class="x">Delete</button><button data-a="done">Done</button>';document.body.appendChild(bar);
+function selUI(){$("#sn").textContent=sel?sel.size+" selected":"";bar.querySelector("[data-a=del]").disabled=!sel||!sel.size;bar.querySelector("[data-a=move]").disabled=!sel||!sel.size}
 function selMode(on,id){sel=on?new Set(id?[id]:[]):null;bar.hidden=!on;$("#add").hidden=on;selUI();draw()}
 function tog(id){sel.has(id)?sel.delete(id):sel.add(id);document.querySelectorAll(`.card[data-id="${id}"]`).forEach(c=>c.classList.toggle("sel",sel.has(id)));selUI()}
 bar.onclick=async e=>{const a=e.target.dataset.a;if(a==="done")selMode(false);else if(a==="all"){const v=visible(),all=v.every(b=>sel.has(b.id));v.forEach(b=>all?sel.delete(b.id):sel.add(b.id));draw();selUI()}else if(a==="del"&&sel.size){if(!confirm(`Delete ${sel.size} bookmark${sel.size>1?"s":""}? This can't be undone.`))return;const ids=[...sel];try{for(let i=0;i<ids.length;i+=50)await db(`lp_bookmarks?id=in.(${ids.slice(i,i+50).join(",")})`,{m:"DELETE",p:"return=minimal"});B=B.filter(b=>!sel.has(b.id));cache();toast("Deleted");selMode(false)}catch(er){toast(er.message);load()}}};
-/* ---- tag several at once (add / remove) ---- */
-let rm=new Set();
-function openTag(){if(!sel||!sel.size)return;rm=new Set();$("#tt").textContent=`Tag ${sel.size} bookmark${sel.size>1?"s":""}`;$("#tg").value="";$("#terr").textContent="";tsug();rsug();$("#tdlg").showModal();$("#tg").focus()}
-function tsug(){const cur=parse($("#tg").value);$("#tsug").innerHTML=allTags().filter(([t])=>!cur.includes(t)).slice(0,12).map(([t])=>`<button type="button" class="chip s" data-t="${esc(t)}">${esc(t)}</button>`).join("")}
-function rsug(){const m={};[...sel].forEach(id=>(B.find(x=>x.id===id)?.tags||[]).forEach(t=>t[0]!=="@"&&(m[t]=(m[t]||0)+1)));const e=Object.entries(m).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]));$("#rml").hidden=!e.length;$("#rsug").innerHTML=e.map(([t,n])=>`<button type="button" class="chip s${rm.has(t)?" on":""}" data-r="${esc(t)}">${esc(t)}<b>${n}</b></button>`).join("")}
-bar.addEventListener("click",e=>{if(e.target.dataset.a==="tag")openTag();else if(e.target.dataset.a==="move")openMove()});
-$("#tg").oninput=tsug;
-$("#tsug").onclick=e=>{const t=e.target.closest("[data-t]");if(!t)return;const v=$("#tg").value.trim().replace(/,+$/,"");$("#tg").value=(v?v+", ":"")+t.dataset.t;tsug();$("#tg").focus()};
-$("#rsug").onclick=e=>{const t=e.target.closest("[data-r]");if(!t)return;const k=t.dataset.r;rm.has(k)?rm.delete(k):rm.add(k);rsug()};
-$("#x5").onclick=()=>$("#tdlg").close();
+bar.addEventListener("click",e=>{if(e.target.dataset.a==="move")openMove()});
 function openMove(){if(!sel||!sel.size)return;$("#mt").textContent=`Move ${sel.size} bookmark${sel.size>1?"s":""}`;$("#mc").value="";$("#merr").textContent="";chipsC("#msug","#mc");$("#mdlg").showModal();$("#mc").focus()}
 $("#mc").oninput=()=>chipsC("#msug","#mc");
 $("#msug").onclick=e=>{const t=e.target.dataset.s;if(t===undefined)return;$("#mc").value=catTag($("#mc").value)[0]==="@"+t?"":t;chipsC("#msug","#mc")};
 $("#x7").onclick=()=>$("#mdlg").close();
-$("#mf").onsubmit=async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;$("#merr").textContent="";const ct=catTag($("#mc").value),jobs=[...sel].map(id=>B.find(x=>x.id===id)).filter(Boolean).map(b=>({b,tags:[...(b.tags||[]).filter(t=>!isC(t)),...ct]})).filter(j=>j.tags.join()!==(j.b.tags||[]).join());
+$("#mf").onsubmit=async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;$("#merr").textContent="";const ct=catTag($("#mc").value),jobs=[...sel].map(id=>B.find(x=>x.id===id)).filter(Boolean).map(b=>({b,tags:[...ct]})).filter(j=>j.tags.join()!==(j.b.tags||[]).join());
  try{for(let i=0;i<jobs.length;i+=8)await Promise.all(jobs.slice(i,i+8).map(j=>db(`lp_bookmarks?id=eq.${j.b.id}`,{m:"PATCH",b:{tags:j.tags,updated_at:new Date().toISOString()},p:"return=minimal"})));
   jobs.forEach(j=>j.b.tags=j.tags);const n=sel.size;if(isC(tag)&&!B.some(b=>(b.tags||[]).includes(tag)))tag="all";cache();$("#mdlg").close();toast(ct.length?`Moved ${n} to ${ct[0].slice(1)}`:`Removed category from ${n}`);selMode(false)}
  catch(er){$("#merr").textContent=er.message==="Failed to fetch"?"No connection. Try again.":er.message;load()}
- btn.disabled=false};
-$("#tf").onsubmit=async e=>{e.preventDefault();const add=parse($("#tg").value);if(!add.length&&!rm.size){$("#terr").textContent="Add a tag, or tap a tag to remove.";return}
- const btn=e.submitter;btn.disabled=true;$("#terr").textContent="";
- const jobs=[...sel].map(id=>B.find(x=>x.id===id)).filter(Boolean).map(b=>({b,tags:[...new Set([...(b.tags||[]).filter(t=>!rm.has(t)||add.includes(t)),...add])].slice(0,12)})).filter(j=>j.tags.join()!==(j.b.tags||[]).join());
- try{for(let i=0;i<jobs.length;i+=8)await Promise.all(jobs.slice(i,i+8).map(j=>db(`lp_bookmarks?id=eq.${j.b.id}`,{m:"PATCH",b:{tags:j.tags,updated_at:new Date().toISOString()},p:"return=minimal"})));
-  jobs.forEach(j=>j.b.tags=j.tags);if(tag!=="all"&&tag!=="★"&&!B.some(b=>(b.tags||[]).includes(tag)))tag="all";cache();$("#tdlg").close();toast(`Updated ${sel.size} bookmark${sel.size>1?"s":""}`);selMode(false)}
- catch(er){$("#terr").textContent=er.message==="Failed to fetch"?"No connection. Try again.":er.message;load()}
  btn.disabled=false};
 
 /* ---- delete a tag everywhere: long-press (phone) or right-click (computer) a tag chip ---- */
 let lpT,lpd=false;const tagsEl=$("#tags"),realTag=c=>c&&!["all","★"].includes(c.dataset.tag);
 async function delTag(t){const hit=B.filter(b=>(b.tags||[]).includes(t));if(!hit.length)return;if(!confirm(`Delete ${t[0]==="@"?'the category "'+t.slice(1)+'"':'the tag "'+t+'"'} from ${hit.length} bookmark${hit.length>1?"s":""}? The bookmarks themselves stay.`))return;
  try{for(let i=0;i<hit.length;i+=8)await Promise.all(hit.slice(i,i+8).map(b=>db(`lp_bookmarks?id=eq.${b.id}`,{m:"PATCH",b:{tags:b.tags.filter(x=>x!==t),updated_at:new Date().toISOString()},p:"return=minimal"})));
-  hit.forEach(b=>b.tags=b.tags.filter(x=>x!==t));if(tag===t)tag="all";cache();draw();toast("Tag deleted")}catch(er){toast(er.message);load()}}
+  hit.forEach(b=>b.tags=b.tags.filter(x=>x!==t));if(tag===t)tag="all";cache();draw();toast("Category deleted")}catch(er){toast(er.message);load()}}
 tagsEl.addEventListener("pointerdown",e=>{lpd=false;const c=e.target.closest("[data-tag]");if(!realTag(c))return;clearTimeout(lpT);lpT=setTimeout(()=>{lpd=true;navigator.vibrate?.(12);delTag(c.dataset.tag)},600)});
 ["pointerup","pointercancel","pointerleave"].forEach(ev=>tagsEl.addEventListener(ev,()=>clearTimeout(lpT)));
 tagsEl.addEventListener("contextmenu",e=>{const c=e.target.closest("[data-tag]");if(!realTag(c))return;e.preventDefault();clearTimeout(lpT);lpd=true;delTag(c.dataset.tag)});
 tagsEl.addEventListener("click",e=>{if(lpd){lpd=false;e.stopImmediatePropagation();e.preventDefault()}},true);
 /* ---- reorder tag tabs (saved in your settings JSON, no DB change) ---- */
-function oList(){const ks=tordKeys();$("#olist").innerHTML=ks.map((k,i)=>`<div class="orow"><span>${k==="all"?"All":k==="★"?"★ Pinned":esc(k)}</span><button type="button" data-o="${i}" data-d="-1" aria-label="Move up"${i?"":" disabled"}>▲</button><button type="button" data-o="${i}" data-d="1" aria-label="Move down"${i<ks.length-1?"":" disabled"}>▼</button></div>`).join("")}
+function oList(){const ks=tordKeys();$("#olist").innerHTML=ks.map((k,i)=>`<div class="orow"><span>${k==="all"?"All":k==="★"?"★ Pinned":esc(isC(k)?k.slice(1):k)}</span><button type="button" data-o="${i}" data-d="-1" aria-label="Move up"${i?"":" disabled"}>▲</button><button type="button" data-o="${i}" data-d="1" aria-label="Move down"${i<ks.length-1?"":" disabled"}>▼</button></div>`).join("")}
 $("#olist").onclick=e=>{const b=e.target.closest("[data-o]");if(!b||b.disabled)return;const ks=tordKeys(),i=+b.dataset.o,j=i+ +b.dataset.d;if(j<0||j>=ks.length)return;[ks[i],ks[j]]=[ks[j],ks[i]];cfg.tord=ks;saveCfg();draw();oList()};
 $("#tord").onclick=()=>{$("#sdlg").close();oList();$("#odlg").showModal()};
 $("#orst").onclick=()=>{delete cfg.tord;saveCfg();draw();oList()};
 $("#x6").onclick=()=>$("#odlg").close();
 /* ---- switch tab: remembers direction so content can slide the right way ---- */
-function setTag(n){const ks=[...document.querySelectorAll("#tags .chip")].map(b=>b.dataset.tag),o=ks.indexOf(tag),i=ks.indexOf(n);if(n===tag)return;swDir=i>o?1:-1;userPicked=true;tag=ls.lp_lasttag=n;anim=true;draw();document.querySelector("#tags .chip.on")?.scrollIntoView({inline:"center",block:"nearest",behavior:(matchMedia("(prefers-reduced-motion:reduce)").matches&&looks.rm!=="ignore")?"auto":"smooth"})}
+function setTag(n){const ks=[...document.querySelectorAll("#tags .chip")].map(b=>b.dataset.tag),o=ks.indexOf(tag),i=ks.indexOf(n);if(n===tag)return;swDir=i>o?1:-1;userPicked=true;tag=ls.lp_lasttag=n;anim=true;if(scrollY>0)scrollTo(0,0);draw();window.lpAlign?.();document.querySelector("#tags .chip.on")?.scrollIntoView({inline:"center",block:"nearest",behavior:(matchMedia("(prefers-reduced-motion:reduce)").matches&&looks.rm!=="ignore")?"auto":"smooth"})}
 /* ---- preview: fade the dialog away, replay content + tab animations, bring it back ---- */
 let pvT,pvT2;
 function replayChips(){const tb=$("#tags");tb.querySelectorAll(".chip").forEach(c=>c.classList.remove("vis"));requestAnimationFrame(()=>requestAnimationFrame(()=>tabWatch(tb)))}
@@ -1116,6 +1090,7 @@ $("#rmPlay").onclick=()=>{looks.rm="ignore";theme();saveLooks();playAnim()};
 /* ---- tabs: animate chips as they scroll into view ---- */
 let tabObs=null,tabLast=0;
 function tabWatch(tb){if(!window.IntersectionObserver)return;tabObs&&tabObs.disconnect();tabObs=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle("vis",e.intersectionRatio>=.4)),{root:tb,threshold:[0,.4,1]});const tr=tb.getBoundingClientRect();tb.querySelectorAll(".chip").forEach(c=>{const r=c.getBoundingClientRect(),w=Math.max(0,Math.min(r.right,tr.right)-Math.max(r.left,tr.left));c.classList.toggle("vis",w>=r.width*.4);tabObs.observe(c)})}
+$("#tags").addEventListener("wheel",e=>{const tb=e.currentTarget,max=tb.scrollWidth-tb.clientWidth;if(e.deltaX||!e.deltaY||max<=0||e.ctrlKey)return;if((e.deltaY<0&&tb.scrollLeft<=0)||(e.deltaY>0&&tb.scrollLeft>=max-1))return;tb.scrollLeft+=e.deltaY;e.preventDefault()},{passive:false});
 $("#tags").addEventListener("scroll",e=>{const x=e.target.scrollLeft;if(Math.abs(x-tabLast)>1){e.target.style.setProperty("--tdir",x>tabLast?1:-1);tabLast=x}},{passive:true});
 /* ---- settings ---- */
 function mark(id,v){document.querySelectorAll(`#${id} button`).forEach(b=>b.classList.toggle("on",b.dataset.v===v))}
@@ -1243,7 +1218,7 @@ function align(){raf=0;main.querySelectorAll(".grid").forEach(g=>{g.style.margin
  const ic=g.querySelector(".ic");if(!ic)return;
  const W=g.offsetWidth,gap=parseFloat(cs.columnGap)||0,iw=ic.offsetWidth,d=(W-(cols-1)*gap)/cols-iw;if(!(d>0))return;
  const m=Math.round(cols*d/(2*(cols-1))*10)/10;g.style.marginLeft=g.style.marginRight=-m+"px"})}
-const q=()=>{if(!raf)raf=requestAnimationFrame(align)};
+const q=()=>{if(!raf)raf=requestAnimationFrame(align)};window.lpAlign=()=>{if(raf){cancelAnimationFrame(raf);raf=0}align()};
 new MutationObserver(q).observe(main,{childList:true,subtree:true});
 new MutationObserver(q).observe(document.documentElement,{attributes:true,attributeFilter:["style"]});new MutationObserver(q).observe(document.body,{attributes:true});new ResizeObserver(q).observe(document.body);addEventListener("resize",q);
 document.addEventListener("transitionend",e=>{if(e.target===document.body)q()});q()})();
