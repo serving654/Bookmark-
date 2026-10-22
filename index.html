@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f2f2f7"><meta name="mobile-web-app-capable" content="yes">
+<meta name="description" content="Little Space: a fast, private launchpad for your bookmarks that syncs across devices."><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Little Space"><meta name="format-detection" content="telephone=no">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <title>Little Space — Bookmarks</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23007aff'/%3E%3Ccircle cx='32' cy='32' r='12' fill='none' stroke='white' stroke-width='6'/%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@400;500;600;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f2f2f7;--sf:#fff;--sf2:rgba(118,118,128,.12);--fill:rgba(118,118,128,.12);--fill2:rgba(118,118,128,.2);--tx:#1d1d1f;--mu:#86868b;--ac:#007aff;--on:#fff;--rd:#ff3b30;--bd:rgba(60,60,67,.14);--sep:rgba(60,60,67,.16);--sh:0 .5px 1px rgba(0,0,0,.12),0 2px 6px rgba(0,0,0,.08),0 8px 18px -6px rgba(0,0,0,.18);--tile:56px;--rad:22%;--fs:12px;--lc:2;--gap:16px;--sp:cubic-bezier(.34,1.56,.64,1);color-scheme:light}
 [data-t=dark]{--bg:#000;--sf:#1c1c1e;--sf2:rgba(118,118,128,.24);--fill:rgba(118,118,128,.24);--fill2:rgba(118,118,128,.36);--tx:#f5f5f7;--mu:#98989f;--rd:#ff453a;--bd:rgba(84,84,88,.5);--sep:rgba(84,84,88,.55);--sh:0 .5px 1px rgba(0,0,0,.6),0 3px 10px rgba(0,0,0,.5);color-scheme:dark}
@@ -149,7 +151,7 @@ dialog input[type=file]{width:100%;font-size:14px}
 #sb button:active{background:var(--fill)}
 #sb .x{color:var(--rd)}
 #sb button:disabled{opacity:.35}
-@media(prefers-reduced-motion:reduce){body[data-motion=soft] *,body[data-motion=off] *{animation:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){html:not([data-rm=ignore]) *{animation:none!important;transition:none!important}}
 
 /* Little Space visual refresh */
 :root{--bg:#f5f1e9;--sf:#fffdf8;--sf2:#eee8dd;--fill:#eee8dd;--fill2:#e4dacb;--tx:#302d28;--mu:#8b8174;--ac:#62745b;--on:#fffdf8;--rd:#b85f50;--bd:rgba(79,67,50,.11);--sep:rgba(79,67,50,.12);--sh:0 2px 5px rgba(67,53,36,.04),0 12px 30px rgba(67,53,36,.055);color-scheme:light}
@@ -171,7 +173,7 @@ main>h2{font-family:'Bricolage Grotesque',Inter,sans-serif;font-size:21px;letter
 dialog{border-radius:26px;border:1px solid var(--bd);box-shadow:0 24px 80px rgba(33,29,23,.24)}dialog h3{font-family:'Bricolage Grotesque',Inter,sans-serif;font-size:23px}dialog label{letter-spacing:.015em}dialog input:not([type=checkbox]):not([type=range]):not([type=color]):not([type=file]),dialog select{border:1px solid var(--bd);background:var(--bg);border-radius:13px}.btn{border-radius:13px}.hint{line-height:1.6}
 @media(min-width:760px){body{padding-left:30px;padding-right:30px}.top{margin-left:-30px;margin-right:-30px}header{padding-left:30px;padding-right:30px}.tabs{padding-left:30px;padding-right:30px}.welcome{padding-left:42px}.grid{gap:24px 12px}}
 @media(max-width:600px){body{padding-left:15px;padding-right:15px}.top{margin-left:-15px;margin-right:-15px}header{padding-left:15px;padding-right:15px;gap:8px}.logo{width:39px;height:39px}.search{height:41px;padding:0 10px}.ib{width:41px;height:41px}.tabs{padding:11px 15px 13px}.welcome{min-height:250px;margin-top:17px;padding:25px 23px 27px;border-radius:25px;align-items:flex-start}.welcome-copy{max-width:100%}.welcome h1{font-size:38px;max-width:310px}.welcome p{max-width:275px;font-size:13px}.welcome-art{right:-52px;width:48%;opacity:.55}.sun-orb{width:140px;height:140px;right:22%;top:58px}.art-caption{display:none}.plant-one{right:30%;bottom:22px;font-size:48px}.plant-two{right:68%;bottom:50px}.art-book{right:60%;top:50px}.welcome-meta{gap:8px;margin-top:17px}.date-pill{font-size:10px}.live-time{font-size:11px}.quick-stats{grid-template-columns:1fr 1fr;gap:9px;margin-bottom:20px}.stat{padding:12px 11px;gap:9px;border-radius:16px}.stat-icon{width:32px;height:32px;border-radius:11px}.stat strong{font-size:18px}.stat span:not(.stat-icon){font-size:10px}.stat-note{grid-column:1/-1;padding:10px 13px}.stat-note strong{font-size:13px}main>h2{font-size:19px;margin-top:22px}.grid{gap:15px 3px}.card{padding:5px 1px 7px;gap:7px}.fab{right:calc(17px + env(safe-area-inset-right));bottom:calc(17px + env(safe-area-inset-bottom));width:54px;height:54px;border-radius:18px}}
-@media(prefers-reduced-motion:reduce){.welcome,.stat,.card,.ic{transition:none!important}}
+@media(prefers-reduced-motion:reduce){html:not([data-rm=ignore]) .welcome,html:not([data-rm=ignore]) .stat,html:not([data-rm=ignore]) .card,html:not([data-rm=ignore]) .ic{transition:none!important}}
 
 
 /* Advanced cozy appearance controls */
@@ -194,7 +196,7 @@ body[data-shape="square"] .ic{border-radius:12%!important}
 @keyframes cozyGlow{0%,100%{filter:saturate(1);box-shadow:var(--sh)}50%{filter:saturate(calc(1 + var(--motion-intensity,.55)*.5));box-shadow:0 0 0 calc(5px * var(--motion-intensity,.55)) color-mix(in srgb,var(--ac) 12%,transparent),0 8px 24px color-mix(in srgb,var(--ac) 25%,transparent)}}
 @keyframes cozyEnter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:480px){.custom-grid{grid-template-columns:1fr 1fr}.custom-section{padding:12px}}
-@media(prefers-reduced-motion:reduce){body[data-motion=soft] .card,body[data-motion=soft] .ic{animation:none!important}}
+@media(prefers-reduced-motion:reduce){html:not([data-rm=ignore]) body[data-motion] .card,html:not([data-rm=ignore]) body[data-motion] .ic{animation:none!important}}
 
 /* UX refinement: clearer hierarchy, touch actions, and shorter forms */
 .advanced-fields{margin-top:14px;border:1px solid var(--bd);border-radius:14px;background:color-mix(in srgb,var(--sf) 72%,var(--bg));overflow:hidden}
@@ -213,7 +215,7 @@ body[data-shape="square"] .ic{border-radius:12%!important}
 .list .more{position:static;opacity:1;width:36px;height:36px;border:0}
 @media(max-width:600px){
  body{padding-bottom:calc(100px + env(safe-area-inset-bottom))}
- .grid{grid-template-columns:repeat(auto-fill,minmax(68px,1fr));gap:14px 4px}
+ .grid{grid-template-columns:var(--gc,repeat(auto-fill,minmax(68px,1fr)));gap:14px 4px}
  .card{min-height:96px}
  .more{width:30px;height:30px}
  .welcome{padding:18px 18px!important;margin-top:12px!important}
@@ -358,90 +360,265 @@ dialog{
   .ic{box-shadow:0 6px 14px rgba(43,49,36,.09),0 2px 4px rgba(43,49,36,.05),inset 0 1px 0 rgba(255,255,255,.24)}
   .fab{width:56px;height:56px}
 }
-@media(prefers-reduced-motion:reduce){
-  .stat,.card,.ic,.btn,.cta{transition:none!important}
-}
+@media(prefers-reduced-motion:reduce){html:not([data-rm=ignore]) .stat,html:not([data-rm=ignore]) .card,html:not([data-rm=ignore]) .ic,html:not([data-rm=ignore]) .btn,html:not([data-rm=ignore]) .cta{transition:none!important}}
 
-/* Redesign: matte tiles, text tabs, pinned shelf, bottom sheets */
-h2,main>h2,.empty h3,dialog h3,.wm{font-family:'Young Serif',Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:0}
-main>h2{font-size:22px;margin:30px 4px 14px}main>h2:first-child{margin-top:6px}
-.top{background:color-mix(in srgb,var(--bg) 90%,transparent)}
-.logo{width:34px;height:34px;border-radius:11px;background:var(--ac);box-shadow:none}.logo svg{width:18px;height:18px}
-.wm{display:none;font-size:23px;color:var(--tx);margin-right:10px;white-space:nowrap}
-@media(min-width:700px){.wm{display:block}}
-.search{height:44px;border-radius:14px;background:var(--fill);border:0;box-shadow:none}
-.search:focus-within{background:var(--sf);box-shadow:0 0 0 2px var(--ac)}
-.ib{background:none;border:0;box-shadow:none}.ib:active{background:var(--fill)}
-.ic{outline:0;text-shadow:none;box-shadow:0 1px 2px rgba(0,0,0,.08),0 8px 14px -6px rgba(0,0,0,.2)}
-.ic::after,.ic:not(:has(img))::after{background:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.07)}
-.card{border:0;padding:8px 2px 10px}
-@media(hover:hover){.card:hover{background:none;border-color:transparent}}
-.t{font-weight:500;letter-spacing:-.005em}
-main:not(.list)>h2:first-child+.grid{padding:20px 8px 10px;border-radius:26px;background:color-mix(in srgb,var(--ac) 9%,var(--sf));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ac) 16%,transparent)}
-main>h2:first-child+.grid .pin{display:none}
-.list .grid{border:0;box-shadow:none;border-radius:22px}
-.fab{display:flex;align-items:center;gap:8px;width:auto;height:52px;padding:0 22px 0 17px;border-radius:26px;background:var(--ac);box-shadow:0 10px 22px -8px color-mix(in srgb,var(--ac) 70%,transparent);font-weight:600;font-size:15px}
-.fab svg{width:20px;height:20px}
-.btn,.btn.p,.cta{box-shadow:none;border-radius:14px}
-.btn.p,.cta{background:var(--ac)}
-.chip.s{box-shadow:none}
-dialog{border-radius:28px;padding:22px;box-shadow:0 30px 80px rgba(0,0,0,.25)}
-dialog h3{font-size:24px}
-@keyframes sheet{from{transform:translateY(40px);opacity:0}}
-@media(max-width:600px){
- dialog{width:100%;max-width:520px;margin:auto auto 0;padding:10px 20px calc(20px + env(safe-area-inset-bottom));max-height:92dvh;border-radius:28px 28px 0 0}
- dialog::before{content:"";display:block;width:38px;height:4px;border-radius:4px;background:var(--fill2);margin:0 auto 16px}
- dialog[open]{animation:sheet .35s cubic-bezier(.2,.9,.3,1)}
-}
-
-
-/* Fixes + more looks */
+/* ---- Personalization v2: accent-aware chrome, tab styles, widths, icon tones ---- */
+.logo{background:linear-gradient(145deg,color-mix(in srgb,var(--ac) 62%,white),var(--ac) 55%,color-mix(in srgb,var(--ac) 82%,black));box-shadow:0 7px 18px color-mix(in srgb,var(--ac) 28%,transparent),inset 0 1px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(0,0,0,.1)}
+.fab{background:linear-gradient(150deg,color-mix(in srgb,var(--ac) 62%,white),var(--ac) 55%,color-mix(in srgb,var(--ac) 82%,black));box-shadow:0 12px 26px color-mix(in srgb,var(--ac) 30%,transparent),inset 0 1px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(0,0,0,.1)}
+.card .pin,.pin{background:var(--ac)!important;color:var(--on)}
+body[data-width=narrow]{max-width:760px}body[data-width=wide]{max-width:1480px}
+body[data-fab=left] .fab{right:auto;left:calc(24px + env(safe-area-inset-left))}
+body[data-fab=center] .fab{right:auto;left:50%;translate:-50% 0}
+body[data-ictone=soft]{--isat:.5}body[data-ictone=mono]{--isat:0}
+body[data-ictone=accent] .ic[style*="linear-gradient"]{background:linear-gradient(160deg,color-mix(in srgb,var(--ac) 68%,white),var(--ac))!important}
+body[data-counts=hide] #tags .chip b{display:none}
+body[data-heads=hide] main h2{display:none}
+body[data-tabs=underline] #tags{gap:2px}
+body[data-tabs=underline] #tags .chip{background:transparent;border-radius:0;box-shadow:none;border-color:transparent;border-bottom:2px solid transparent;padding:6px 9px;min-height:38px}
+body[data-tabs=underline] #tags .chip.on{background:transparent;color:var(--tx);box-shadow:none;border-bottom-color:var(--ac)}
+body[data-tabs=underline] #tags .chip.on b{color:var(--mu);opacity:1}
+body[data-tabs=minimal] #tags .chip{background:transparent;box-shadow:none;border-color:transparent;color:var(--mu)}
+body[data-tabs=minimal] #tags .chip.on{background:var(--fill);color:var(--tx);box-shadow:none}
+body[data-tabs=minimal] #tags .chip.on b{color:var(--mu);opacity:1}
+.shead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:4px}
+.shead h3{margin:0}.shead h3:focus{outline:none}.shead .btn{min-height:38px;padding:0 18px}
+.custom-section+.custom-section,.custom-section+.row{margin-top:12px}
+.custom-section>.ctl{margin-top:0}
+.custom-section .custom-actions{margin-top:12px}
+.custom-section>summary b{font-size:16px;letter-spacing:-.02em;white-space:nowrap}
+.shead .btn{flex:none;width:auto}
+body[data-heads=hide] main .grid+h2+.grid{margin-top:var(--gap,18px)}
+@media(max-width:480px){.custom-section>summary span{display:none}.custom-section>summary{min-height:30px}}
+/* ---- tab strip entry animation ---- */
+#tags .chip{transition:background .2s,color .2s,transform .5s var(--sp),opacity .35s ease,box-shadow .2s}
+body:not([data-tanim=off]) #tags .chip:not(.vis){opacity:0}
+body[data-tanim=slide] #tags .chip:not(.vis){transform:translateX(calc(26px * var(--tdir,1)))}
+body[data-tanim=pop] #tags .chip:not(.vis){transform:scale(.55)}
+body[data-tanim=drop] #tags .chip:not(.vis){transform:translateY(-14px) scale(.9)}
+body[data-tanim=off] #tags .chip:not(.vis),body[data-motion=off] #tags .chip:not(.vis){opacity:1;transform:none}
+body[data-motion=off] #tags .chip{transition:none}
+@media(prefers-reduced-motion:reduce){html:not([data-rm=ignore]) #tags .chip:not(.vis){opacity:1!important;transform:none!important}html:not([data-rm=ignore]) #tags .chip{transition:none}}
+/* ---- more appearance options ---- */
+body[data-lw=regular] .t{font-weight:400}body[data-lw=bold] .t{font-weight:700}
+body[data-pin=hidden] .pin{display:none!important}
+body[data-pin=ring] .pin{display:none!important}
+body[data-pin=ring] .grid .ic:has(+ .pin){outline:2.5px solid var(--ac);outline-offset:2px}
+body[data-hdr=solid] .top{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}
+body[data-ring=none] .ic{outline:none}
+body[data-ring=accent] .ic{outline:2px solid color-mix(in srgb,var(--ac) 55%,transparent);outline-offset:2px}
+body[data-tsize=small] #tags .chip{font-size:12px;min-height:30px;padding:3px 10px}
+body[data-tsize=large] #tags .chip{font-size:15.5px;min-height:42px;padding:8px 17px}
+body.showhost .grid .h{display:block;font-size:calc(var(--fs)*.82);color:var(--mu);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center;margin-top:1px}
+/* ---- more animation styles + tab-switch transitions ---- */
+body{overflow-x:clip}
+@keyframes cozyZoom{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+@keyframes cozyBlur{from{opacity:0;filter:blur(12px);transform:scale(1.06)}to{opacity:1;filter:blur(0);transform:none}}
+@keyframes cozyTilt{from{opacity:0;transform:perspective(500px) rotateX(-70deg) translateY(10px)}to{opacity:1;transform:none}}
+@keyframes cozyBreathe{0%,100%{transform:scale(1)}50%{transform:scale(calc(1 + .05 * var(--motion-intensity,.55)))}}
+main.intro .card{animation-duration:calc(.5s * var(--esp,1))}
+body[data-motion=cascade] .intro .card{animation-name:cozyEnter;animation-timing-function:cubic-bezier(.22,1,.36,1);animation-delay:calc(min(var(--i,0),40) * 45ms * var(--esp,1))}
+body[data-motion=zoom] .intro .card{animation-name:cozyZoom;animation-timing-function:cubic-bezier(.34,1.3,.64,1)}
+body[data-motion=blur] .intro .card{animation-name:cozyBlur;animation-timing-function:ease-out}
+body[data-motion=tilt] .intro .card{animation-name:cozyTilt;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+body[data-motion=breathe] .card{animation:cozyBreathe var(--motion-duration,3s) ease-in-out infinite;animation-delay:calc(var(--i,0) * 80ms)}
+@keyframes swSlide{from{opacity:0;transform:translateX(calc(46px * var(--sd,1)))}to{opacity:1;transform:none}}
+@keyframes swFade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes swZoom{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+@keyframes swFlip{from{opacity:0;transform:perspective(900px) rotateY(calc(26deg * var(--sd,1))) translateX(calc(24px * var(--sd,1)))}to{opacity:1;transform:none}}
+@keyframes swBlur{from{opacity:0;filter:blur(10px)}to{opacity:1;filter:blur(0)}}
+main.sw{animation-duration:calc(.5s * var(--esp,1));animation-timing-function:cubic-bezier(.22,1,.36,1);animation-fill-mode:backwards}
+body[data-tsw=slide] main.sw{animation-name:swSlide}
+body[data-tsw=fade] main.sw{animation-name:swFade}
+body[data-tsw=zoom] main.sw{animation-name:swZoom}
+body[data-tsw=flip] main.sw{animation-name:swFlip}
+body[data-tsw=blur] main.sw{animation-name:swBlur}
+body[data-tsw=cards] main.sw,body[data-tsw=none] main.sw,body[data-motion=off] main.sw{animation:none}
+body[data-tsw=none] main.sw .card{animation:none!important}
+body:not([data-tsw=cards]):not([data-tsw=none]):not([data-motion=float]):not([data-motion=breathe]) main.sw .card{animation:none}
+@media(prefers-reduced-motion:reduce){html:not([data-rm=ignore]) main.sw{animation:none!important}}
+/* ---- fixes: visible background effects, clearer header styles, aligned settings ---- */
 body{background:transparent}
-.grid{gap:calc(var(--gap,16px)*var(--dens,1)*1.15) 8px}
-body[data-bgfx=dots]::before{background-image:radial-gradient(color-mix(in srgb,var(--tx) 15%,transparent) 1.2px,transparent 1.5px);background-size:22px 22px}
-body[data-bgfx=lines]::before{background-image:repeating-linear-gradient(0deg,transparent 0 31px,color-mix(in srgb,var(--tx) 8%,transparent) 31px 32px)}
-body[data-bgfx=mesh]::before{background:radial-gradient(at 12% 8%,color-mix(in srgb,var(--ac) 28%,transparent),transparent 42%),radial-gradient(at 90% 18%,color-mix(in srgb,#ffb199 30%,transparent),transparent 40%),radial-gradient(at 72% 96%,color-mix(in srgb,#8fb8ff 26%,transparent),transparent 45%),radial-gradient(at 4% 86%,color-mix(in srgb,#f2d98a 24%,transparent),transparent 40%)}
-body[data-bgfx=drift]::before{background:radial-gradient(ellipse at 20% 20%,color-mix(in srgb,var(--ac) 24%,transparent),transparent 50%),radial-gradient(ellipse at 80% 70%,color-mix(in srgb,var(--ac) 16%,transparent),transparent 50%);background-size:170% 170%;animation:lsDrift calc(var(--motion-duration,3s)*5) ease-in-out infinite alternate}
-@keyframes lsDrift{to{background-position:100% 100%}}
-@keyframes lsBreathe{50%{transform:scale(1.07)}}
-@keyframes lsSway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
-@keyframes lsHop{0%,55%,100%{transform:translateY(0)}28%{transform:translateY(calc(-3px - 9px*var(--motion-intensity,.55)))}}
-@keyframes lsShine{from{background-position:130% 0}to{background-position:-130% 0}}
-body[data-motion=breathe] .ic{animation:lsBreathe var(--motion-duration,3s) ease-in-out infinite;animation-delay:calc(min(var(--i,0),14)*80ms)}
-body[data-motion=sway] .ic{animation:lsSway calc(var(--motion-duration,3s)*1.2) ease-in-out infinite;animation-delay:calc(min(var(--i,0),14)*-120ms)}
-body[data-motion=hop] .ic{animation:lsHop calc(var(--motion-duration,3s)*.9) ease-in-out infinite;animation-delay:calc(min(var(--i,0),14)*90ms)}
-body[data-motion=shine] .ic::after{background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.6) 50%,transparent 62%) 0 0/250% 100%;animation:lsShine calc(var(--motion-duration,3s)*1.4) linear infinite;animation-delay:calc(min(var(--i,0),14)*120ms)}
-body[data-depth=outline] .ic{box-shadow:0 0 0 2px color-mix(in srgb,var(--ac) 55%,transparent)}
-body[data-depth=glass] .ic{box-shadow:0 12px 26px -8px color-mix(in srgb,var(--ac) 50%,transparent),inset 0 0 0 1px rgba(255,255,255,.55)}
+body[data-bgfx=aurora]::before{background:radial-gradient(ellipse at 6% 0%,color-mix(in srgb,var(--ac) 26%,transparent),transparent 46%),radial-gradient(ellipse at 98% 28%,color-mix(in srgb,var(--ac) 17%,transparent),transparent 42%),radial-gradient(ellipse at 40% 100%,color-mix(in srgb,var(--ac) 10%,transparent),transparent 50%)}
+body[data-bgfx=glow]::before{background:radial-gradient(ellipse at 50% -5%,color-mix(in srgb,var(--ac) 32%,transparent),transparent 58%)}
+body[data-bgfx=grain]::before{background-image:radial-gradient(color-mix(in srgb,var(--tx) 11%,transparent) .8px,transparent .9px),radial-gradient(color-mix(in srgb,var(--tx) 6%,transparent) .7px,transparent .8px);background-size:4px 4px,7px 7px;background-position:0 0,2px 3px}
+body[data-bgfx=dots]::before{background-image:radial-gradient(color-mix(in srgb,var(--ac) 30%,transparent) 1.2px,transparent 1.4px);background-size:20px 20px}
+body[data-bgfx=wash]::before{background:linear-gradient(165deg,color-mix(in srgb,var(--ac) 20%,transparent) 0%,transparent 48%,color-mix(in srgb,var(--ac) 14%,transparent) 100%)}
+body[data-hdr=blur] .top{background:color-mix(in srgb,var(--bg) 52%,transparent);-webkit-backdrop-filter:saturate(180%) blur(26px);backdrop-filter:saturate(180%) blur(26px)}
+body[data-hdr=solid] .top{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 1px 0 var(--sep),0 8px 22px rgba(0,0,0,.06)}
+.custom-grid select{font-size:14px;padding:0 8px 0 10px;text-overflow:ellipsis}
+.custom-grid label{justify-content:flex-end}
+dialog{transition:opacity .25s ease}
+dialog.peek,dialog.peek::backdrop{opacity:0;pointer-events:none;transition:opacity .2s ease}
 
-/* Tag counts on the text line; clearer backgrounds */
-#tags .chip{align-items:baseline;padding:10px 14px}
-.top{background:color-mix(in srgb,var(--bg) 55%,transparent)}
-body::before{opacity:var(--bgfx-o,.7)}
-body[data-bgfx=aurora]::before{background:radial-gradient(ellipse at 8% 0%,color-mix(in srgb,var(--ac) 34%,transparent),transparent 50%),radial-gradient(ellipse at 95% 35%,color-mix(in srgb,var(--ac) 24%,transparent),transparent 45%),radial-gradient(ellipse at 40% 100%,color-mix(in srgb,var(--ac) 18%,transparent),transparent 50%)}
-body[data-bgfx=glow]::before{background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--ac) 38%,transparent),transparent 62%)}
-body[data-bgfx=grain]::before{background-image:radial-gradient(color-mix(in srgb,var(--tx) 20%,transparent) .8px,transparent .9px);background-size:4px 4px}
+/* ---- Production hardening: layout stability ---- */
+html{overflow-x:hidden;scrollbar-gutter:stable;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{width:100%;overflow-wrap:anywhere}
+img,svg{max-width:100%}
+/* Icons never overflow their grid cell (fixes overlap with many columns / big icons) */
+.ic{width:min(var(--tile),100%);height:auto;aspect-ratio:1/1;margin-inline:auto}
+.sk{width:min(var(--tile),100%);height:auto;aspect-ratio:1/1}
+.list .ic{width:40px;height:40px;aspect-ratio:auto;margin:0}
+.grid{min-width:0}
+.card,.col,.t{min-width:0}
+/* Prevent iOS/Android auto-zoom on focus, which shifts and distorts the whole page */
+@media(hover:none),(pointer:coarse){input,select,textarea,.search input,.custom-grid select,dialog input,dialog select{font-size:16px!important}}
+/* Lock background scroll while a dialog is open so the page doesn't jump */
+body:has(dialog[open]){overflow:hidden}
+dialog{max-width:calc(100vw - 24px)}
+/* Softer flip so tab switching never skews the page */
+@keyframes swFlip{from{opacity:0;transform:translateX(calc(24px * var(--sd,1)))}to{opacity:1;transform:none}}
+/* Don't run endless animations on very small screens (battery + jank) */
+body[data-motion=float] .card:nth-child(n+31),body[data-motion=breathe] .card:nth-child(n+31),body[data-motion=glow] .card:nth-child(n+31) .ic{animation:none}
+#pvb{position:fixed;left:0;right:0;margin:0 auto;width:max-content;max-width:calc(100vw - 24px);bottom:calc(92px + env(safe-area-inset-bottom));z-index:50;display:flex;align-items:center;gap:2px;padding:6px 8px 6px 16px;border-radius:99px;background:color-mix(in srgb,var(--sf) 88%,transparent);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);box-shadow:0 0 0 .5px var(--bd),0 12px 32px rgba(0,0,0,.25);white-space:nowrap}
+#pvb span{font-weight:600;font-size:14px;margin-right:6px;color:var(--mu)}
+#pvb button{padding:10px 12px;border-radius:99px;font-size:14px;font-weight:600;color:var(--ac)}
+#pvb button:active{background:var(--fill)}
+/* Settings as a bottom sheet: page stays visible above, so changes show live */
+#sdlg{margin:auto auto 0;width:min(100vw,560px);max-width:100vw;max-height:56dvh;border-radius:26px 26px 0 0;padding-bottom:calc(20px + env(safe-area-inset-bottom));animation:sheetUp .3s cubic-bezier(.2,.9,.3,1)}
+#sdlg::backdrop{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+@keyframes sheetUp{from{transform:translateY(48px);opacity:0}}
+.shead{position:sticky;top:-20px;z-index:3;background:var(--sf);padding:6px 0 8px}
+.quick{display:grid;gap:14px;margin:8px 0 4px}
+.swt{display:flex;gap:11px;flex-wrap:wrap}
+.swt button{width:36px;height:36px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 2px rgba(255,255,255,.55),0 2px 6px rgba(0,0,0,.15);transition:transform .25s var(--sp)}
+.swt button:active{transform:scale(.88)}
+.swt button.on{outline:3px solid var(--tx);outline-offset:2px}
+.seg{display:flex;background:var(--fill);border-radius:12px;padding:3px}
+.seg button{flex:1;min-height:38px;border-radius:10px;font-size:14px;font-weight:600;color:var(--mu)}
+.seg button.on{background:var(--sf);color:var(--tx);box-shadow:0 1px 4px rgba(0,0,0,.18)}
+/* Sheet handle + sticky top (replaces earlier .shead sticky) */
+#sdlg{padding-top:0}
+.stop{position:sticky;top:0;z-index:4;background:var(--sf);margin:0 -20px;padding:0 20px 4px}
+.grab{height:28px;display:grid;place-items:center;touch-action:none;cursor:ns-resize;outline-offset:-4px}
+.grab::before{content:"";width:44px;height:5px;border-radius:99px;background:var(--fill2)}
+.grab:hover::before,.grab:focus-visible::before{background:var(--ac)}
+.shead{position:static;padding:0 0 6px;background:none}
+.custom-actions .btn{white-space:nowrap;font-size:13px;padding:0 8px}
+/* Page width / density / header: make the settings actually visible, on phones too */
+body{--bp:22px;padding-left:var(--bp);padding-right:var(--bp)}
+.top{margin-left:calc(var(--bp)*-1);margin-right:calc(var(--bp)*-1)}
+header,.tabs{padding-left:var(--bp);padding-right:var(--bp)}
+@media(min-width:760px){body{--bp:30px}}
+@media(max-width:600px){body{--bp:15px}}
+@media(max-width:759px){body[data-width=narrow]{--bp:34px}body[data-width=wide]{--bp:6px}}
+.grid{row-gap:calc(var(--gap)*var(--dens,1));column-gap:calc(7px*var(--dens,1))}
+.card{padding:calc(9px*var(--dens,1)) 4px calc(11px*var(--dens,1))}
+.list .card{padding:calc(11px*var(--dens,1)) 13px}
+body[data-density=compact]{--dens:.5}body[data-density=comfortable]{--dens:1}body[data-density=airy]{--dens:1.6}
+body[data-hdr=blur] .top{background:color-mix(in srgb,var(--bg) 38%,transparent);-webkit-backdrop-filter:saturate(180%) blur(28px);backdrop-filter:saturate(180%) blur(28px);box-shadow:none}
+body[data-hdr=solid] .top{background:var(--sf);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 1px 0 var(--bd),0 10px 24px rgba(0,0,0,.08)}
+body[data-hdr=clear] .top{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+.rmb{display:flex;align-items:center;gap:10px;margin:6px 0 2px;padding:10px 12px;border-radius:14px;background:color-mix(in srgb,var(--ac) 14%,var(--sf));font-size:13px;line-height:1.35}.rmb[hidden]{display:none}.rmb span{flex:1}.rmb button{flex:none;padding:8px 12px;border-radius:99px;background:var(--ac);color:var(--on);font-weight:600;font-size:13px}
+/* ---- Watchlist ---- */
+.mswitch{position:relative;display:flex;flex:none;padding:3px;gap:0;height:41px;background:var(--sf);border:1px solid var(--bd);border-radius:15px}
+.mswitch::before{content:"";position:absolute;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);border-radius:12px;background:var(--ac);box-shadow:0 2px 8px rgba(0,0,0,.18);transition:transform .35s var(--sp,cubic-bezier(.3,1.3,.5,1))}
+.mswitch[data-m=watch]::before{transform:translateX(100%)}
+.mswitch button{position:relative;z-index:1;width:36px;display:grid;place-items:center;border-radius:12px;color:var(--mu);transition:color .2s}
+.mswitch button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mswitch button.on{color:#fff}
+.mswitch b{position:absolute;top:-6px;right:-5px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--tx);color:var(--bg);font-size:10px;font-weight:700;line-height:16px;text-align:center}
+.mswitch b:empty{display:none}
+@media(max-width:600px){.mswitch{height:41px}.mswitch button{width:34px}}
+.wl{display:flex;flex-direction:column;gap:10px;max-width:760px;margin:6px auto 0}
+.wrow{display:flex;gap:12px;align-items:flex-start;padding:14px;background:var(--sf);border:1px solid var(--bd);border-radius:18px;box-shadow:0 4px 14px rgba(43,49,36,.04);--tile:44px}
+.wrow.done{opacity:.6}.wrow.done .wt{text-decoration:line-through}
+.wic{flex:none;display:block;text-decoration:none}
+.wrow .ic{width:44px;height:44px;aspect-ratio:auto;margin:0}
+.wbody{flex:1;min-width:0}
+.wt{display:block;font-weight:650;font-size:16px;line-height:1.3;color:var(--tx);text-decoration:none;overflow-wrap:anywhere}
+.wh{font-size:12px;color:var(--mu);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wn{margin-top:10px;padding:9px 11px;border-radius:12px;background:var(--fill)}
+.wn b{display:block;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ac);margin-bottom:3px}
+.wn p{font-size:14px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.wact{display:flex;flex-direction:column;align-items:center;gap:4px;flex:none}
+.wchk,.wmore{width:40px;height:40px;border-radius:50%;display:grid;place-items:center}
+.wchk::before{content:"";width:24px;height:24px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--mu);display:grid;place-items:center;color:var(--on);font-size:14px;font-weight:700;transition:background .2s,box-shadow .2s}
+.wchk[aria-pressed=true]::before{content:"\2713";background:var(--ac);box-shadow:none}
+.wmore{font-size:22px;line-height:1;color:var(--mu)}
+.wchk:active,.wmore:active{background:var(--fill)}
+.intro .wrow{animation:cozyEnter .45s ease-out backwards;animation-delay:calc(min(var(--i,0),14)*35ms)}
+.wsk{height:92px;border-radius:18px;background:linear-gradient(100deg,var(--fill) 30%,var(--fill2) 50%,var(--fill) 70%);background-size:220% 100%;animation:sh 1.3s linear infinite}
+dialog textarea{display:block;width:100%;min-height:84px;resize:vertical;background:var(--bg);color:var(--tx);border:1px solid var(--bd);border-radius:13px;padding:10px 12px;font:inherit;font-size:16px;line-height:1.45;outline:none}
+dialog textarea:focus{box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 30%,transparent)}
+dialog .toast{bottom:auto;top:calc(14px + env(safe-area-inset-top))}
+/* ---- categories + simple settings ---- */
+.qrow{display:grid;gap:6px}.qrow>span{font-size:12.5px;font-weight:500;color:var(--mu);padding:0 2px}
+.seg button{white-space:nowrap;padding:0 6px}
+#adv{margin-top:16px}#adv .custom-section{background:none;box-shadow:none;margin-top:10px;padding:12px}
+h2.cg small{font:500 13px/1 Inter,system-ui,sans-serif;color:var(--mu);margin-left:8px;letter-spacing:0}
+body[data-heads=hide] main h2.cg{display:block}
+.chip.cat::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--ac);margin-right:7px;flex:none}
+.chip.cat.on::before{background:var(--on)}
+body[data-tabs=underline] #tags .chip.cat.on::before{background:var(--ac)}
+noscript .ns{padding:40px 20px;text-align:center;font-family:system-ui,sans-serif}
+
+/* ---- Icon-only search that expands on tap; no badge on the switch ---- */
+header .search{position:relative;flex:1 1 auto;max-width:44px;margin-left:auto;height:41px;padding:0;gap:0;justify-content:center;overflow:hidden;border-radius:15px;cursor:pointer;
+ background:color-mix(in srgb,var(--ac) 16%,var(--sf));border:1px solid color-mix(in srgb,var(--ac) 45%,var(--bd));
+ box-shadow:0 4px 12px color-mix(in srgb,var(--ac) 22%,transparent);transition:max-width .32s cubic-bezier(.3,1,.4,1),padding .2s,background .2s,box-shadow .2s}
+header .search svg{width:20px;height:20px;stroke:var(--ac);stroke-width:2.4}
+header .search input{position:absolute;inset:0;width:100%;opacity:0;cursor:pointer;padding:0}
+header .search input::placeholder{color:transparent}
+header .search small{display:none}
+header .search:focus-within,header .search:has(input:not(:placeholder-shown)){max-width:640px;padding:0 14px;gap:8px;justify-content:flex-start;cursor:text;background:var(--sf);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 24%,transparent)}
+header .search:focus-within input,header .search:has(input:not(:placeholder-shown)) input{position:static;opacity:1;cursor:text;flex:1;min-width:0;width:auto}
+header .search:focus-within small,header .search:has(input:not(:placeholder-shown)) small{display:block}
+#wc{display:none!important}
+
+/* ---- Switch with written labels ---- */
+.mswitch{display:grid;grid-auto-flow:column;grid-auto-columns:1fr}
+.mswitch button{width:auto;padding:0 14px;font-size:14px;font-weight:600;white-space:nowrap}
+@media(max-width:600px){.mswitch button{width:auto;padding:0 12px;font-size:13.5px}}
+
+/* ---- Plain search icon: no capsule, a little breathing room ---- */
+header .search{background:none;border:0;box-shadow:none;max-width:40px;margin-right:6px;border-radius:50%}
+header .search svg{width:22px;height:22px}
+header .search:focus-within,header .search:has(input:not(:placeholder-shown)){background:var(--fill);border:0;box-shadow:none;margin-right:0;border-radius:15px}
+
+/* ---- Search removed: switch sits at the right ---- */
+header .mswitch{margin-left:auto}
+
+/* ---- Category icons on settings sections ---- */
+.custom-section>summary{justify-content:flex-start}
+.custom-section>summary .ci{flex:none;width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--ac) 16%,var(--sf));color:var(--ac)}
+.custom-section>summary .ci svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.custom-section>summary span{margin-left:auto;text-align:right}
+#sdlg .custom-grid label:first-child{grid-column:auto}
+
+/* ---- Stylish dropdowns instead of switches ---- */
+#qk{display:grid;gap:10px;margin:0}
+.qrow{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:46px;padding:4px 4px 4px 14px;border-radius:16px;background:color-mix(in srgb,var(--fill) 70%,transparent)}
+.qrow>span{font-size:14px;font-weight:600;color:var(--tx)}
+.dd{position:relative;flex:none;min-width:132px}
+#sdlg select{-webkit-appearance:none;appearance:none;width:100%;height:40px;padding:0 34px 0 14px;border:1px solid var(--bd);border-radius:13px;font-size:14px;font-weight:600;color:var(--tx);cursor:pointer;
+ background-color:var(--sf);background-repeat:no-repeat;background-position:right 11px center;background-size:11px 17px;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 16'%3E%3Cpath d='M1.5 6 5 2.5 8.5 6M1.5 10 5 13.5 8.5 10' fill='none' stroke='%238a8f98' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+ box-shadow:0 1px 3px rgba(0,0,0,.06);transition:border-color .2s,box-shadow .2s}
+#sdlg select:focus-visible{outline:0;border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 22%,transparent)}
+.quick{gap:10px}
 </style>
 </head>
 <body>
+<noscript><p class="ns">Little Space needs JavaScript to run. Please enable it and reload.</p></noscript>
 <div class="top">
 <header>
  <div class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5.5"/></svg></div>
- <span class="wm" aria-hidden="true">Little Space</span>
- <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Search bookmarks" autocomplete="off" aria-label="Search bookmarks"><small id="cnt"></small></label>
+ <div hidden><input id="q" type="search" tabindex="-1" aria-hidden="true"><small id="cnt"></small></div>
+ <div class="mswitch" id="modes" role="tablist" aria-label="Switch between bookmarks and saved" data-m="books"><button type="button" role="tab" data-mode="books">Bookmarks</button><button type="button" role="tab" data-mode="watch">Saved<b id="wc"></b></button></div>
  <button class="ib" id="cfg" aria-label="Settings"><svg viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg></button>
 </header>
 <nav class="tabs" id="tags" aria-label="Filter by tag"></nav>
 </div>
 
 <main id="main"></main>
-<button class="fab" id="add" aria-label="Add bookmark"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Add</span></button>
+<button class="fab" id="add" aria-label="Add bookmark"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
 
 <dialog id="dlg"><form id="f" autocomplete="off">
  <h3 id="dt">Add bookmark</h3>
  <div class="pv" id="pv"></div>
  <label for="fu">Link</label><input id="fu" type="text" inputmode="url" autocapitalize="off" placeholder="example.com" required>
  <label for="ft">Name</label><input id="ft" maxlength="80" placeholder="Site name">
+ <label for="fc">Category</label><input id="fc" maxlength="30" placeholder="Optional, e.g. Work"><div class="sg" id="csug"></div>
  <label for="fg">Tags</label><input id="fg" placeholder="work, reading, tools"><div class="sg" id="sug"></div>
  <details class="advanced-fields">
   <summary>Icon options <span>Optional</span></summary>
@@ -465,6 +642,31 @@ body[data-bgfx=grain]::before{background-image:radial-gradient(color-mix(in srgb
  <div class="row"><button class="btn" type="button" id="x5">Cancel</button><button class="btn p" type="submit">Add tags</button></div>
 </form></dialog>
 
+<dialog id="mdlg"><form id="mf" autocomplete="off">
+ <h3 id="mt">Move to category</h3>
+ <label for="mc">Category</label><input id="mc" maxlength="30" placeholder="e.g. Work"><div class="sg" id="msug"></div>
+ <p class="hint">Pick one above or type a new name. Leave it empty and tap Save to remove the category.</p>
+ <div class="err" id="merr" role="alert"></div>
+ <div class="row"><button class="btn" type="button" id="x7">Cancel</button><button class="btn p" type="submit">Save</button></div>
+</form></dialog>
+
+<dialog id="wdlg"><form id="wf" autocomplete="off">
+ <h3 id="wdt">Add to watchlist</h3>
+ <label for="wu">Link</label><input id="wu" type="text" inputmode="url" autocapitalize="off" placeholder="example.com/article" required>
+ <label for="wt">Title</label><input id="wt" maxlength="120" placeholder="Optional. Uses the website name if empty">
+ <label for="ww">Why I saved it</label><textarea id="ww" maxlength="600" rows="3" placeholder="What caught my attention?"></textarea>
+ <label for="wb">How it will help me</label><textarea id="wb" maxlength="600" rows="3" placeholder="What will I learn or do with it?"></textarea>
+ <div class="err" id="werr" role="alert"></div>
+ <div class="row"><button class="btn d" type="button" id="wdel" hidden>Delete</button><button class="btn" type="button" id="wx">Cancel</button><button class="btn p" type="submit">Save</button></div>
+</form></dialog>
+
+<dialog id="kdlg">
+ <h3 id="ktt">Copy this text</h3>
+ <p class="hint" style="margin-top:6px">Your browser blocked automatic copying. Tap the box, choose Select all, then Copy.</p>
+ <textarea id="kta" readonly rows="9" style="margin-top:10px;font-size:12px" aria-label="Text to copy"></textarea>
+ <div class="row"><button class="btn" type="button" id="kx">Close</button><button class="btn p" type="button" id="kcp">Select all</button></div>
+</dialog>
+
 <dialog id="odlg">
  <h3>Reorder tags</h3>
  <p class="hint" style="margin-top:6px">Use the arrows to move a tab. "All" and "★ Pinned" can go anywhere, too.</p>
@@ -472,43 +674,86 @@ body[data-bgfx=grain]::before{background-image:radial-gradient(color-mix(in srgb
  <div class="row"><button class="btn" type="button" id="orst">Reset order</button><button class="btn p" type="button" id="x6">Done</button></div>
 </dialog>
 
-<dialog id="sdlg">
- <h3>Settings</h3>
- <div class="ctl" id="ctl"></div>
-<details class="custom-section" id="advancedLooks">
-    <summary><h4>✨ Personalize the vibe</h4><span>Colors, motion & layout</span></summary>
-    <div class="custom-grid">
-      <label>Color preset<select id="lookPreset">
-        <option value="cozy">Cozy Garden</option><option value="rose">Rosewater</option>
-        <option value="ocean">Quiet Ocean</option><option value="mono">Soft Monochrome</option>
-        <option value="sunset">Golden Hour</option><option value="berry">Berry Milk</option>
-        <option value="mint">Mint &amp; Cream</option><option value="peach">Peach Fizz</option><option value="forest">Deep Forest</option><option value="slate">Slate Blue</option><option value="lemon">Lemon Tea</option><option value="custom">Custom colors</option>
-      </select></label>
-      <label>Accent color<input id="customAccent" type="color" value="#b47758"></label>
-      <label>Background tint<input id="customBg" type="color" value="#f7f1e8"></label>
-      <label>Surface color<input id="customSurface" type="color" value="#fffaf2"></label>
-      <label>Animation style<select id="motionStyle"><option value="soft">Soft & subtle</option><option value="float">Floating</option><option value="spring">Bouncy</option><option value="glow">Glow & shimmer</option><option value="breathe">Breathing</option><option value="sway">Gentle sway</option><option value="hop">Playful hop</option><option value="shine">Light sweep</option><option value="off">Off</option></select></label>
-      <label>Animation intensity<input id="motionLevel" type="range" min="0" max="100" value="55"></label>
-      <label>Background effect<select id="bgEffect"><option value="aurora">Soft aurora</option><option value="glow">Ambient glow</option><option value="grain">Paper texture</option><option value="dots">Dotted paper</option><option value="lines">Notebook lines</option><option value="mesh">Color mesh</option><option value="drift">Drifting aurora (animated)</option><option value="plain">Plain</option></select></label>
-      <label>Background strength<input id="bgLevel" type="range" min="0" max="100" value="70"></label>
-      <label>Interface density<select id="density"><option value="comfortable">Comfortable</option><option value="compact">Compact</option><option value="airy">Airy</option></select></label>
-      <label>Card depth<select id="cardDepth"><option value="soft">Soft shadow</option><option value="flat">Flat</option><option value="lifted">Lifted</option><option value="outline">Outlined</option><option value="glass">Glassy</option></select></label>
-      <label>Icon shape<select id="iconShape"><option value="rounded">Rounded</option><option value="circle">Circle</option><option value="squircle">Squircle</option><option value="square">Soft square</option></select></label>
-    </div>
-    <div class="custom-actions"><button type="button" class="btn" id="resetLooks">Reset appearance</button></div>
-    <p class="hint">These are visual-only settings. Your bookmarks and database are not changed by appearance customization.</p>
-  </details>
- <button class="btn" id="tord" style="width:100%;margin-top:14px">Reorder tags</button>
- <button class="btn" id="rst" style="width:100%;margin-top:8px">Reset layout</button>
- <div class="row col1">
-  <button class="btn p" id="sync">Sync across devices</button>
-  <button class="btn" id="conn">Database connection</button>
-  <button class="btn" id="imp">Import browser bookmarks</button>
-  <button class="btn" id="exp">Export backup (.json)</button>
-  <button class="btn p" id="x2">Done</button>
- </div>
+<dialog id="sdlg"><div class="stop"><div class="grab" id="grab" role="separator" aria-orientation="horizontal" aria-label="Drag to resize settings" tabindex="0"></div>
+ <div class="shead"><h3 tabindex="-1" autofocus>Settings</h3><button class="btn p" id="x2" type="button">Done</button></div></div>
+ <div class="rmb" id="rmBanner" hidden><span>Your phone has "reduce motion" on, so animations are paused.</span><button type="button" id="rmPlay">Play anyway</button></div>
+ <div class="quick"><div class="swt" id="swatches" role="group" aria-label="Color"></div><div class="qrow" id="themeSeg"></div></div>
+ <details class="custom-section" open>
+  <summary><i class="ci"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></i><b>Pages</b><span>Layout, size &amp; header</span></summary>
+  <div class="quick" id="qk"></div>
+  <div class="ctl" id="ctl" style="margin-top:12px"></div>
+  <div class="custom-grid" style="margin-top:12px">
+   <label>Interface density<select id="density"><option value="comfortable">Comfortable</option><option value="compact">Compact</option><option value="airy">Airy</option></select></label>
+   <label>Page width<select id="layoutWidth"><option value="narrow">Narrow</option><option value="normal">Normal</option><option value="wide">Wide</option></select></label>
+   <label>Add button<select id="fabPos"><option value="right">Bottom right</option><option value="center">Bottom center</option><option value="left">Bottom left</option></select></label>
+   <label>Header<select id="headerStyle"><option value="blur">Frosted glass</option><option value="solid">Solid bar</option><option value="clear">Clear</option></select></label>
+   <label>Section titles<select id="sectionHeads"><option value="show">Show</option><option value="hide">Hide</option></select></label>
+  </div>
+  <div class="custom-actions"><button class="btn" id="rst" type="button">Reset display</button></div>
+ </details>
+ <details class="custom-section">
+  <summary><i class="ci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18c1.7 0 2-1.3 1.2-2.2-.8-1 0-2.3 1.3-2.3H17a4 4 0 0 0 4-4 9 9 0 0 0-9-9.5z"/></svg></i><b>Colors</b><span>Presets, accent &amp; dark mode</span></summary>
+  <div class="custom-grid" id="advancedLooks">
+   <label>Color preset<select id="lookPreset">
+    <option value="cozy">Cozy Garden</option><option value="rose">Rosewater</option>
+    <option value="ocean">Quiet Ocean</option><option value="mono">Soft Monochrome</option>
+    <option value="sunset">Golden Hour</option><option value="berry">Berry Milk</option>
+    <option value="mint">Mint &amp; Cream</option><option value="custom">Custom colors</option>
+   </select></label>
+   <label>Accent color<input id="customAccent" type="color" value="#62745b"></label>
+   <label>Background tint<input id="customBg" type="color" value="#f5f1e9"></label>
+   <label>Surface color<input id="customSurface" type="color" value="#fffdf8"></label>
+   <label>Icon colors<select id="ictone"><option value="vivid">Vivid</option><option value="soft">Soft</option><option value="accent">Match accent</option><option value="mono">Monochrome</option></select></label>
+   <label>Dark mode style<select id="darkStyle"><option value="soft">Soft dark</option><option value="black">True black</option></select></label>
+  </div>
+  <div class="custom-actions"><button type="button" class="btn" id="resetLooks">Reset appearance</button></div>
+ </details>
+ <details class="custom-section">
+  <summary><i class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg></i><b>Icons &amp; cards</b><span>Shape, depth &amp; labels</span></summary>
+  <div class="custom-grid">
+   <label>Icon shape<select id="iconShape"><option value="rounded">Rounded</option><option value="circle">Circle</option><option value="squircle">Squircle</option><option value="square">Soft square</option></select></label>
+   <label>Icon outline<select id="iconRing"><option value="soft">Soft</option><option value="none">None</option><option value="accent">Accent ring</option></select></label>
+   <label>Card depth<select id="cardDepth"><option value="soft">Soft shadow</option><option value="flat">Flat</option><option value="lifted">Lifted</option></select></label>
+   <label>Pinned marker<select id="pinStyle"><option value="badge">Star badge</option><option value="ring">Accent ring</option><option value="hidden">Hidden</option></select></label>
+   <label>Name weight<select id="labelWeight"><option value="regular">Regular</option><option value="medium">Medium</option><option value="bold">Bold</option></select></label>
+  </div>
+ </details>
+ <details class="custom-section">
+  <summary><i class="ci"><svg viewBox="0 0 24 24"><path d="M13 3 5 14h6l-1 7 8-11h-6z"/></svg></i><b>Animation</b><span>Motion &amp; effects</span></summary>
+  <div class="custom-grid">
+   <label>Background effect<select id="bgEffect"><option value="aurora">Soft aurora</option><option value="glow">Ambient glow</option><option value="grain">Paper texture</option><option value="dots">Dot grid</option><option value="wash">Gradient wash</option><option value="plain">Plain</option></select></label>
+   <label>Animation style<select id="motionStyle"><option value="soft">Soft &amp; subtle</option><option value="float">Floating</option><option value="spring">Bouncy</option><option value="glow">Glow &amp; shimmer</option><option value="breathe">Breathing</option><option value="cascade">Cascade</option><option value="zoom">Zoom in</option><option value="blur">Blur focus</option><option value="tilt">Tilt in</option><option value="off">Off</option></select></label>
+   <label>Tab switch<select id="tabSwitch"><option value="slide">Slide</option><option value="fade">Fade up</option><option value="zoom">Zoom</option><option value="flip">Flip</option><option value="blur">Blur</option><option value="cards">Cards</option><option value="none">None</option></select></label>
+   <label>Tab scroll<select id="tabAnim"><option value="slide">Slide in</option><option value="pop">Pop</option><option value="drop">Drop</option><option value="fade">Fade</option><option value="off">Off</option></select></label>
+   <label style="grid-column:1/-1">Animation intensity<input id="motionLevel" type="range" min="0" max="100" value="55"></label>
+   <label style="grid-column:1/-1">Entrance speed<input id="motionSpeed" type="range" min="50" max="200" value="100"></label>
+   <label style="grid-column:1/-1">When my phone has "reduce motion" on<select id="motionSystem"><option value="follow">Follow my phone</option><option value="ignore">Always play</option></select></label>
+   <p class="hint" id="rmNote" hidden style="grid-column:1/-1;margin:0">Your phone has reduce motion turned on, so animations are paused. Set the option above to "Always play" to see them.</p>
+  </div>
+  <div class="custom-actions"><button type="button" class="btn" id="playAnim">▶ Preview on page</button></div>
+  <p class="hint">Preview closes this panel so you can watch live, then tap Back to settings.</p>
+ </details>
+ <details class="custom-section">
+  <summary><i class="ci"><svg viewBox="0 0 24 24"><path d="M3 8h7l2 3h9v9H3z"/></svg></i><b>Tabs &amp; behavior</b><span>Tag bar, links, startup</span></summary>
+  <div class="custom-grid">
+   <label>Tab style<select id="tabStyle"><option value="pills">Pills</option><option value="underline">Underline</option><option value="minimal">Minimal</option></select></label>
+   <label>Tab counts<select id="tabCounts"><option value="show">Show</option><option value="hide">Hide</option></select></label>
+   <label>Tab size<select id="tabSize"><option value="small">Small</option><option value="medium">Medium</option><option value="large">Large</option></select></label>
+  </div>
+  <div class="ctl" id="ctl2" style="margin-top:12px"></div>
+  <button class="btn" id="tord" type="button" style="width:100%;margin-top:12px">Reorder tabs</button>
+ </details>
+ <details class="custom-section">
+  <summary><i class="ci"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></i><b>Data &amp; sync</b><span>Backup, import, devices</span></summary>
+  <div class="row col1" style="margin-top:0">
+   <button class="btn p" id="sync">Sync across devices</button>
+   <button class="btn" id="conn">Database connection</button>
+   <button class="btn" id="imp">Import browser bookmarks</button>
+   <button class="btn" id="exp">Export backup (.json)</button>
+  </div>
+ </details>
  <input type="file" id="file" accept=".html,.htm" hidden>
- <p class="hint">On a phone: press and hold an icon to move it, or let go without moving to open its menu. Swipe left or right to change tag. On a computer: drag to move, right-click for the menu. To delete a tag everywhere, press and hold its tag at the top (right-click on a computer).</p>
+ <p class="hint">Press and hold an icon to move it, or let go without moving to open its menu. Swipe left or right to change tag. Press and hold a tag to delete it everywhere. On a computer: drag to move, right-click for menus.</p>
 </dialog>
 
 <dialog id="cdlg"><form id="cf" autocomplete="off">
@@ -599,85 +844,116 @@ language sql security invoker set search_path = public as $$
   where b.id = o.id and b.user_id = auth.uid();
 $$;
 grant execute on function public.lp_reorder(uuid[]) to authenticated;
+create table if not exists public.lp_watchlist (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null default auth.uid() references auth.users(id) on delete cascade,
+  url text not null,
+  title text not null,
+  why text not null default '',
+  benefit text not null default '',
+  done boolean not null default false,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+create unique index if not exists lp_watchlist_user_url on public.lp_watchlist (user_id, url);
+alter table public.lp_watchlist enable row level security;
+drop policy if exists "own watchlist" on public.lp_watchlist;
+create policy "own watchlist" on public.lp_watchlist for all to authenticated
+  using (user_id = (select auth.uid())) with check (user_id = (select auth.uid()));
+grant select, insert, update, delete on public.lp_watchlist to authenticated;
 notify pgrst, 'reload schema';`;
 const $=s=>document.querySelector(s),ls=localStorage;
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 const lum=h=>{const n=parseInt(h.slice(1),16),f=v=>(v/=255)<=.03928?v/12.92:((v+.055)/1.055)**2.4;return .2126*f(n>>16)+.7152*f(n>>8&255)+.0722*f(n&255)};
-let S=JSON.parse(ls.lp_session||"null"),B=[],cfg={theme:"auto",accent:"blue",view:"grid",sort:"manual",v:2},tag="all",editing=null,loaded=false,anim=true,sel=null;
+let loadErr="",W=[],wf="all",wEd=null,wErr="",wBusy=true,mode=ls.lp_mode==="watch"?"watch":"books",S=(()=>{try{return JSON.parse(ls.lp_session||"null")}catch{return null}})(),B=[],cfg={theme:"auto",accent:"blue",view:"grid",sort:"manual",v:2},tag="all",editing=null,loaded=false,anim=true,sel=null,swDir=0;
 const LV=2,OLD=["tile","gap","rad","fs","lines","ff","cols"],renew=o=>{if(!o||o.v===LV)return o;const n={...o};OLD.forEach(k=>delete n[k]);n.v=LV;return n};
 const host=u=>{try{return new URL(u).hostname.replace(/^www\./,"")}catch{return u}};
 const norm=v=>{v=v.trim();if(v&&!/^[a-z][a-z0-9+.-]*:/i.test(v))v="https://"+v;let u;try{u=new URL(v)}catch{throw Error("Enter a valid link.")}if(!/^https?:$/.test(u.protocol))throw Error("Only http and https links work.");return u.href};
 const parse=v=>[...new Set(v.split(/[,\n]/).map(x=>x.trim().toLowerCase()).filter(Boolean))].slice(0,12);
-let tt;const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),2600)};
+let tt;async function copyText(text,okMsg,title){let ok=false;
+ try{await navigator.clipboard.writeText(text);ok=true}
+ catch{try{const t=document.createElement("textarea");t.value=text;t.setAttribute("readonly","");t.style.cssText="position:fixed;top:0;left:0;width:1px;height:1px;opacity:0";(document.querySelector("dialog[open]")||document.body).appendChild(t);t.select();t.setSelectionRange(0,t.value.length);ok=document.execCommand("copy");t.remove()}catch{}}
+ if(ok){toast(okMsg);return true}
+ $("#ktt").textContent=title||"Copy this text";$("#kta").value=text;$("#kdlg").showModal();$("#kta").focus();$("#kta").select();return false}
+const toast=m=>{const t=$("#toast"),od=[...document.querySelectorAll("dialog[open]")].pop();(od||document.body).appendChild(t);t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),2600)};
 
 /* ---- Supabase: anonymous session (no login), raw REST, no libraries ---- */
 async function auth(p,b){const r=await fetch(`${C.url}/auth/v1/${p}`,{method:"POST",headers:{apikey:C.key,"Content-Type":"application/json"},body:JSON.stringify(b)});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.msg||d.error_description||d.message||"Sign-in failed. Is anonymous sign-in enabled?");return d}
 const keep=d=>{S={access_token:d.access_token,refresh_token:d.refresh_token,expires_at:d.expires_at||Math.floor(Date.now()/1e3)+d.expires_in};ls.lp_session=JSON.stringify(S)};
 async function ensure(){if(S&&S.expires_at-60>Date.now()/1e3)return;if(S){try{keep(await auth("token?grant_type=refresh_token",{refresh_token:S.refresh_token}));return}catch(e){if(!navigator.onLine)throw e}}throw Error("Please sign in again (Settings, then Sync across devices).")}
 async function db(path,o={}){await ensure();const r=await fetch(`${C.url}/rest/v1/${path}`,{method:o.m||"GET",headers:{apikey:C.key,Authorization:"Bearer "+S.access_token,"Content-Type":"application/json",Prefer:o.p||"return=representation"},body:o.b===undefined?undefined:JSON.stringify(o.b)});const t=await r.text();let d=null;try{d=t?JSON.parse(t):null}catch{}if(!r.ok)throw Error(d?.message||`Request failed (${r.status})`);return d}
-const cache=()=>ls.lp_cache=JSON.stringify({B,cfg});
-async function load(){try{B=await db("lp_bookmarks?select=*&order=created_at.desc");const s=await db("lp_settings?select=data");if(s[0]?.data){const d=s[0].data,r=renew(d);cfg={...cfg,...r};if(r!==d)saveCfg()}loaded=true;cache();theme();initTag();draw();if(B.length>2&&!ls.lp_tip){ls.lp_tip=1;toast("Tip: press and hold an icon for its menu.")}}catch(e){loaded=true;draw();toast(navigator.onLine?e.message:"Offline. Showing saved bookmarks.")}}
+const cache=()=>ls.lp_cache=JSON.stringify({B,cfg,W});
+async function load(){try{const w0=loaded,b0=JSON.stringify(B),c0=JSON.stringify(cfg);B=await db("lp_bookmarks?select=*&order=created_at.desc");const s=await db("lp_settings?select=data");if(s[0]?.data){const d=s[0].data,r=renew(d);cfg={...cfg,...r};if(r!==d)saveCfg();if(cfg.looks){looks={...LD,...cfg.looks};try{ls.little_space_looks=JSON.stringify(looks)}catch{}}else if(ls.little_space_looks){cfg.looks={...looks};saveCfg()}}loaded=true;loadErr="";cache();theme();initTag();if(!w0||b0!==JSON.stringify(B)||c0!==JSON.stringify(cfg))draw();if(B.length>2&&!ls.lp_tip){ls.lp_tip=1;toast("Tip: press and hold an icon for its menu.")}loadW()}catch(e){loaded=true;loadErr=B.length?"":(navigator.onLine?e.message:"You're offline and nothing is saved on this device yet.");if(loadErr||!B.length)draw();toast(navigator.onLine?e.message:"Offline. Showing saved bookmarks.")}}
 let sv;const saveCfg=()=>{cache();clearTimeout(sv);sv=setTimeout(()=>db("lp_settings?on_conflict=user_id",{m:"POST",b:{data:cfg},p:"resolution=merge-duplicates,return=minimal"}).catch(e=>toast(e.message)),600)};
 
 /* ---- grid size (saved in your settings JSON, no DB change) ---- */
-function applyGrid(){const r=document.documentElement.style,T=gv("tile");r.setProperty("--gc",gv("cols")?`repeat(${gv("cols")},1fr)`:`repeat(auto-fill,minmax(${T+6}px,1fr))`);r.setProperty("--tile",T+"px");r.setProperty("--gap",gv("gap")+"px");r.setProperty("--rad",gv("rad")+"%");r.setProperty("--fs",gv("fs")+"px");r.setProperty("--lc",gv("lines")||1);r.setProperty("--ff",FF[gv("ff")]);document.body.classList.toggle("nonames",gv("lines")===0)}
+function applyGrid(){const r=document.documentElement.style,T=gv("tile");r.setProperty("--gc",gv("cols")?`repeat(${gv("cols")},minmax(0,1fr))`:`repeat(auto-fill,minmax(${T+16}px,1fr))`);r.setProperty("--tile",T+"px");r.setProperty("--gap",gv("gap")+"px");r.setProperty("--rad",gv("rad")+"%");r.setProperty("--fs",gv("fs")+"px");r.setProperty("--lc",gv("lines")||1);r.setProperty("--ff",FF[gv("ff")]);document.body.classList.toggle("nonames",gv("lines")===0);document.body.classList.toggle("showhost",!!gv("host"))}
 /* ---- theme ---- */
 const mq=matchMedia("(prefers-color-scheme:dark)");
 const dk=()=>cfg.theme==="dark"||(cfg.theme!=="light"&&mq.matches);
-const PRESETS={cozy:["#62745b","#f5f1e9","#fffdf8"],rose:["#c47791","#f8edf1","#fff9fb"],ocean:["#528c9a","#edf5f6","#fbffff"],mono:["#737373","#f1f1ef","#ffffff"],sunset:["#d58a45","#fbf0df","#fffaf0"],berry:["#9364a8","#f3edf8","#fffaff"],mint:["#578d78","#edf5ef","#fbfff9"],peach:["#d9825f","#fbefe8","#fffaf6"],forest:["#3f7a57","#ecf2ec","#fafffb"],slate:["#5b6f8f","#eef1f5","#fbfcff"],lemon:["#b3922a","#faf5de","#fffdf3"]};
-const LD={preset:"cozy",accent:"#62745b",bg:"#f5f1e9",surface:"#fffdf8",motion:"soft",level:55,bglevel:70,bgfx:"aurora",density:"comfortable",depth:"soft",shape:"rounded"};
+const PRESETS={cozy:["#62745b","#f5f1e9","#fffdf8"],rose:["#c47791","#f8edf1","#fff9fb"],ocean:["#528c9a","#edf5f6","#fbffff"],mono:["#737373","#f1f1ef","#ffffff"],sunset:["#d58a45","#fbf0df","#fffaf0"],berry:["#9364a8","#f3edf8","#fffaff"],mint:["#578d78","#edf5ef","#fbfff9"]};
+const LD={preset:"cozy",accent:"#62745b",bg:"#f5f1e9",surface:"#fffdf8",motion:"soft",level:55,bgfx:"aurora",density:"comfortable",depth:"soft",shape:"rounded",ictone:"vivid",width:"normal",fab:"right",tabs:"pills",counts:"show",heads:"show",dark:"soft",lw:"medium",pin:"badge",ring:"soft",hdr:"blur",tsize:"medium",tanim:"slide",tsw:"slide",speed:100,rm:"follow"};
 let looks={...LD};try{looks={...LD,...JSON.parse(ls.little_space_looks||"{}")}}catch{}
 if(looks.preset==="cozy"&&looks.accent==="#b47758")Object.assign(looks,{accent:LD.accent,bg:LD.bg,surface:LD.surface});
 const mix=(a,b,t)=>{const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)),x=p(a),y=p(b);return"#"+x.map((c,i)=>Math.round(c+(y[i]-c)*t).toString(16).padStart(2,"0")).join("")};
-const LK={lookPreset:"preset",customAccent:"accent",customBg:"bg",customSurface:"surface",motionStyle:"motion",motionLevel:"level",bgLevel:"bglevel",bgEffect:"bgfx",density:"density",cardDepth:"depth",iconShape:"shape"};
-const saveLooks=()=>{try{ls.little_space_looks=JSON.stringify(looks)}catch{}};
+const LK={lookPreset:"preset",customAccent:"accent",customBg:"bg",customSurface:"surface",motionStyle:"motion",motionLevel:"level",bgEffect:"bgfx",density:"density",cardDepth:"depth",iconShape:"shape",ictone:"ictone",layoutWidth:"width",fabPos:"fab",tabStyle:"tabs",tabCounts:"counts",sectionHeads:"heads",darkStyle:"dark",labelWeight:"lw",pinStyle:"pin",iconRing:"ring",headerStyle:"hdr",tabSize:"tsize",tabAnim:"tanim",tabSwitch:"tsw",motionSpeed:"speed",motionSystem:"rm"};
+const saveLooks=()=>{try{ls.little_space_looks=JSON.stringify(looks)}catch{}cfg.looks={...looks};saveCfg()};
 function theme(){const d=document.documentElement,b=document.body,dark=dk(),L=looks,v=(k,x)=>d.style.setProperty(k,x);let ac=L.accent,bg=L.bg,sf=L.surface;
- if(dark){bg=mix("#131513",ac,.07);sf=mix("#1d201d",ac,.1);ac=mix(ac,"#ffffff",.32)}
+ if(dark){const k=L.dark==="black";bg=k?"#000000":mix("#131513",ac,.07);sf=k?mix("#0c0c0c",ac,.08):mix("#1d201d",ac,.1);ac=mix(ac,"#ffffff",.32)}
  const w=dark?"255,255,255":"88,78,58",lv=Number(L.level)||0;
  d.dataset.t=dark?"dark":"light";v("--bg",bg);v("--sf",sf);v("--ac",ac);v("--on",lum(ac)>.45?"#0b0b0b":"#fff");
  v("--sf2",`rgba(${w},${dark?.08:.08})`);v("--fill",`rgba(${w},.08)`);v("--fill2",`rgba(${w},.14)`);
  v("--bd",dark?"rgba(255,255,255,.12)":"rgba(79,67,50,.11)");v("--sep",dark?"rgba(255,255,255,.12)":"rgba(79,67,50,.12)");
  v("--tx",dark?"#f1eee6":"#302d28");v("--mu",dark?"#b0b4a7":"#7b7266");
- v("--motion-duration",`${4.5-lv/100*3.5}s`);v("--motion-intensity",String(lv/100));v("--bgfx-o",String((Number(L.bglevel)||0)/100));
- b.dataset.motion=lv===0?"off":L.motion;b.dataset.bgfx=L.bgfx;b.dataset.density=L.density;b.dataset.depth=L.depth;b.dataset.shape=L.shape;
+ v("--motion-duration",`${4.5-lv/100*3.5}s`);v("--motion-intensity",String(lv/100));
+ b.dataset.motion=lv===0?"off":L.motion;b.dataset.bgfx=L.bgfx;b.dataset.density=L.density;b.dataset.depth=L.depth;b.dataset.shape=L.shape;b.dataset.ictone=L.ictone;b.dataset.width=L.width;b.dataset.fab=L.fab;b.dataset.tabs=L.tabs;b.dataset.counts=L.counts;b.dataset.heads=L.heads;b.dataset.lw=L.lw;b.dataset.pin=L.pin;b.dataset.ring=L.ring;b.dataset.hdr=L.hdr;b.dataset.tsize=L.tsize;b.dataset.tanim=L.tanim;b.dataset.tsw=L.tsw;v("--esp",String(100/(Number(L.speed)||100)));d.dataset.rm=L.rm;const rn=document.getElementById("rmNote");const rmOn=matchMedia("(prefers-reduced-motion:reduce)").matches&&L.rm!=="ignore";if(rn)rn.hidden=!rmOn;const rb=document.getElementById("rmBanner");if(rb)rb.hidden=!rmOn;
  document.querySelector("meta[name=theme-color]").content=bg;applyGrid();
  for(const id in LK){const el=document.getElementById(id);if(el)el.value=L[LK[id]]}}
 mq.addEventListener("change",theme);
-for(const id in LK){const el=$("#"+id);el.oninput=el.onchange=()=>{const k=LK[id];looks[k]=k==="level"?+el.value:el.value;if(id==="lookPreset"&&PRESETS[el.value])[looks.accent,looks.bg,looks.surface]=PRESETS[el.value];else if(/^custom/.test(id))looks.preset="custom";theme();saveLooks()}}
+for(const id in LK){const el=$("#"+id);el.oninput=el.onchange=()=>{const k=LK[id];looks[k]=(k==="level"||k==="speed")?+el.value:el.value;if(id==="lookPreset"&&PRESETS[el.value])[looks.accent,looks.bg,looks.surface]=PRESETS[el.value];else if(/^custom/.test(id))looks.preset="custom";theme();saveLooks();if(["motionStyle","motionLevel","motionSpeed","tabSwitch","tabAnim","motionSystem"].includes(id))playAnim(id==="tabSwitch"?"tab":"")}}
 $("#resetLooks").onclick=()=>{looks={...LD};theme();saveLooks()};
 
 /* ---- render ---- */
-const allTags=()=>{const m={};B.forEach(b=>(b.tags||[]).forEach(t=>m[t]=(m[t]||0)+1));return Object.entries(m).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]))};
+/* Categories are stored as one tag starting with "@" (no database change needed). */
+const isC=t=>t[0]==="@",catOf=b=>((b.tags||[]).find(isC)||"").slice(1);
+const allTagsX=()=>{const m={};B.forEach(b=>(b.tags||[]).forEach(t=>m[t]=(m[t]||0)+1));return Object.entries(m).sort((a,b)=>(isC(b[0])-isC(a[0]))||b[1]-a[1]||a[0].localeCompare(b[0]))};
+const allTags=()=>allTagsX().filter(x=>!isC(x[0])),allCats=()=>allTagsX().filter(x=>isC(x[0]));
+const catTag=v=>{v=(v||"").trim().replace(/^@+/,"").replace(/,/g," ").trim().slice(0,30);if(!v)return[];const ex=allCats().find(x=>x[0].slice(1).toLowerCase()===v.toLowerCase());return["@"+(ex?ex[0].slice(1):v)]};
+function chipsC(s,i){const cur=catTag($(i).value)[0]||"";$(s).innerHTML=allCats().slice(0,14).map(([t])=>`<button type="button" class="chip s ${t===cur?"on":""}" data-s="${esc(t.slice(1))}">${esc(t.slice(1))}</button>`).join("")}
+const csug=()=>chipsC("#csug","#fc");
 const hue=s=>{let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%360;return h};
 function icErr(i){const d=i.parentNode;d.classList.remove("f");d.style.background=i.dataset.g;d.textContent=i.dataset.fb}
-function icon(b){const h=hue(b.title||"?"),l=((b.title||"").match(/[A-Za-z0-9]/)||["?"])[0].toUpperCase(),g=`linear-gradient(160deg,hsl(${h} 78% 62%),hsl(${(h+30)%360} 80% 48%))`,fb=b.emoji?esc(b.emoji):l;if(!b.icon_url&&b.emoji)return `<div class="ic" style="background:${g}">${fb}</div>`;const src=b.icon_url||`https://www.google.com/s2/favicons?domain=${encodeURIComponent(host(b.url))}&sz=128`;return `<div class="${b.icon_url?"ic":"ic f"}"><img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" data-fb="${esc(fb)}" data-g="${esc(g)}" onerror="icErr(this)"></div>`}
-function card(b,i=0){return `<a class="card${sel?.has(b.id)?" sel":""}" style="--i:${i}" draggable="false" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer" data-id="${b.id}">${icon(b)}${b.pinned?'<i class="pin"></i>':""}<div class="col"><div class="t">${esc(b.title)}</div><div class="h">${esc(host(b.url))}</div></div><button class="more" data-edit="${b.id}" aria-label="Edit ${esc(b.title)}">⋯</button></a>`}
+const openLink=u=>{cfg.open==="same"?(location.href=u):window.open(u,"_blank","noopener,noreferrer")};
+function icon(b){const h=hue(b.title||"?"),l=((b.title||"").match(/[A-Za-z0-9]/)||["?"])[0].toUpperCase(),g=`linear-gradient(160deg,hsl(${h} calc(78% * var(--isat,1)) 62%),hsl(${(h+30)%360} calc(80% * var(--isat,1)) 48%))`,fb=b.emoji?esc(b.emoji):l;if(!b.icon_url&&b.emoji)return `<div class="ic" style="background:${g}">${fb}</div>`;const src=b.icon_url||`https://www.google.com/s2/favicons?domain=${encodeURIComponent(host(b.url))}&sz=128`;return `<div class="${b.icon_url?"ic":"ic f"}"><img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" data-fb="${esc(fb)}" data-g="${esc(g)}" onerror="icErr(this)"></div>`}
+function card(b,i=0){return `<a class="card${sel?.has(b.id)?" sel":""}" style="--i:${i}" draggable="false" href="${esc(b.url)}" ${cfg.open==="same"?"":'target="_blank" '}rel="noopener noreferrer" data-id="${b.id}">${icon(b)}${b.pinned?'<i class="pin"></i>':""}<div class="col"><div class="t">${esc(b.title)}</div><div class="h">${esc(host(b.url))}</div></div><button class="more" data-edit="${b.id}" aria-label="Edit ${esc(b.title)}">⋯</button></a>`}
 function sorted(a){const f={manual:(x,y)=>(x.position||0)-(y.position||0)||y.created_at.localeCompare(x.created_at),recent:(x,y)=>y.created_at.localeCompare(x.created_at),popular:(x,y)=>(y.open_count||0)-(x.open_count||0)||x.title.localeCompare(y.title),az:(x,y)=>x.title.localeCompare(y.title)}[cfg.sort]||(()=>0);return a.slice().sort(f)}
-function visible(){const q=$("#q").value.trim().toLowerCase();return B.filter(b=>(tag==="all"||(tag==="★"?b.pinned:(b.tags||[]).includes(tag)))&&(!q||b.title.toLowerCase().includes(q)||b.url.toLowerCase().includes(q)||(b.tags||[]).some(t=>t.includes(q))))}
+function visible(){const q=$("#q").value.trim().toLowerCase();return B.filter(b=>(tag==="all"||(tag==="★"?b.pinned:(b.tags||[]).includes(tag)))&&(!q||b.title.toLowerCase().includes(q)||b.url.toLowerCase().includes(q)||(b.tags||[]).some(t=>t.toLowerCase().includes(q))))}
 let userPicked=false;
-function initTag(){if(userPicked)return;const tg=allTags().map(x=>x[0]),pins=B.some(b=>b.pinned);tag=tordKeys().find(k=>k==="all"||(k==="★"&&pins)||tg.includes(k))||"all"}
-function tordKeys(){const tg=allTags().map(x=>x[0]);return[...new Set([...(cfg.tord||[]),"all","★",...tg])].filter(k=>k==="all"||k==="★"||tg.includes(k))}
-function draw(){
- const tg=allTags(),pins=B.some(b=>b.pinned);
+function initTag(){if(userPicked)return;const tg=allTagsX().map(x=>x[0]),pins=B.some(b=>b.pinned);tag=(cfg.start==="last"&&ls.lp_lasttag&&(ls.lp_lasttag==="all"||(ls.lp_lasttag==="★"&&pins)||tg.includes(ls.lp_lasttag))?ls.lp_lasttag:null)||tordKeys().find(k=>k==="all"||(k==="★"&&pins)||tg.includes(k))||"all"}
+function tordKeys(){const tg=allTagsX().map(x=>x[0]);return[...new Set([...(cfg.tord||[]),"all","★",...tg])].filter(k=>k==="all"||k==="★"||tg.includes(k))}
+function draw(){modesUI();if(mode==="watch"){drawW();return}
+ const tg=allTagsX(),pins=B.some(b=>b.pinned);
  if(tag!=="all"&&tag!=="★"&&!tg.some(t=>t[0]===tag))tag="all";
- const tb=$("#tags"),sl=tb.scrollLeft;const chips=new Map([["all",`<button class="chip ${tag==="all"?"on":""}" data-tag="all">All<b>${B.length}</b></button>`]]);if(pins)chips.set("★",`<button class="chip ${tag==="★"?"on":""}" data-tag="★">★ Pinned</button>`);tg.forEach(([t,n])=>chips.set(t,`<button class="chip ${tag===t?"on":""}" data-tag="${esc(t)}">${esc(t)}<b>${n}</b></button>`));
- tb.innerHTML=B.length?tordKeys().filter(k=>chips.has(k)).map(k=>chips.get(k)).join(""):"";tb.scrollLeft=sl;
+ const tb=$("#tags"),sl=tb.scrollLeft;const chips=new Map([["all",`<button class="chip ${tag==="all"?"on":""}" data-tag="all">All<b>${B.length}</b></button>`]]);if(pins)chips.set("★",`<button class="chip ${tag==="★"?"on":""}" data-tag="★">★ Pinned</button>`);tg.forEach(([t,n])=>chips.set(t,`<button class="chip${isC(t)?" cat":""} ${tag===t?"on":""}" data-tag="${esc(t)}">${esc(isC(t)?t.slice(1):t)}<b>${n}</b></button>`));
+ tb.innerHTML=B.length?tordKeys().filter(k=>chips.has(k)).map(k=>chips.get(k)).join(""):"";tb.scrollLeft=sl;tabWatch(tb);
  const m=$("#main");m.className=(cfg.view==="list"?"list ":"")+(canDrag()?"manual":"")+(sel?" selecting":"");
  if(C.url.startsWith("YOUR_")){m.innerHTML='<div class="empty"><h3>Connect your database</h3>Add your Supabase project URL and key to start saving bookmarks.<br><button class="cta" data-setup>Set up</button></div>';return}
  if(!loaded&&!B.length){m.innerHTML='<div class="grid">'+'<div class="sk"></div>'.repeat(15)+"</div>";return}
  const v=sorted(visible());$("#cnt").textContent=B.length?v.length+"/"+B.length:"";
- if(!v.length){m.innerHTML=B.length?'<div class="empty"><h3>No matches</h3>Try a different word or choose another tag.</div>':'<div class="empty"><h3>Your launchpad is empty</h3>Add a link with ＋, or import bookmarks from your browser in Settings.</div>';return}
- const top=tag==="all"&&!$("#q").value&&v.some(b=>b.pinned);
- m.innerHTML=top?`<h2>Pinned</h2><div class="grid">${v.filter(b=>b.pinned).map(card).join("")}</div><h2>All bookmarks</h2><div class="grid">${v.filter(b=>!b.pinned).map(card).join("")}</div>`:`<div class="grid">${v.map(card).join("")}</div>`;
- if(anim){anim=false;m.classList.add("intro");setTimeout(()=>m.classList.remove("intro"),900)}
+ if(!v.length){if(!B.length&&loadErr){m.innerHTML='<div class="empty"><h3>Couldn\'t load bookmarks</h3>'+esc(loadErr)+'<br><button class="cta" data-retry>Try again</button></div>';return}m.innerHTML=B.length?'<div class="empty"><h3>No matches</h3>Try a different word or choose another tag.</div>':'<div class="empty"><h3>Your launchpad is empty</h3>Add a link with ＋, or import bookmarks from your browser in Settings.</div>';return}
+ const top=tag==="all"&&!$("#q").value&&v.some(b=>b.pinned),cn=tordKeys().filter(k=>isC(k)).map(k=>k.slice(1)),grp=tag==="all"&&!$("#q").value.trim()&&cfg.group!==false&&cn.length>0,G=a=>`<div class="grid">${a.map(card).join("")}</div>`,grouped=()=>{const by={};v.filter(b=>!(top&&b.pinned)).forEach(b=>{const c=catOf(b);(by[c]=by[c]||[]).push(b)});let h=top?`<h2 class="cg">Pinned</h2>${G(v.filter(b=>b.pinned))}`:"";[...cn,""].forEach(c=>{const a=by[c];if(a&&a.length)h+=`<h2 class="cg">${c?esc(c):"Other"}<small>${a.length}</small></h2>${G(a)}`});return h};
+ m.innerHTML=grp?grouped():top?`<h2>Pinned</h2><div class="grid">${v.filter(b=>b.pinned).map(card).join("")}</div><h2>All bookmarks</h2><div class="grid">${v.filter(b=>!b.pinned).map(card).join("")}</div>`:`<div class="grid">${v.map(card).join("")}</div>`;
+ if(anim){anim=false;const dir=swDir;swDir=0;if(dir){void m.offsetWidth;m.style.setProperty("--sd",dir);m.classList.add("sw")}m.classList.add("intro");setTimeout(()=>m.classList.remove("intro","sw"),2000)}
 }
 
 /* ---- add / edit ---- */
 function sug(){const cur=parse($("#fg").value);$("#sug").innerHTML=allTags().slice(0,14).map(([t])=>`<button type="button" class="chip s ${cur.includes(t)?"on":""}" data-s="${esc(t)}">${esc(t)}</button>`).join("")}
-function openForm(id=null){if($("#dlg").open)return;editing=id;const b=B.find(x=>x.id===id);$("#dt").textContent=b?"Edit bookmark":"Add bookmark";$("#fu").value=b?.url||"";$("#ft").value=b?.title||"";$("#fg").value=(b?.tags||(tag!=="all"&&tag!=="★"?[tag]:[])).join(", ");$("#fp").checked=!!b?.pinned;tmpImg=b?.icon_url?.startsWith("data:")?b.icon_url:"";$("#fim").value="";$("#fi").value=tmpImg?"":(b?.icon_url||"");$("#fe").value=b?.emoji||"";$("#del").hidden=!b;$("#err").textContent="";sug();pv();$("#dlg").showModal();if(!b)$("#fu").focus()}
-$("#f").onsubmit=async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;try{const url=norm($("#fu").value),title=$("#ft").value.trim()||host(url),tags=parse($("#fg").value),pinned=$("#fp").checked,icon_url=tmpImg||($("#fi").value.trim()?norm($("#fi").value):null),emoji=$("#fe").value.trim().slice(0,8)||null;if(editing){const r=await db(`lp_bookmarks?id=eq.${editing}`,{m:"PATCH",b:{url,title,tags,pinned,icon_url,emoji,updated_at:new Date().toISOString()}});B=B.map(x=>x.id===editing?(r[0]||x):x)}else{const r=await db("lp_bookmarks",{m:"POST",b:{url,title,tags,pinned,icon_url,emoji,position:B.length?Math.min(...B.map(x=>x.position||0))-1:0}});B.unshift(r[0])}cache();draw();$("#dlg").close();toast("Saved")}catch(er){$("#err").textContent=/duplicate|23505/.test(er.message)?"You already saved this link.":er.message}btn.disabled=false};
+function openForm(id=null){if($("#dlg").open)return;editing=id;const b=B.find(x=>x.id===id);$("#dt").textContent=b?"Edit bookmark":"Add bookmark";$("#fu").value=b?.url||"";$("#ft").value=b?.title||"";$("#fg").value=(b?.tags||(tag!=="all"&&tag!=="★"&&!isC(tag)?[tag]:[])).filter(t=>!isC(t)).join(", ");$("#fc").value=b?catOf(b):(isC(tag)?tag.slice(1):"");csug();$("#fp").checked=!!b?.pinned;tmpImg=b?.icon_url?.startsWith("data:")?b.icon_url:"";$("#fim").value="";$("#fi").value=tmpImg?"":(b?.icon_url||"");$("#fe").value=b?.emoji||"";$("#del").hidden=!b;$("#err").textContent="";sug();pv();$("#dlg").showModal();if(!b)$("#fu").focus()}
+$("#f").onsubmit=async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;try{const url=norm($("#fu").value),title=$("#ft").value.trim()||host(url),tags=parse($("#fg").value).filter(t=>!isC(t)).concat(catTag($("#fc").value)),pinned=$("#fp").checked,icon_url=tmpImg||($("#fi").value.trim()?norm($("#fi").value):null),emoji=$("#fe").value.trim().slice(0,8)||null;if(editing){const r=await db(`lp_bookmarks?id=eq.${editing}`,{m:"PATCH",b:{url,title,tags,pinned,icon_url,emoji,updated_at:new Date().toISOString()}});B=B.map(x=>x.id===editing?(r[0]||x):x)}else{const r=await db("lp_bookmarks",{m:"POST",b:{url,title,tags,pinned,icon_url,emoji,position:B.length?Math.min(...B.map(x=>x.position||0))-1:0}});B.unshift(r[0])}cache();draw();$("#dlg").close();toast("Saved")}catch(er){$("#err").textContent=/duplicate|23505/.test(er.message)?"You already saved this link.":er.message}btn.disabled=false};
 $("#del").onclick=async()=>{if(!confirm("Delete this bookmark?"))return;try{await db(`lp_bookmarks?id=eq.${editing}`,{m:"DELETE",p:"return=minimal"});B=B.filter(x=>x.id!==editing);cache();draw();$("#dlg").close();toast("Deleted")}catch(e){$("#err").textContent=e.message}};
 $("#fg").oninput=sug;
+$("#fc").oninput=csug;
+$("#csug").onclick=e=>{const t=e.target.dataset.s;if(t===undefined)return;$("#fc").value=catTag($("#fc").value)[0]==="@"+t?"":t;csug()};
 $("#sug").onclick=e=>{const t=e.target.dataset.s;if(!t)return;const c=parse($("#fg").value);$("#fg").value=(c.includes(t)?c.filter(x=>x!==t):[...c,t]).join(", ");sug()};
 
 /* ---- live icon preview in the add/edit sheet ---- */
@@ -689,7 +965,7 @@ $("#rimg").onclick=()=>{tmpImg="";$("#fim").value="";pv()};
 /* ---- swipe left/right to change tag ---- */
 let sx=0,sy=0,sok=false;
 document.addEventListener("touchstart",e=>{const t=e.touches[0];sx=t.clientX;sy=t.clientY;sok=!e.target.closest("#tags,dialog,input,select,.top")},{passive:true});
-document.addEventListener("touchend",e=>{if(!sok||dg?.on||justDragged)return;const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.abs(dx)<70||Math.abs(dx)<Math.abs(dy)*1.6)return;const ks=[...document.querySelectorAll("#tags .chip")].map(b=>b.dataset.tag),i=ks.indexOf(tag)+(dx<0?1:-1);if(i<0||i>=ks.length)return;userPicked=true;tag=ks[i];anim=true;draw();document.querySelector("#tags .chip.on")?.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"})});
+document.addEventListener("touchend",e=>{if(!sok||dg?.on||justDragged||mode==="watch")return;const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.abs(dx)<70||Math.abs(dx)<Math.abs(dy)*1.6)return;const ks=[...document.querySelectorAll("#tags .chip")].map(b=>b.dataset.tag),i=ks.indexOf(tag)+(dx<0?1:-1);if(i<0||i>=ks.length)return;setTag(ks[i])});
 /* ---- drag to reorder (mouse: drag; touch: press and hold) ---- */
 let dg=null,justDragged=false;
 const canDrag=()=>tag==="all"&&!sel&&!$("#q").value.trim();
@@ -707,9 +983,9 @@ async function commit(c){const ids=[...c.parentElement.children].map(k=>k.datase
 
 /* ---- open tracking ---- */
 function opened(id){const b=B.find(x=>x.id===id);if(!b)return;b.open_count=(b.open_count||0)+1;b.last_opened_at=new Date().toISOString();cache();db(`lp_bookmarks?id=eq.${id}`,{m:"PATCH",b:{open_count:b.open_count,last_opened_at:b.last_opened_at},p:"return=minimal"}).catch(()=>{})}
-$("#main").onclick=e=>{if(justDragged){e.preventDefault();return}if(sel){e.preventDefault();const c=e.target.closest(".card");if(c)tog(c.dataset.id);return}const ed=e.target.closest("[data-edit]");if(ed){e.preventDefault();menu(ed.dataset.edit,ed.closest(".card"));return}const c=e.target.closest(".card");if(c)opened(c.dataset.id)};
-$("#tags").onclick=e=>{const t=e.target.closest("[data-tag]");if(t){navigator.vibrate?.(8);userPicked=true;tag=t.dataset.tag;anim=true;draw()}};
-$("#q").oninput=draw;
+$("#main").onclick=e=>{if(mode==="watch"){wClick(e);return}if(justDragged){e.preventDefault();return}if(sel){e.preventDefault();const c=e.target.closest(".card");if(c)tog(c.dataset.id);return}const ed=e.target.closest("[data-edit]");if(ed){e.preventDefault();menu(ed.dataset.edit,ed.closest(".card"));return}const c=e.target.closest(".card");if(c)opened(c.dataset.id)};
+$("#tags").onclick=e=>{const f=e.target.closest("[data-wf]");if(f){navigator.vibrate?.(8);wf=f.dataset.wf;draw();return}const t=e.target.closest("[data-tag]");if(t){navigator.vibrate?.(8);setTag(t.dataset.tag)}};
+let qt;$("#q").oninput=()=>{clearTimeout(qt);qt=setTimeout(draw,120)};
 
 /* ---- hold / right-click menu ---- */
 const mn=document.createElement("div");mn.id="mn";mn.hidden=true;mn.innerHTML='<div class="mnp"></div>';document.body.appendChild(mn);
@@ -722,15 +998,65 @@ function menu(id,el){const b=B.find(x=>x.id===id);if(!b)return;const p=mn.firstC
  mna=false;mn.hidden=false;const r=(el||document.querySelector(`.card[data-id="${id}"]`)).getBoundingClientRect(),w=p.offsetWidth,h=p.offsetHeight,L=Math.max(10,Math.min(innerWidth-w-10,r.left+r.width/2-w/2));let T=r.bottom+8,up=false;if(T+h>innerHeight-10){T=Math.max(10,r.top-8-h);up=true}
  p.style.cssText=`left:${L}px;top:${T}px;transform-origin:${r.left+r.width/2-L}px ${up?"100%":"0"}`;
  p.onclick=async e=>{const a=e.target.dataset.a;if(!a)return;mnx();
-  if(a==="open"){window.open(b.url,"_blank","noopener,noreferrer");opened(id)}
+  if(a==="open"){openLink(b.url);opened(id)}
   else if(a==="edit")openForm(id);
   else if(a==="sel")selMode(true,id);
   else if(a==="copy"){try{await navigator.clipboard.writeText(b.url);toast("Link copied")}catch{toast("Couldn't copy the link")}}
   else if(a==="pin"){const v=!b.pinned;b.pinned=v;cache();draw();try{await db(`lp_bookmarks?id=eq.${id}`,{m:"PATCH",b:{pinned:v},p:"return=minimal"})}catch(er){b.pinned=!v;cache();draw();toast(er.message)}}
   else if(a==="del"){if(!confirm("Delete this bookmark?"))return;try{await db(`lp_bookmarks?id=eq.${id}`,{m:"DELETE",p:"return=minimal"});B=B.filter(x=>x.id!==id);cache();draw();toast("Deleted")}catch(er){toast(er.message)}}}}
+/* ---- Watchlist: links to come back to, with notes on why and how they help ---- */
+const WMSG="The watchlist needs a one-time database update. Open Settings, Database connection, copy the setup SQL and run it in Supabase.";
+const missingW=e=>/lp_watchlist|schema cache|does not exist|relation|\(404\)/i.test(e.message||"");
+const ago=t=>{const d=(Date.now()-new Date(t))/864e5;return d<1?"today":d<2?"yesterday":d<30?Math.floor(d)+" days ago":new Date(t).toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"})};
+function modesUI(){$("#modes").dataset.m=mode;document.querySelectorAll("#modes [data-mode]").forEach(b=>{const on=b.dataset.mode===mode;b.classList.toggle("on",on);b.setAttribute("aria-selected",on)});const c=W.filter(w=>!w.done).length;$("#wc").textContent=c||"";const w=mode==="watch";$("#q").placeholder=w?"Search watchlist":"Search bookmarks";$("#q").setAttribute("aria-label",w?"Search watchlist":"Search bookmarks");$("#add").setAttribute("aria-label",w?"Add to watchlist":"Add bookmark")}
+function setMode(m){if(m===mode)return;if(sel)selMode(false);mode=m;try{ls.lp_mode=m}catch{}$("#q").value="";swDir=m==="watch"?1:-1;anim=true;draw();scrollTo(0,0)}
+$("#modes").onclick=e=>{const b=e.target.closest("[data-mode]");if(b)setMode(b.dataset.mode)};
+async function loadW(manual){try{W=await db("lp_watchlist?select=*&order=created_at.desc");wErr=""}catch(e){wErr=missingW(e)?"setup":(navigator.onLine?e.message:"")}wBusy=false;cache();if(manual&&!wErr)toast("Watchlist loaded");mode==="watch"?draw():modesUI()}
+function wvis(){const q=$("#q").value.trim().toLowerCase();return W.filter(w=>(wf==="all"||(wf==="todo"?!w.done:w.done))&&(!q||[w.title,w.url,w.why,w.benefit].some(x=>(x||"").toLowerCase().includes(q)))).sort((a,b)=>(a.done-b.done)||b.created_at.localeCompare(a.created_at))}
+function wrow(w,i){const u=esc(w.url);return `<article class="wrow${w.done?" done":""}" style="--i:${i}" data-id="${w.id}"><a class="wic" href="${u}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">${icon({url:w.url,title:w.title})}</a><div class="wbody"><a class="wt" href="${u}" target="_blank" rel="noopener noreferrer">${esc(w.title)}</a><div class="wh">${esc(host(w.url))} · ${ago(w.created_at)}</div>${w.why?`<div class="wn"><b>Why I saved it</b><p>${esc(w.why)}</p></div>`:""}${w.benefit?`<div class="wn"><b>How it helps me</b><p>${esc(w.benefit)}</p></div>`:""}</div><div class="wact"><button class="wchk" data-wdone="${w.id}" aria-pressed="${!!w.done}" aria-label="${w.done?"Move back to watch":"Mark as done"}"></button><button class="wmore" data-wmenu="${w.id}" aria-label="More actions for ${esc(w.title)}">⋯</button></div></article>`}
+function drawW(){const m=$("#main"),tb=$("#tags"),n=W.length,td=W.filter(w=>!w.done).length;
+ tb.innerHTML=n?[["all","All",n],["todo","To watch",td],["done","Done",n-td]].map(([k,l,c])=>`<button class="chip ${wf===k?"on":""}" data-wf="${k}">${l}<b>${c}</b></button>`).join(""):"";tabWatch(tb);
+ m.className="wl";
+ if(C.url.startsWith("YOUR_")){m.innerHTML='<div class="empty"><h3>Connect your database</h3>Add your Supabase project URL and key to use the watchlist.<br><button class="cta" data-setup>Set up</button></div>';return}
+ const v=wvis();$("#cnt").textContent=n?v.length+"/"+n:"";
+ if(!n&&wErr==="setup"){m.innerHTML='<div class="empty"><h3>One-time setup needed</h3>The watchlist needs a new table in your database. Copy the setup SQL, run it once in Supabase (SQL Editor), then come back.<br><button class="cta" data-wsql>Copy setup SQL</button><br><button class="btn" data-wretry style="margin:12px auto 0;max-width:210px">I ran it, check again</button></div>';return}
+ if(!n&&wErr){m.innerHTML=`<div class="empty"><h3>Couldn't load watchlist</h3>${esc(wErr)}<br><button class="cta" data-wretry>Try again</button></div>`;return}
+ if(!n&&S&&wBusy){m.innerHTML='<div class="wsk"></div>'.repeat(3);return}
+ if(!n){m.innerHTML='<div class="empty"><h3>Your watchlist is empty</h3>Save links you want to come back to, and note why you saved them and how they will help you.<br><button class="cta" data-wadd>Add your first link</button></div>';return}
+ if(!v.length){m.innerHTML='<div class="empty"><h3>No matches</h3>Try a different word or filter.</div>';return}
+ m.innerHTML=v.map(wrow).join("");
+ if(anim){anim=false;const dir=swDir;swDir=0;if(dir){void m.offsetWidth;m.style.setProperty("--sd",dir);m.classList.add("sw")}m.classList.add("intro");setTimeout(()=>m.classList.remove("intro","sw"),2000)}}
+function wClick(e){const t=e.target;let b;
+ if(b=t.closest("[data-wdone]")){e.preventDefault();wToggle(b.dataset.wdone)}
+ else if(b=t.closest("[data-wmenu]")){e.preventDefault();wmenu(b.dataset.wmenu,b)}
+ else if(t.closest("[data-wadd]"))openW();
+ else if(t.closest("[data-wsql]"))copySQL();
+ else if(t.closest("[data-wretry]")){wBusy=true;wErr="";draw();loadW(true)}}
+function copySQL(){copyText(SQL,"Setup SQL copied. Run it in Supabase, SQL Editor.","Database setup SQL")}
+async function wToggle(id){const w=W.find(x=>x.id===id);if(!w)return;const v=!w.done;w.done=v;cache();draw();try{await db(`lp_watchlist?id=eq.${id}`,{m:"PATCH",b:{done:v,updated_at:new Date().toISOString()},p:"return=minimal"})}catch(er){w.done=!v;cache();draw();toast(er.message)}}
+async function wDelete(id){if(!confirm("Remove this from your watchlist?"))return;try{await db(`lp_watchlist?id=eq.${id}`,{m:"DELETE",p:"return=minimal"});W=W.filter(x=>x.id!==id);cache();draw();toast("Removed")}catch(er){toast(er.message)}}
+function wmenu(id,el){const w=W.find(x=>x.id===id);if(!w)return;const p=mn.firstChild;navigator.vibrate?.(12);
+ p.innerHTML=`<div class="mnh"><b>${esc(w.title)}</b><small>${esc(host(w.url))}</small></div><button data-a="open">Open link</button><button data-a="done">${w.done?"Move back to watch":"Mark as done"}</button><button data-a="copy">Copy link</button><button data-a="edit">Edit notes</button><button data-a="del" class="x">Delete</button>`;
+ mna=false;mn.hidden=false;const r=el.getBoundingClientRect(),pw=p.offsetWidth,ph=p.offsetHeight,L=Math.max(10,Math.min(innerWidth-pw-10,r.right-pw));let T=r.bottom+6,up=false;if(T+ph>innerHeight-10){T=Math.max(10,r.top-6-ph);up=true}
+ p.style.cssText=`left:${L}px;top:${T}px;transform-origin:${r.right-L}px ${up?"100%":"0"}`;
+ p.onclick=async e=>{const a=e.target.dataset.a;if(!a)return;mnx();
+  if(a==="open")openLink(w.url);else if(a==="done")wToggle(id);else if(a==="edit")openW(id);
+  else if(a==="copy"){try{await navigator.clipboard.writeText(w.url);toast("Link copied")}catch{toast("Couldn't copy the link")}}
+  else if(a==="del")wDelete(id)}}
+function openW(id=null){if($("#wdlg").open)return;if(C.url.startsWith("YOUR_"))return openSetup();if(!S)return openSync();wEd=id;const w=W.find(x=>x.id===id);$("#wdt").textContent=w?"Edit watchlist item":"Add to watchlist";$("#wu").value=w?.url||"";$("#wt").value=w?.title||"";$("#ww").value=w?.why||"";$("#wb").value=w?.benefit||"";$("#wdel").hidden=!w;$("#werr").textContent="";$("#wdlg").showModal();if(!w)$("#wu").focus()}
+$("#wx").onclick=()=>$("#wdlg").close();
+$("#wdel").onclick=()=>{$("#wdlg").close();wDelete(wEd)};
+$("#wf").onsubmit=async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;try{const url=norm($("#wu").value),title=$("#wt").value.trim()||host(url),why=$("#ww").value.trim(),benefit=$("#wb").value.trim();
+ if(wEd){const r=await db(`lp_watchlist?id=eq.${wEd}`,{m:"PATCH",b:{url,title,why,benefit,updated_at:new Date().toISOString()}});W=W.map(x=>x.id===wEd?((r&&r[0])||{...x,url,title,why,benefit}):x)}
+ else{const r=await db("lp_watchlist",{m:"POST",b:{url,title,why,benefit}});if(!r||!r[0])throw Error("Couldn't save. Please try again.");W.unshift(r[0])}
+ wErr="";cache();draw();$("#wdlg").close();toast("Saved to watchlist")}
+ catch(er){$("#werr").textContent=/duplicate|23505/.test(er.message)?"This link is already in your watchlist.":missingW(er)?WMSG:er.message}
+ btn.disabled=false};
+$("#kx").onclick=()=>$("#kdlg").close();
+$("#kcp").onclick=()=>{const t=$("#kta");t.focus();t.select();t.setSelectionRange(0,t.value.length);try{if(document.execCommand("copy"))toast("Copied")}catch{}};
 /* ---- select several ---- */
-const bar=document.createElement("div");bar.id="sb";bar.hidden=true;bar.innerHTML='<span id="sn"></span><button data-a="all">Select all</button><button data-a="tag">Tag</button><button data-a="del" class="x">Delete</button><button data-a="done">Done</button>';document.body.appendChild(bar);
-function selUI(){$("#sn").textContent=sel?sel.size+" selected":"";bar.querySelector("[data-a=del]").disabled=!sel||!sel.size;bar.querySelector("[data-a=tag]").disabled=!sel||!sel.size}
+const bar=document.createElement("div");bar.id="sb";bar.hidden=true;bar.innerHTML='<span id="sn"></span><button data-a="all">All</button><button data-a="move">Move</button><button data-a="tag">Tag</button><button data-a="del" class="x">Delete</button><button data-a="done">Done</button>';document.body.appendChild(bar);
+function selUI(){$("#sn").textContent=sel?sel.size+" selected":"";bar.querySelector("[data-a=del]").disabled=!sel||!sel.size;bar.querySelector("[data-a=tag]").disabled=!sel||!sel.size;bar.querySelector("[data-a=move]").disabled=!sel||!sel.size}
 function selMode(on,id){sel=on?new Set(id?[id]:[]):null;bar.hidden=!on;$("#add").hidden=on;selUI();draw()}
 function tog(id){sel.has(id)?sel.delete(id):sel.add(id);document.querySelectorAll(`.card[data-id="${id}"]`).forEach(c=>c.classList.toggle("sel",sel.has(id)));selUI()}
 bar.onclick=async e=>{const a=e.target.dataset.a;if(a==="done")selMode(false);else if(a==="all"){const v=visible(),all=v.every(b=>sel.has(b.id));v.forEach(b=>all?sel.delete(b.id):sel.add(b.id));draw();selUI()}else if(a==="del"&&sel.size){if(!confirm(`Delete ${sel.size} bookmark${sel.size>1?"s":""}? This can't be undone.`))return;const ids=[...sel];try{for(let i=0;i<ids.length;i+=50)await db(`lp_bookmarks?id=in.(${ids.slice(i,i+50).join(",")})`,{m:"DELETE",p:"return=minimal"});B=B.filter(b=>!sel.has(b.id));cache();toast("Deleted");selMode(false)}catch(er){toast(er.message);load()}}};
@@ -738,12 +1064,21 @@ bar.onclick=async e=>{const a=e.target.dataset.a;if(a==="done")selMode(false);el
 let rm=new Set();
 function openTag(){if(!sel||!sel.size)return;rm=new Set();$("#tt").textContent=`Tag ${sel.size} bookmark${sel.size>1?"s":""}`;$("#tg").value="";$("#terr").textContent="";tsug();rsug();$("#tdlg").showModal();$("#tg").focus()}
 function tsug(){const cur=parse($("#tg").value);$("#tsug").innerHTML=allTags().filter(([t])=>!cur.includes(t)).slice(0,12).map(([t])=>`<button type="button" class="chip s" data-t="${esc(t)}">${esc(t)}</button>`).join("")}
-function rsug(){const m={};[...sel].forEach(id=>(B.find(x=>x.id===id)?.tags||[]).forEach(t=>m[t]=(m[t]||0)+1));const e=Object.entries(m).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]));$("#rml").hidden=!e.length;$("#rsug").innerHTML=e.map(([t,n])=>`<button type="button" class="chip s${rm.has(t)?" on":""}" data-r="${esc(t)}">${esc(t)}<b>${n}</b></button>`).join("")}
-bar.addEventListener("click",e=>{if(e.target.dataset.a==="tag")openTag()});
+function rsug(){const m={};[...sel].forEach(id=>(B.find(x=>x.id===id)?.tags||[]).forEach(t=>t[0]!=="@"&&(m[t]=(m[t]||0)+1)));const e=Object.entries(m).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]));$("#rml").hidden=!e.length;$("#rsug").innerHTML=e.map(([t,n])=>`<button type="button" class="chip s${rm.has(t)?" on":""}" data-r="${esc(t)}">${esc(t)}<b>${n}</b></button>`).join("")}
+bar.addEventListener("click",e=>{if(e.target.dataset.a==="tag")openTag();else if(e.target.dataset.a==="move")openMove()});
 $("#tg").oninput=tsug;
 $("#tsug").onclick=e=>{const t=e.target.closest("[data-t]");if(!t)return;const v=$("#tg").value.trim().replace(/,+$/,"");$("#tg").value=(v?v+", ":"")+t.dataset.t;tsug();$("#tg").focus()};
 $("#rsug").onclick=e=>{const t=e.target.closest("[data-r]");if(!t)return;const k=t.dataset.r;rm.has(k)?rm.delete(k):rm.add(k);rsug()};
 $("#x5").onclick=()=>$("#tdlg").close();
+function openMove(){if(!sel||!sel.size)return;$("#mt").textContent=`Move ${sel.size} bookmark${sel.size>1?"s":""}`;$("#mc").value="";$("#merr").textContent="";chipsC("#msug","#mc");$("#mdlg").showModal();$("#mc").focus()}
+$("#mc").oninput=()=>chipsC("#msug","#mc");
+$("#msug").onclick=e=>{const t=e.target.dataset.s;if(t===undefined)return;$("#mc").value=catTag($("#mc").value)[0]==="@"+t?"":t;chipsC("#msug","#mc")};
+$("#x7").onclick=()=>$("#mdlg").close();
+$("#mf").onsubmit=async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;$("#merr").textContent="";const ct=catTag($("#mc").value),jobs=[...sel].map(id=>B.find(x=>x.id===id)).filter(Boolean).map(b=>({b,tags:[...(b.tags||[]).filter(t=>!isC(t)),...ct]})).filter(j=>j.tags.join()!==(j.b.tags||[]).join());
+ try{for(let i=0;i<jobs.length;i+=8)await Promise.all(jobs.slice(i,i+8).map(j=>db(`lp_bookmarks?id=eq.${j.b.id}`,{m:"PATCH",b:{tags:j.tags,updated_at:new Date().toISOString()},p:"return=minimal"})));
+  jobs.forEach(j=>j.b.tags=j.tags);const n=sel.size;if(isC(tag)&&!B.some(b=>(b.tags||[]).includes(tag)))tag="all";cache();$("#mdlg").close();toast(ct.length?`Moved ${n} to ${ct[0].slice(1)}`:`Removed category from ${n}`);selMode(false)}
+ catch(er){$("#merr").textContent=er.message==="Failed to fetch"?"No connection. Try again.":er.message;load()}
+ btn.disabled=false};
 $("#tf").onsubmit=async e=>{e.preventDefault();const add=parse($("#tg").value);if(!add.length&&!rm.size){$("#terr").textContent="Add a tag, or tap a tag to remove.";return}
  const btn=e.submitter;btn.disabled=true;$("#terr").textContent="";
  const jobs=[...sel].map(id=>B.find(x=>x.id===id)).filter(Boolean).map(b=>({b,tags:[...new Set([...(b.tags||[]).filter(t=>!rm.has(t)||add.includes(t)),...add])].slice(0,12)})).filter(j=>j.tags.join()!==(j.b.tags||[]).join());
@@ -754,7 +1089,7 @@ $("#tf").onsubmit=async e=>{e.preventDefault();const add=parse($("#tg").value);i
 
 /* ---- delete a tag everywhere: long-press (phone) or right-click (computer) a tag chip ---- */
 let lpT,lpd=false;const tagsEl=$("#tags"),realTag=c=>c&&!["all","★"].includes(c.dataset.tag);
-async function delTag(t){const hit=B.filter(b=>(b.tags||[]).includes(t));if(!hit.length)return;if(!confirm(`Delete the tag "${t}" from ${hit.length} bookmark${hit.length>1?"s":""}? The bookmarks themselves stay.`))return;
+async function delTag(t){const hit=B.filter(b=>(b.tags||[]).includes(t));if(!hit.length)return;if(!confirm(`Delete ${t[0]==="@"?'the category "'+t.slice(1)+'"':'the tag "'+t+'"'} from ${hit.length} bookmark${hit.length>1?"s":""}? The bookmarks themselves stay.`))return;
  try{for(let i=0;i<hit.length;i+=8)await Promise.all(hit.slice(i,i+8).map(b=>db(`lp_bookmarks?id=eq.${b.id}`,{m:"PATCH",b:{tags:b.tags.filter(x=>x!==t),updated_at:new Date().toISOString()},p:"return=minimal"})));
   hit.forEach(b=>b.tags=b.tags.filter(x=>x!==t));if(tag===t)tag="all";cache();draw();toast("Tag deleted")}catch(er){toast(er.message);load()}}
 tagsEl.addEventListener("pointerdown",e=>{lpd=false;const c=e.target.closest("[data-tag]");if(!realTag(c))return;clearTimeout(lpT);lpT=setTimeout(()=>{lpd=true;navigator.vibrate?.(12);delTag(c.dataset.tag)},600)});
@@ -767,40 +1102,108 @@ $("#olist").onclick=e=>{const b=e.target.closest("[data-o]");if(!b||b.disabled)r
 $("#tord").onclick=()=>{$("#sdlg").close();oList();$("#odlg").showModal()};
 $("#orst").onclick=()=>{delete cfg.tord;saveCfg();draw();oList()};
 $("#x6").onclick=()=>$("#odlg").close();
+/* ---- switch tab: remembers direction so content can slide the right way ---- */
+function setTag(n){const ks=[...document.querySelectorAll("#tags .chip")].map(b=>b.dataset.tag),o=ks.indexOf(tag),i=ks.indexOf(n);if(n===tag)return;swDir=i>o?1:-1;userPicked=true;tag=ls.lp_lasttag=n;anim=true;draw();document.querySelector("#tags .chip.on")?.scrollIntoView({inline:"center",block:"nearest",behavior:(matchMedia("(prefers-reduced-motion:reduce)").matches&&looks.rm!=="ignore")?"auto":"smooth"})}
+/* ---- preview: fade the dialog away, replay content + tab animations, bring it back ---- */
+let pvT,pvT2;
+function replayChips(){const tb=$("#tags");tb.querySelectorAll(".chip").forEach(c=>c.classList.remove("vis"));requestAnimationFrame(()=>requestAnimationFrame(()=>tabWatch(tb)))}
+function playAnim(mode){swDir=mode==="tab"?1:0;anim=true;draw();replayChips()}
+function pvOpen(){$("#sdlg").close();pvb.hidden=false;setTimeout(playAnim,150)}
+const pvb=document.createElement("div");pvb.id="pvb";pvb.hidden=true;pvb.innerHTML='<span>Preview</span><button data-a="re">▶ Replay</button><button data-a="back">Back to settings</button>';document.body.appendChild(pvb);
+pvb.onclick=e=>{const a=e.target.dataset.a;if(a==="re")playAnim();else if(a==="back"){pvb.hidden=true;settingsUI();$("#sdlg").showModal()}};
+$("#playAnim").onclick=pvOpen;
+$("#rmPlay").onclick=()=>{looks.rm="ignore";theme();saveLooks();playAnim()};
+/* ---- tabs: animate chips as they scroll into view ---- */
+let tabObs=null,tabLast=0;
+function tabWatch(tb){if(!window.IntersectionObserver)return;tabObs&&tabObs.disconnect();tabObs=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle("vis",e.intersectionRatio>=.4)),{root:tb,threshold:[0,.4,1]});const tr=tb.getBoundingClientRect();tb.querySelectorAll(".chip").forEach(c=>{const r=c.getBoundingClientRect(),w=Math.max(0,Math.min(r.right,tr.right)-Math.max(r.left,tr.left));c.classList.toggle("vis",w>=r.width*.4);tabObs.observe(c)})}
+$("#tags").addEventListener("scroll",e=>{const x=e.target.scrollLeft;if(Math.abs(x-tabLast)>1){e.target.style.setProperty("--tdir",x>tabLast?1:-1);tabLast=x}},{passive:true});
 /* ---- settings ---- */
 function mark(id,v){document.querySelectorAll(`#${id} button`).forEach(b=>b.classList.toggle("on",b.dataset.v===v))}
 /* ---- customize ---- */
-const D={cols:0,tile:60,gap:18,rad:24,fs:12,lines:2,ff:0},gv=k=>cfg[k]??D[k];
+const D={cols:0,tile:60,gap:18,rad:24,fs:12,lines:2,ff:0,host:0,open:"new",start:"first"},gv=k=>cfg[k]??D[k];
 const FF=["'Bricolage Grotesque',system-ui,sans-serif","-apple-system,BlinkMacSystemFont,'SF Pro Text',Inter,system-ui,sans-serif","Georgia,serif","ui-monospace,Menlo,monospace"];
-const CT=[["theme","Theme","sel",[["auto","Auto"],["light","Light"],["dark","Dark"]]],["view","Layout","sel",[["grid","Grid"],["list","List"]]],["sort","Sort by","sel",[["manual","Custom"],["recent","Newest"],["popular","Most used"],["az","A–Z"]]],["cols","Columns","sel",[[0,"Auto"],[3,3],[4,4],[5,5],[6,6],[8,8]]],["tile","Icon size","rng",44,96],["gap","Spacing","rng",8,40],["rad","Corners","rng",0,50],["fs","Text size","rng",10,18],["lines","Text lines","sel",[[0,"Hidden"],[1,"1 line"],[2,"2 lines"],[3,"3 lines"]]],["ff","Font","sel",[[1,"Apple system"],[0,"Bricolage"],[2,"Serif"],[3,"Mono"]]]];
+const CT=[["theme","Theme","sel",[["auto","Auto"],["light","Light"],["dark","Dark"]]],["view","Layout","sel",[["grid","Grid"],["list","List"]]],["sort","Sort by","sel",[["manual","Custom"],["recent","Newest"],["popular","Most used"],["az","A–Z"]]],["cols","Columns","sel",[[0,"Auto"],[2,2],[3,3],[4,4],[5,5],[6,6],[8,8]]],["tile","Icon size","rng",44,96],["gap","Spacing","rng",8,40],["rad","Corners","rng",0,50],["fs","Text size","rng",10,18],["lines","Text lines","sel",[[0,"Hidden"],[1,"1 line"],[2,"2 lines"],[3,"3 lines"]]],["ff","Font","sel",[[1,"Apple system"],[0,"Bricolage"],[2,"Serif"],[3,"Mono"]]],["host","Website under name","sel",[[0,"Hidden"],[1,"Shown"]]],["open","Open links","sel",[["new","New tab"],["same","Same tab"]]],["start","Open on","sel",[["first","First tab"],["last","Last used tab"]]]];
 $("#ctl").innerHTML=CT.map(([k,n,t,a,b])=>`<div><label for="c-${k}">${n}${t==="rng"?` <b id="v-${k}"></b>`:""}</label>`+(t==="sel"?`<select id="c-${k}">${a.map(o=>`<option value="${o[0]}">${o[1]}</option>`).join("")}</select>`:t==="rng"?`<input id="c-${k}" type="range" min="${a}" max="${b}">`:`<input id="c-${k}" type="color">`)+"</div>").join("");
-function settingsUI(){for(const[k]of CT){const v=k==="ac"?(cfg.ac||(dk()?"#0a84ff":"#007aff")):(k in D?gv(k):cfg[k]);$("#c-"+k).value=v;const o=$("#v-"+k);if(o)o.textContent=v}}
-for(const[k]of CT)$("#c-"+k).oninput=e=>{const v=e.target.value;cfg[k]=typeof D[k]==="number"?+v:v;if(k==="theme"||k==="mood"||k==="ac")theme();applyGrid();if(k==="view"||k==="sort")draw();settingsUI();saveCfg()};
+document.querySelectorAll("#ctl>div").forEach(el=>{if(/c-(open|start)$/.test(el.querySelector("select,input").id))$("#ctl2").appendChild(el)});
+function settingsUI(){for(const[k]of CT){const v=k==="ac"?(cfg.ac||(dk()?"#0a84ff":"#007aff")):(k in D?gv(k):cfg[k]);$("#c-"+k).value=v;const o=$("#v-"+k);if(o)o.textContent=v}quickUI()}
+for(const[k]of CT)$("#c-"+k).oninput=e=>{const v=e.target.value;cfg[k]=typeof D[k]==="number"?+v:v;if(k==="theme"||k==="mood"||k==="ac")theme();applyGrid();if(k==="view"||k==="sort"||k==="open")draw();settingsUI();saveCfg()};
 $("#rst").onclick=()=>{for(const k of[...Object.keys(D),"ac","mood"])delete cfg[k];theme();settingsUI();saveCfg();toast("Layout reset")};
-$("#cfg").onclick=()=>{settingsUI();$("#sdlg").showModal()};
+const QSW=$("#swatches"),QTH=$("#themeSeg");
+QSW.innerHTML=Object.keys(PRESETS).map(k=>`<button type="button" data-p="${k}" aria-label="${k} colors" style="--c:${PRESETS[k][0]}"></button>`).join("");
+QTH.innerHTML='<span>Theme</span><div class="dd"><select id="themeSel" aria-label="Theme">'+[["auto","Auto"],["light","Light"],["dark","Dark"]].map(([v,n])=>`<option value="${v}">${n}</option>`).join("")+'</select></div>';
+function markQ(){quickUI();QSW.querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.p===looks.preset));$("#themeSel").value=cfg.theme||"auto"}
+QSW.onclick=e=>{const k=e.target.dataset.p;if(!k)return;looks.preset=k;[looks.accent,looks.bg,looks.surface]=PRESETS[k];theme();saveLooks();markQ()};
+QTH.onchange=e=>{const v=e.target.value;if(!v)return;cfg.theme=v;theme();saveCfg();settingsUI();markQ()};
+/* ---- simple settings: the few options most people want ---- */
+const QK=[["view","Layout",[["grid","Grid"],["list","List"]],()=>cfg.view==="list"?"list":"grid",v=>{cfg.view=v;draw()}],
+["size","Icon size",[["48","Small"],["60","Medium"],["76","Large"]],()=>String([48,60,76].reduce((a,b)=>Math.abs(b-gv("tile"))<Math.abs(a-gv("tile"))?b:a)),v=>{cfg.tile=+v}],
+["names","Names",[["show","Show"],["hide","Hide"]],()=>gv("lines")===0?"hide":"show",v=>{cfg.lines=v==="hide"?0:2}],
+["space","Spacing",[["compact","Tight"],["comfortable","Normal"],["airy","Roomy"]],()=>looks.density,v=>{looks.density=v;saveLooks()}],
+["group","Home screen",[["on","By category"],["off","One list"]],()=>cfg.group===false?"off":"on",v=>{cfg.group=v==="on";draw()}],
+["open","Open links in",[["new","New tab"],["same","Same tab"]],()=>gv("open"),v=>{cfg.open=v;draw()}]];
+$("#qk").innerHTML=QK.map(([k,n,o])=>`<div class="qrow"><span>${n}</span><div class="dd"><select data-q="${k}" aria-label="${n}">${o.map(([v,l])=>`<option value="${v}">${l}</option>`).join("")}</select></div></div>`).join("");
+function quickUI(){QK.forEach(([k,,,g])=>{const v=g();{const el=$("#qk").querySelector(`select[data-q="${k}"]`);if(el)el.value=v}})}
+$("#qk").onchange=e=>{const el=e.target.closest("select[data-q]");if(!el)return;const q=QK.find(x=>x[0]===el.dataset.q);q[4](el.value);theme();saveCfg();settingsUI()};
+/* ---- resizable settings sheet: drag the handle up/down (drag very low to close) ---- */
+const sd=$("#sdlg"),grab=$("#grab");let gy=0,gh=0,gd=false;
+const sheetH=h=>{sd.style.maxHeight="none";sd.style.height=Math.max(150,Math.min(innerHeight*.92,h))+"px"};
+const sheetSave=()=>{try{ls.lp_sheet=Math.round(sd.getBoundingClientRect().height)}catch{}};
+grab.addEventListener("pointerdown",e=>{gd=true;gy=e.clientY;gh=sd.getBoundingClientRect().height;grab.setPointerCapture(e.pointerId);e.preventDefault()});
+grab.addEventListener("pointermove",e=>{if(gd)sheetH(gh+(gy-e.clientY))});
+const sheetEnd=()=>{if(!gd)return;gd=false;if(sd.getBoundingClientRect().height<175){sd.close();sd.style.height=sd.style.maxHeight="";return}sheetSave()};
+grab.addEventListener("pointerup",sheetEnd);grab.addEventListener("pointercancel",sheetEnd);
+grab.addEventListener("dblclick",()=>{sd.style.height=sd.style.maxHeight="";try{delete ls.lp_sheet}catch{}});
+grab.addEventListener("keydown",e=>{if(e.key!=="ArrowUp"&&e.key!=="ArrowDown")return;e.preventDefault();sheetH(sd.getBoundingClientRect().height+(e.key==="ArrowUp"?40:-40));sheetSave()});
+$("#cfg").onclick=()=>{settingsUI();markQ();if(+ls.lp_sheet)sheetH(+ls.lp_sheet);sd.showModal()};
 $("#x2").onclick=()=>$("#sdlg").close();$("#x1").onclick=()=>$("#dlg").close();
 for(const d of document.querySelectorAll("dialog"))d.addEventListener("click",e=>{if(e.target===d)d.close()});
-$("#add").onclick=()=>C.url.startsWith("YOUR_")?openSetup():!S?openSync():openForm();
-$("#exp").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(B.map(({title,url,tags,pinned,icon_url,emoji})=>({title,url,tags,pinned,icon_url,emoji})),null,2)],{type:"application/json"}));a.download="launchpad-bookmarks.json";a.click();URL.revokeObjectURL(a.href)};
+$("#add").onclick=()=>C.url.startsWith("YOUR_")?openSetup():!S?openSync():mode==="watch"?openW():openForm();
+$("#exp").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify({bookmarks:B.map(({title,url,tags,pinned,icon_url,emoji})=>({title,url,tags,pinned,icon_url,emoji})),watchlist:W.map(({title,url,why,benefit,done,created_at})=>({title,url,why,benefit,done,created_at}))},null,2)],{type:"application/json"}));a.download="launchpad-bookmarks.json";a.click();URL.revokeObjectURL(a.href)};
 $("#imp").onclick=()=>$("#file").click();
-$("#file").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(!f)return;try{const d=new DOMParser().parseFromString(await f.text(),"text/html"),seen=new Set(),rows=[];d.querySelectorAll("a[href^=http]").forEach(a=>{if(seen.has(a.href))return;seen.add(a.href);const h=a.closest("dl")?.previousElementSibling;rows.push({url:a.href,title:(a.textContent.trim()||host(a.href)).slice(0,80),tags:h&&h.tagName==="H3"?[h.textContent.trim().toLowerCase().slice(0,30)]:[]})});if(!rows.length)throw Error("No bookmarks found in that file.");toast(`Importing ${rows.length}…`);for(let i=0;i<rows.length;i+=200)await db("lp_bookmarks?on_conflict=user_id,url",{m:"POST",b:rows.slice(i,i+200),p:"resolution=ignore-duplicates,return=minimal"});await load();$("#sdlg").close();toast("Import finished")}catch(er){toast(er.message)}};
+$("#file").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(!f)return;try{const d=new DOMParser().parseFromString(await f.text(),"text/html"),seen=new Set(),rows=[];d.querySelectorAll("a[href^=http]").forEach(a=>{if(seen.has(a.href))return;seen.add(a.href);const h=a.closest("dl")?.previousElementSibling;rows.push({url:a.href,title:(a.textContent.trim()||host(a.href)).slice(0,80),tags:h&&h.tagName==="H3"&&h.textContent.trim()?["@"+h.textContent.trim().slice(0,30)]:[]})});if(!rows.length)throw Error("No bookmarks found in that file.");toast(`Importing ${rows.length}…`);for(let i=0;i<rows.length;i+=200)await db("lp_bookmarks?on_conflict=user_id,url",{m:"POST",b:rows.slice(i,i+200),p:"resolution=ignore-duplicates,return=minimal"});await load();$("#sdlg").close();toast("Import finished")}catch(er){toast(er.message)}};
 
 /* ---- connection setup (no code editing needed) ---- */
 const secret=k=>/^sb_secret_/.test(k)||(()=>{try{return JSON.parse(atob(k.split(".")[1].replace(/-/g,"+").replace(/_/g,"/"))).role==="service_role"}catch{return false}})();
 function openSetup(){if($("#cdlg").open)return;$("#cu").value=ls.lp_url||"";$("#ck").value=ls.lp_key||"";$("#cerr").textContent="";$("#cdlg").showModal()}
 $("#cf").onsubmit=async e=>{e.preventDefault();const b=e.submitter,old={...C},oS=S;b.disabled=true;try{const u=$("#cu").value.trim().replace(/\/+$/,"").replace(/\/(rest|auth)\/v1.*$/,""),k=$("#ck").value.trim();if(!/^https:\/\/[^\s/]+\.[^\s/]+$/.test(u))throw Error("The URL should look like https://abcd1234.supabase.co");if(secret(k))throw Error("That is the secret key. Use the publishable key instead.");if(k.length<20||/\s/.test(k))throw Error("Paste the full publishable key.");C.url=u;C.key=k;const r=await fetch(u+"/auth/v1/settings",{headers:{apikey:k}});if(!r.ok)throw Error("That URL or key doesn't match a Supabase project.");if(u!==old.url){S=null;delete ls.lp_session;delete ls.lp_code}ls.lp_url=u;ls.lp_key=k;$("#cdlg").close();toast("Connected");S?await load():openSync()}catch(er){C.url=old.url;C.key=old.key;S=oS;$("#cerr").textContent=er.message==="Failed to fetch"?"Couldn't reach that URL. Check it for typos.":er.message}b.disabled=false};
 $("#x3").onclick=()=>$("#cdlg").close();
-$("#csql").onclick=async()=>{try{await navigator.clipboard.writeText(SQL);toast("Setup SQL copied")}catch{toast("Couldn't copy the SQL")}};
-$("#cai").onclick=async()=>{const P=`You have access to my Supabase project. Do these steps for me:
-1. Run the SQL below once in the SQL Editor. It is safe to re-run.
-2. Go to Authentication, Sign In / Providers, Email. Keep email sign-up enabled and turn OFF "Confirm email", so sign-up returns a session right away.
-3. Check that the tables lp_bookmarks and lp_settings and the function lp_reorder now exist.
-4. Tell me my Project URL and my publishable key (starts with sb_publishable_). Never show the secret or service_role key.
+$("#csql").onclick=()=>copyText(SQL,"Setup SQL copied","Database setup SQL");
+$("#cai").onclick=async()=>{const P=`You have access to my Supabase project through your connected Supabase tools.
+
+Set up the database for my "Little Space" bookmarks app. Do the steps directly where your tools allow, instead of only giving me instructions.
+
+STEP 1 - Identify the project
+- List my available Supabase projects and use the one I name. If I have not named one, ask me which one is intended.
+- Never assume a project from another conversation is the right one.
+- Inspect the existing public schema first and preserve existing data.
+
+STEP 2 - Set up the database
+Run the SQL below against that project. It creates or updates public.lp_bookmarks, public.lp_settings, public.lp_watchlist and the function public.lp_reorder(uuid[]), plus indexes, grants and Row Level Security policies. It is safe to re-run. Review any destructive operation before running it.
+
+STEP 3 - Authentication
+- Keep email sign-up enabled.
+- This app creates hidden logins for its sync codes, so "Confirm email" must be OFF (Authentication, Sign In / Providers, Email). Ask me to confirm before changing it, explain that anyone can then sign up without verifying an email address, and change it only if your tools support it. If they do not, tell me exactly where to change it by hand.
+
+STEP 4 - Verify (show evidence, never assume)
+1. lp_bookmarks, lp_settings and lp_watchlist exist in the public schema, with their primary keys.
+2. Row Level Security is enabled on all three tables.
+3. The policies limit each user to their own rows.
+4. The function lp_reorder(uuid[]) exists.
+5. The authenticated role has the needed permissions.
+6. The PostgREST schema cache was reloaded.
+
+STEP 5 - Report back
+- Project name and reference, and the Project URL.
+- The publishable key (starts with sb_publishable_), if your tools can read it.
+- Status of the database setup, authentication and each verification.
+- Any manual steps or security warnings left.
+
+Never show the database password, the secret key, the service_role key, or any access or refresh token. If you cannot do something, say so instead of claiming it is done.
 
 SQL:
-${SQL}`;try{await navigator.clipboard.writeText(P);toast("AI prompt copied")}catch{toast("Couldn't copy the prompt")}};
+${SQL}`;copyText(P,"AI prompt copied","AI prompt for Supabase")};
 $("#conn").onclick=()=>{$("#sdlg").close();openSetup()};
-document.addEventListener("click",e=>{if(e.target.closest("[data-setup]"))openSetup()});
+document.addEventListener("click",e=>{if(e.target.closest("[data-setup]"))openSetup();else if(e.target.closest("[data-retry]")){loaded=false;loadErr="";draw();S?load():openSync()}});
 /* ---- sync code: the same code on every device = the same bookmarks (no email) ---- */
 const AL="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",nc=v=>v.toUpperCase().replace(/[^A-Z0-9]/g,""),fc=c=>c.match(/.{4}/g).join("-");
 const sh=async v=>[...new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(v)))].map(x=>x.toString(16).padStart(2,"0")).join("");
@@ -817,20 +1220,33 @@ async function joinSync(c,make){
  B=[];await load()}
 const yerr=er=>$("#yerr").textContent=er.message==="Failed to fetch"?"No connection. Try again.":er.message;
 $("#sync").onclick=()=>{$("#sdlg").close();openSync()};$("#x4").onclick=()=>$("#ydlg").close();
-$("#ycopy").onclick=async()=>{try{await navigator.clipboard.writeText(fc(ls.lp_code));toast("Code copied")}catch{toast("Couldn't copy. Select the code and copy it.")}};
+$("#ycopy").onclick=async()=>{copyText(fc(ls.lp_code),"Code copied","Your sync code")};
 $("#yout").onclick=()=>{if(!confirm("Turn off sync on this device? Your bookmarks stay saved under your code."))return;for(const k of["lp_session","lp_code","lp_cache"])delete ls[k];location.reload()};
 $("#ynew").onclick=async e=>{const b=e.currentTarget;b.disabled=true;$("#yerr").textContent="";try{await joinSync([...crypto.getRandomValues(new Uint8Array(16))].map(x=>AL[x%32]).join(""),true);ySet();toast("Sync is on. Save your code.")}catch(er){yerr(er)}b.disabled=false};
 $("#yf").onsubmit=async e=>{e.preventDefault();const b=e.submitter,c=nc($("#yc").value);if(c.length!==16){$("#yerr").textContent="Enter the full 16-character code.";return}b.disabled=true;$("#yerr").textContent="";try{await joinSync(c,false);ySet();toast("Sync is on")}catch(er){yerr(er)}b.disabled=false};
 /* ---- keyboard ---- */
-addEventListener("keydown",e=>{const typing=/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName);if(e.key==="/"&&!typing&&!document.querySelector("dialog[open]")){e.preventDefault();$("#q").focus()}else if(e.key==="Enter"&&document.activeElement===$("#q")){const f=sorted(visible())[0];if(f){window.open(f.url,"_blank","noopener,noreferrer");opened(f.id)}}else if(e.key==="Escape"&&document.activeElement===$("#q")){$("#q").value="";$("#q").blur();draw()}});
+addEventListener("keydown",e=>{const typing=/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName);if(e.key==="/"&&!typing&&!document.querySelector("dialog[open]")){e.preventDefault();$("#q").focus()}else if(e.key==="Enter"&&document.activeElement===$("#q")){const f=mode==="watch"?wvis()[0]:sorted(visible())[0];if(f){openLink(f.url);if(mode!=="watch")opened(f.id)}}else if(e.key==="Escape"&&document.activeElement===$("#q")){$("#q").value="";$("#q").blur();draw()}});
 addEventListener("online",()=>S&&load());
 
 /* ---- boot: paint cache instantly, then sync ---- */
-try{const c=JSON.parse(ls.lp_cache||"null");if(c){B=c.B||[];cfg={...cfg,...renew(c.cfg)};loaded=true}}catch{}
+try{const c=JSON.parse(ls.lp_cache||"null");if(c){B=c.B||[];W=c.W||[];wBusy=!W.length;cfg={...cfg,...renew(c.cfg)};if(cfg.looks)looks={...LD,...cfg.looks};loaded=true}}catch{}
 addEventListener("scroll",()=>$(".top").classList.toggle("sc",scrollY>6),{passive:true});theme();document.body.classList.add("boot");setTimeout(()=>document.body.classList.remove("boot"),1200);initTag();draw();
 if(C.url.startsWith("YOUR_"))setTimeout(openSetup,400);else if(S)load();else{loaded=true;draw();setTimeout(openSync,400)}
 
 
+</script>
+<script>
+/* Line the outer icons up with the header and tab edges (icons sit centred in their columns, which left a gap) */
+(()=>{const main=document.getElementById("main");if(!main)return;let raf=0;
+function align(){raf=0;main.querySelectorAll(".grid").forEach(g=>{g.style.marginLeft=g.style.marginRight="";
+ const cs=getComputedStyle(g),cols=cs.gridTemplateColumns.split(" ").length;if(cols<2)return;
+ const ic=g.querySelector(".ic");if(!ic)return;
+ const W=g.offsetWidth,gap=parseFloat(cs.columnGap)||0,iw=ic.offsetWidth,d=(W-(cols-1)*gap)/cols-iw;if(!(d>0))return;
+ const m=Math.round(cols*d/(2*(cols-1))*10)/10;g.style.marginLeft=g.style.marginRight=-m+"px"})}
+const q=()=>{if(!raf)raf=requestAnimationFrame(align)};
+new MutationObserver(q).observe(main,{childList:true,subtree:true});
+new MutationObserver(q).observe(document.documentElement,{attributes:true,attributeFilter:["style"]});new MutationObserver(q).observe(document.body,{attributes:true});new ResizeObserver(q).observe(document.body);addEventListener("resize",q);
+document.addEventListener("transitionend",e=>{if(e.target===document.body)q()});q()})();
 </script>
 </body>
 </html>
