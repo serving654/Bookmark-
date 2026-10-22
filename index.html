@@ -149,7 +149,7 @@ dialog input[type=file]{width:100%;font-size:14px}
 #sb button:active{background:var(--fill)}
 #sb .x{color:var(--rd)}
 #sb button:disabled{opacity:.35}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){body[data-motion=soft] *,body[data-motion=off] *{animation:none!important;transition:none!important}}
 
 /* Little Space visual refresh */
 :root{--bg:#f5f1e9;--sf:#fffdf8;--sf2:#eee8dd;--fill:#eee8dd;--fill2:#e4dacb;--tx:#302d28;--mu:#8b8174;--ac:#62745b;--on:#fffdf8;--rd:#b85f50;--bd:rgba(79,67,50,.11);--sep:rgba(79,67,50,.12);--sh:0 2px 5px rgba(67,53,36,.04),0 12px 30px rgba(67,53,36,.055);color-scheme:light}
@@ -194,7 +194,7 @@ body[data-shape="square"] .ic{border-radius:12%!important}
 @keyframes cozyGlow{0%,100%{filter:saturate(1);box-shadow:var(--sh)}50%{filter:saturate(calc(1 + var(--motion-intensity,.55)*.5));box-shadow:0 0 0 calc(5px * var(--motion-intensity,.55)) color-mix(in srgb,var(--ac) 12%,transparent),0 8px 24px color-mix(in srgb,var(--ac) 25%,transparent)}}
 @keyframes cozyEnter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:480px){.custom-grid{grid-template-columns:1fr 1fr}.custom-section{padding:12px}}
-@media(prefers-reduced-motion:reduce){body[data-motion] .card,body[data-motion] .ic{animation:none!important}}
+@media(prefers-reduced-motion:reduce){body[data-motion=soft] .card,body[data-motion=soft] .ic{animation:none!important}}
 
 /* UX refinement: clearer hierarchy, touch actions, and shorter forms */
 .advanced-fields{margin-top:14px;border:1px solid var(--bd);border-radius:14px;background:color-mix(in srgb,var(--sf) 72%,var(--bg));overflow:hidden}
@@ -372,10 +372,6 @@ main>h2{font-size:22px;margin:30px 4px 14px}main>h2:first-child{margin-top:6px}
 .search{height:44px;border-radius:14px;background:var(--fill);border:0;box-shadow:none}
 .search:focus-within{background:var(--sf);box-shadow:0 0 0 2px var(--ac)}
 .ib{background:none;border:0;box-shadow:none}.ib:active{background:var(--fill)}
-.tabs{gap:22px;padding-top:4px;padding-bottom:0}
-#tags .chip{min-height:0;padding:11px 0 10px;background:none;border:0;border-bottom:2px solid transparent;border-radius:0;box-shadow:none;color:var(--mu);font-size:14px;font-weight:500}
-#tags .chip.on{background:none;box-shadow:none;color:var(--tx);font-weight:600;border-bottom-color:var(--ac)}
-#tags .chip b{opacity:.5}
 .ic{outline:0;text-shadow:none;box-shadow:0 1px 2px rgba(0,0,0,.08),0 8px 14px -6px rgba(0,0,0,.2)}
 .ic::after,.ic:not(:has(img))::after{background:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.07)}
 .card{border:0;padding:8px 2px 10px}
@@ -398,13 +394,33 @@ dialog h3{font-size:24px}
  dialog[open]{animation:sheet .35s cubic-bezier(.2,.9,.3,1)}
 }
 
-/* Animation styles chosen in Settings keep working even when the device has Reduce Motion on */
-@media(prefers-reduced-motion:reduce){
- body[data-motion=float] .card{animation:cozyFloat var(--motion-duration,3s) ease-in-out infinite!important;animation-delay:calc(var(--i,0)*70ms)!important}
- body[data-motion=glow] .ic{animation:cozyGlow var(--motion-duration,3s) ease-in-out infinite!important;animation-delay:calc(var(--i,0)*90ms)!important}
- body[data-motion=spring] .intro .card{animation:cozySpring .5s cubic-bezier(.34,1.56,.64,1) backwards!important;animation-delay:calc(min(var(--i,0),18)*18ms)!important}
-}
 
+/* Fixes + more looks */
+body{background:transparent}
+.grid{gap:calc(var(--gap,16px)*var(--dens,1)*1.15) 8px}
+body[data-bgfx=dots]::before{background-image:radial-gradient(color-mix(in srgb,var(--tx) 15%,transparent) 1.2px,transparent 1.5px);background-size:22px 22px}
+body[data-bgfx=lines]::before{background-image:repeating-linear-gradient(0deg,transparent 0 31px,color-mix(in srgb,var(--tx) 8%,transparent) 31px 32px)}
+body[data-bgfx=mesh]::before{background:radial-gradient(at 12% 8%,color-mix(in srgb,var(--ac) 28%,transparent),transparent 42%),radial-gradient(at 90% 18%,color-mix(in srgb,#ffb199 30%,transparent),transparent 40%),radial-gradient(at 72% 96%,color-mix(in srgb,#8fb8ff 26%,transparent),transparent 45%),radial-gradient(at 4% 86%,color-mix(in srgb,#f2d98a 24%,transparent),transparent 40%)}
+body[data-bgfx=drift]::before{background:radial-gradient(ellipse at 20% 20%,color-mix(in srgb,var(--ac) 24%,transparent),transparent 50%),radial-gradient(ellipse at 80% 70%,color-mix(in srgb,var(--ac) 16%,transparent),transparent 50%);background-size:170% 170%;animation:lsDrift calc(var(--motion-duration,3s)*5) ease-in-out infinite alternate}
+@keyframes lsDrift{to{background-position:100% 100%}}
+@keyframes lsBreathe{50%{transform:scale(1.07)}}
+@keyframes lsSway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes lsHop{0%,55%,100%{transform:translateY(0)}28%{transform:translateY(calc(-3px - 9px*var(--motion-intensity,.55)))}}
+@keyframes lsShine{from{background-position:130% 0}to{background-position:-130% 0}}
+body[data-motion=breathe] .ic{animation:lsBreathe var(--motion-duration,3s) ease-in-out infinite;animation-delay:calc(min(var(--i,0),14)*80ms)}
+body[data-motion=sway] .ic{animation:lsSway calc(var(--motion-duration,3s)*1.2) ease-in-out infinite;animation-delay:calc(min(var(--i,0),14)*-120ms)}
+body[data-motion=hop] .ic{animation:lsHop calc(var(--motion-duration,3s)*.9) ease-in-out infinite;animation-delay:calc(min(var(--i,0),14)*90ms)}
+body[data-motion=shine] .ic::after{background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.6) 50%,transparent 62%) 0 0/250% 100%;animation:lsShine calc(var(--motion-duration,3s)*1.4) linear infinite;animation-delay:calc(min(var(--i,0),14)*120ms)}
+body[data-depth=outline] .ic{box-shadow:0 0 0 2px color-mix(in srgb,var(--ac) 55%,transparent)}
+body[data-depth=glass] .ic{box-shadow:0 12px 26px -8px color-mix(in srgb,var(--ac) 50%,transparent),inset 0 0 0 1px rgba(255,255,255,.55)}
+
+/* Tag counts on the text line; clearer backgrounds */
+#tags .chip{align-items:baseline;padding:10px 14px}
+.top{background:color-mix(in srgb,var(--bg) 55%,transparent)}
+body::before{opacity:var(--bgfx-o,.7)}
+body[data-bgfx=aurora]::before{background:radial-gradient(ellipse at 8% 0%,color-mix(in srgb,var(--ac) 34%,transparent),transparent 50%),radial-gradient(ellipse at 95% 35%,color-mix(in srgb,var(--ac) 24%,transparent),transparent 45%),radial-gradient(ellipse at 40% 100%,color-mix(in srgb,var(--ac) 18%,transparent),transparent 50%)}
+body[data-bgfx=glow]::before{background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--ac) 38%,transparent),transparent 62%)}
+body[data-bgfx=grain]::before{background-image:radial-gradient(color-mix(in srgb,var(--tx) 20%,transparent) .8px,transparent .9px);background-size:4px 4px}
 </style>
 </head>
 <body>
@@ -466,16 +482,17 @@ dialog h3{font-size:24px}
         <option value="cozy">Cozy Garden</option><option value="rose">Rosewater</option>
         <option value="ocean">Quiet Ocean</option><option value="mono">Soft Monochrome</option>
         <option value="sunset">Golden Hour</option><option value="berry">Berry Milk</option>
-        <option value="mint">Mint &amp; Cream</option><option value="custom">Custom colors</option>
+        <option value="mint">Mint &amp; Cream</option><option value="peach">Peach Fizz</option><option value="forest">Deep Forest</option><option value="slate">Slate Blue</option><option value="lemon">Lemon Tea</option><option value="custom">Custom colors</option>
       </select></label>
       <label>Accent color<input id="customAccent" type="color" value="#b47758"></label>
       <label>Background tint<input id="customBg" type="color" value="#f7f1e8"></label>
       <label>Surface color<input id="customSurface" type="color" value="#fffaf2"></label>
-      <label>Animation style<select id="motionStyle"><option value="soft">Soft & subtle</option><option value="float">Floating</option><option value="spring">Bouncy</option><option value="glow">Glow & shimmer</option><option value="off">Off</option></select></label>
+      <label>Animation style<select id="motionStyle"><option value="soft">Soft & subtle</option><option value="float">Floating</option><option value="spring">Bouncy</option><option value="glow">Glow & shimmer</option><option value="breathe">Breathing</option><option value="sway">Gentle sway</option><option value="hop">Playful hop</option><option value="shine">Light sweep</option><option value="off">Off</option></select></label>
       <label>Animation intensity<input id="motionLevel" type="range" min="0" max="100" value="55"></label>
-      <label>Background effect<select id="bgEffect"><option value="aurora">Soft aurora</option><option value="glow">Ambient glow</option><option value="grain">Paper texture</option><option value="plain">Plain</option></select></label>
+      <label>Background effect<select id="bgEffect"><option value="aurora">Soft aurora</option><option value="glow">Ambient glow</option><option value="grain">Paper texture</option><option value="dots">Dotted paper</option><option value="lines">Notebook lines</option><option value="mesh">Color mesh</option><option value="drift">Drifting aurora (animated)</option><option value="plain">Plain</option></select></label>
+      <label>Background strength<input id="bgLevel" type="range" min="0" max="100" value="70"></label>
       <label>Interface density<select id="density"><option value="comfortable">Comfortable</option><option value="compact">Compact</option><option value="airy">Airy</option></select></label>
-      <label>Card depth<select id="cardDepth"><option value="soft">Soft shadow</option><option value="flat">Flat</option><option value="lifted">Lifted</option></select></label>
+      <label>Card depth<select id="cardDepth"><option value="soft">Soft shadow</option><option value="flat">Flat</option><option value="lifted">Lifted</option><option value="outline">Outlined</option><option value="glass">Glassy</option></select></label>
       <label>Icon shape<select id="iconShape"><option value="rounded">Rounded</option><option value="circle">Circle</option><option value="squircle">Squircle</option><option value="square">Soft square</option></select></label>
     </div>
     <div class="custom-actions"><button type="button" class="btn" id="resetLooks">Reset appearance</button></div>
@@ -607,12 +624,12 @@ function applyGrid(){const r=document.documentElement.style,T=gv("tile");r.setPr
 /* ---- theme ---- */
 const mq=matchMedia("(prefers-color-scheme:dark)");
 const dk=()=>cfg.theme==="dark"||(cfg.theme!=="light"&&mq.matches);
-const PRESETS={cozy:["#62745b","#f5f1e9","#fffdf8"],rose:["#c47791","#f8edf1","#fff9fb"],ocean:["#528c9a","#edf5f6","#fbffff"],mono:["#737373","#f1f1ef","#ffffff"],sunset:["#d58a45","#fbf0df","#fffaf0"],berry:["#9364a8","#f3edf8","#fffaff"],mint:["#578d78","#edf5ef","#fbfff9"]};
-const LD={preset:"cozy",accent:"#62745b",bg:"#f5f1e9",surface:"#fffdf8",motion:"soft",level:55,bgfx:"aurora",density:"comfortable",depth:"soft",shape:"rounded"};
+const PRESETS={cozy:["#62745b","#f5f1e9","#fffdf8"],rose:["#c47791","#f8edf1","#fff9fb"],ocean:["#528c9a","#edf5f6","#fbffff"],mono:["#737373","#f1f1ef","#ffffff"],sunset:["#d58a45","#fbf0df","#fffaf0"],berry:["#9364a8","#f3edf8","#fffaff"],mint:["#578d78","#edf5ef","#fbfff9"],peach:["#d9825f","#fbefe8","#fffaf6"],forest:["#3f7a57","#ecf2ec","#fafffb"],slate:["#5b6f8f","#eef1f5","#fbfcff"],lemon:["#b3922a","#faf5de","#fffdf3"]};
+const LD={preset:"cozy",accent:"#62745b",bg:"#f5f1e9",surface:"#fffdf8",motion:"soft",level:55,bglevel:70,bgfx:"aurora",density:"comfortable",depth:"soft",shape:"rounded"};
 let looks={...LD};try{looks={...LD,...JSON.parse(ls.little_space_looks||"{}")}}catch{}
 if(looks.preset==="cozy"&&looks.accent==="#b47758")Object.assign(looks,{accent:LD.accent,bg:LD.bg,surface:LD.surface});
 const mix=(a,b,t)=>{const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)),x=p(a),y=p(b);return"#"+x.map((c,i)=>Math.round(c+(y[i]-c)*t).toString(16).padStart(2,"0")).join("")};
-const LK={lookPreset:"preset",customAccent:"accent",customBg:"bg",customSurface:"surface",motionStyle:"motion",motionLevel:"level",bgEffect:"bgfx",density:"density",cardDepth:"depth",iconShape:"shape"};
+const LK={lookPreset:"preset",customAccent:"accent",customBg:"bg",customSurface:"surface",motionStyle:"motion",motionLevel:"level",bgLevel:"bglevel",bgEffect:"bgfx",density:"density",cardDepth:"depth",iconShape:"shape"};
 const saveLooks=()=>{try{ls.little_space_looks=JSON.stringify(looks)}catch{}};
 function theme(){const d=document.documentElement,b=document.body,dark=dk(),L=looks,v=(k,x)=>d.style.setProperty(k,x);let ac=L.accent,bg=L.bg,sf=L.surface;
  if(dark){bg=mix("#131513",ac,.07);sf=mix("#1d201d",ac,.1);ac=mix(ac,"#ffffff",.32)}
@@ -621,7 +638,7 @@ function theme(){const d=document.documentElement,b=document.body,dark=dk(),L=lo
  v("--sf2",`rgba(${w},${dark?.08:.08})`);v("--fill",`rgba(${w},.08)`);v("--fill2",`rgba(${w},.14)`);
  v("--bd",dark?"rgba(255,255,255,.12)":"rgba(79,67,50,.11)");v("--sep",dark?"rgba(255,255,255,.12)":"rgba(79,67,50,.12)");
  v("--tx",dark?"#f1eee6":"#302d28");v("--mu",dark?"#b0b4a7":"#7b7266");
- v("--motion-duration",`${4.5-lv/100*3.5}s`);v("--motion-intensity",String(lv/100));
+ v("--motion-duration",`${4.5-lv/100*3.5}s`);v("--motion-intensity",String(lv/100));v("--bgfx-o",String((Number(L.bglevel)||0)/100));
  b.dataset.motion=lv===0?"off":L.motion;b.dataset.bgfx=L.bgfx;b.dataset.density=L.density;b.dataset.depth=L.depth;b.dataset.shape=L.shape;
  document.querySelector("meta[name=theme-color]").content=bg;applyGrid();
  for(const id in LK){const el=document.getElementById(id);if(el)el.value=L[LK[id]]}}
