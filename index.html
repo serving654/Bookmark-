@@ -1057,6 +1057,57 @@ body[data-lite="1"]{animation:none!important}
 body[data-lite="1"] #bub{display:none}
 body[data-lite="1"] main.sw{animation-name:pFade!important;animation-duration:.3s!important}
 @media(prefers-reduced-motion:reduce){html:not([data-rm=ignore]) :is(.card,.ic,.col,.pin,.wrow,main.sw,main.intro){animation:none!important}html:not([data-rm=ignore]) .ic::before{animation:none!important}}
+
+/* ---- Backdrop browser ---- */
+#sdlg .bgnav{display:grid;grid-template-columns:44px 1fr 44px;gap:8px;margin-top:8px}
+#sdlg .bgnav button{min-height:48px;border-radius:12px;background:var(--fill);color:var(--tx);font-weight:600;font-size:calc(20px*var(--ts,1));line-height:1}
+#sdlg .bgnav .bgname{display:grid;gap:1px;align-content:center;min-width:0;padding:4px 10px;background:var(--sf);border:1px solid var(--bd);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+#sdlg .bgname b{font-size:calc(14px*var(--ts,1));font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#sdlg .bgname small{font-size:calc(11px*var(--ts,1));font-weight:500;color:var(--mu)}
+#bgo{position:fixed;inset:0;z-index:40;touch-action:none;background:transparent}
+#bgb{position:fixed;left:0;right:0;margin:0 auto;bottom:calc(18px + env(safe-area-inset-bottom));width:min(94vw,440px);z-index:50;padding:12px;border-radius:24px;background:color-mix(in srgb,var(--sf) 90%,transparent);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);box-shadow:0 0 0 .5px var(--bd),0 14px 38px rgba(0,0,0,.28);display:grid;gap:10px}
+#bgb .r1{display:grid;grid-template-columns:48px 1fr 48px;align-items:center;gap:8px}
+#bgb .r1 button{height:46px;border-radius:14px;background:var(--fill);font-size:24px;line-height:1;color:var(--tx)}
+#bgb .r1 button:active{background:var(--fill2)}
+#bgb .nm{text-align:center;min-width:0}
+#bgb .nm b{display:block;font-size:calc(15px*var(--ts,1));white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#bgb .nm small{color:var(--mu);font-size:calc(12px*var(--ts,1))}
+#bgb .r2{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+#bgb .r2 .btn{min-height:40px;font-size:calc(13px*var(--ts,1));padding:0 6px}
+.top{transition:opacity .25s}
+body.browsing :is(.top,.fab){opacity:0;pointer-events:none}
+body.browsing.hideicons main{opacity:0;transition:opacity .25s}
+#bgb .r2:has(.btn[hidden]){grid-template-columns:1fr 1fr}
+
+/* ================= Header search, consistent sizing, scrollable settings tabs ================= */
+header{min-width:0}
+header .sbox{display:none;flex:1;min-width:0;align-items:center;gap:8px;height:var(--hh,41px);padding:0 6px 0 14px;background:var(--sf);border:1px solid var(--bd);border-radius:15px}
+header.searching .sbox{display:flex;animation:sboxIn .22s cubic-bezier(.22,1,.36,1)}
+header.searching>:not(.sbox){display:none}
+@keyframes sboxIn{from{opacity:0;transform:scale(.97)}}
+.sbox>svg{width:18px;height:18px;fill:none;stroke:var(--mu);stroke-width:2;stroke-linecap:round;flex:none}
+.sbox input{flex:1;min-width:0;background:none;border:0;outline:0;color:var(--tx);font-size:max(16px,calc(15px*var(--ts,1)))}
+.sbox small{color:var(--mu);font-size:calc(12px*var(--ts,1));font-variant-numeric:tabular-nums;flex:none}
+.sbox button{width:34px;height:34px;flex:none;border-radius:50%;display:grid;place-items:center;color:var(--mu)}
+.sbox button svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.sbox button:active{background:var(--fill)}
+body{--tf:max(calc(13.5px*min(var(--ts,1),1)),min(calc(13.5px*var(--ts,1)),calc(13.5px + (100vw - 332px)*.054)))}
+header .mswitch{flex:0 1 auto;min-width:0;max-width:100%;overflow:hidden;margin-left:auto;grid-auto-columns:minmax(0,1fr)}
+.mswitch button{min-width:0;overflow:hidden;white-space:nowrap;font-size:var(--tf)!important;padding:0 clamp(8px,calc(12px*var(--us,1)),14px)}
+#tags .chip,body[data-tsize] #tags .chip,body[data-tsize=small] #tags .chip,body[data-tsize=medium] #tags .chip,body[data-tsize=large] #tags .chip{height:var(--ph);min-height:var(--ph);max-height:var(--ph);padding:0 14px;font-size:var(--tf)!important;font-weight:600;display:inline-flex;align-items:center}
+body[data-tabs=pills] #tags .chip{border-radius:12px}
+#sdlg .atabs{display:flex;overflow-x:auto;overflow-y:hidden;gap:2px;scrollbar-width:none;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+#sdlg .atabs::-webkit-scrollbar{display:none}
+#sdlg .atabs button{flex:1 0 auto;padding:0 13px;font-size:calc(13px*min(var(--ts,1),1));scroll-snap-align:center}
+#sdlg .bgnav .bgname{display:flex;align-items:center;justify-content:center;gap:8px;min-width:0;padding:4px 12px}
+#sdlg .bgname::after{content:"⤢";color:var(--mu);font-size:15px}
+#cdlg .err{min-height:0;margin-top:6px}
+#cdlg #cai{margin-top:12px}
+
+/* ---- Bookmarks / Saved switch: each side sizes to its own label ---- */
+header .mswitch{display:inline-flex;align-items:stretch;grid-auto-columns:unset}
+header .mswitch button{flex:0 1 auto;display:flex;align-items:center;justify-content:center;padding:0 clamp(14px,calc(17px*var(--us,1)),20px)}
+header .mswitch::before,header .mswitch[data-m=watch]::before{left:3px;width:var(--pw,50%);transform:translateX(var(--px,0));transition:transform .35s var(--sp,cubic-bezier(.3,1.3,.5,1)),width .35s var(--sp,cubic-bezier(.3,1.3,.5,1))}
 </style>
 </head>
 <body>
@@ -1064,9 +1115,10 @@ body[data-lite="1"] main.sw{animation-name:pFade!important;animation-duration:.3
 <div class="top">
 <header>
  <div class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5.5"/></svg></div>
- <div hidden><input id="q" type="search" tabindex="-1" aria-hidden="true"><small id="cnt"></small></div>
  <div class="mswitch" id="modes" role="tablist" aria-label="Switch between bookmarks and saved" data-m="books"><button type="button" role="tab" data-mode="books">Bookmarks</button><button type="button" role="tab" data-mode="watch">Saved<b id="wc"></b></button></div>
+ <button class="ib" id="sbtn" type="button" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button>
  <button class="ib" id="cfg" aria-label="Settings"><svg viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg></button>
+ <div class="sbox"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><input id="q" type="search" placeholder="Search bookmarks" aria-label="Search" autocomplete="off" enterkeyhint="search"><small id="cnt"></small><button type="button" id="sclose" aria-label="Close search"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
 </header>
 <nav class="tabs" id="tags" aria-label="Filter by category"></nav>
 </div>
@@ -1102,7 +1154,7 @@ body[data-lite="1"] main.sw{animation-name:pFade!important;animation-duration:.3
 </form></dialog>
 
 <dialog id="wdlg"><form id="wf" autocomplete="off">
- <h3 id="wdt">Add to watchlist</h3>
+ <h3 id="wdt">Add to Saved</h3>
  <label for="wu">Link</label><input id="wu" type="text" inputmode="url" autocapitalize="off" placeholder="example.com/article" required>
  <label for="wt">Title</label><input id="wt" maxlength="120" placeholder="Optional. Uses the website name if empty">
  <label for="ww">Why I saved it</label><textarea id="ww" maxlength="600" rows="3" placeholder="What caught my attention?"></textarea>
@@ -1126,7 +1178,7 @@ body[data-lite="1"] main.sw{animation-name:pFade!important;animation-duration:.3
 </dialog>
 
 <dialog id="sdlg"><div class="stop"><div class="grab" id="grab" role="separator" aria-orientation="horizontal" aria-label="Drag to resize settings" tabindex="0"></div>
- <div class="shead"><h3 tabindex="-1" autofocus>Settings <small>applies instantly</small></h3><button class="btn p" id="x2" type="button">Done</button></div>
+ <div class="shead"><h3 tabindex="-1" autofocus>Settings</h3><button class="btn p" id="x2" type="button">Done</button></div>
  <div class="seg atabs" id="aTabs" role="tablist" aria-label="Settings sections"><button type="button" role="tab" data-t="colors">Colors</button><button type="button" role="tab" data-t="page">Layout</button><button type="button" role="tab" data-t="icons">Icons</button><button type="button" role="tab" data-t="text">Text</button><button type="button" role="tab" data-t="motion">Motion</button><button type="button" role="tab" data-t="tabs">Tabs</button><button type="button" role="tab" data-t="data">Data</button></div></div>
  <div class="apanel" data-t="colors" role="tabpanel"><div class="pal" id="swatches" role="group" aria-label="Color theme"></div><select id="lookPreset" hidden aria-hidden="true" tabindex="-1"><option value="cozy">Cozy Garden</option><option value="rose">Rosewater</option><option value="ocean">Quiet Ocean</option><option value="mono">Soft Monochrome</option><option value="sunset">Golden Hour</option><option value="berry">Berry Milk</option><option value="mint">Mint &amp; Cream</option><option value="custom">Custom colors</option></select><div class="fg"><div class="f" data-seg><b>Light or dark</b><select id="c-theme"><option value="auto">Auto</option><option value="light">Light</option><option value="dark">Dark</option></select></div><div class="f" data-seg><b>Dark style</b><select id="darkStyle"><option value="soft">Soft</option><option value="black">True black</option></select></div><div class="f w2"><b>Your own colors</b><div class="cols3"><label class="cl"><input id="customAccent" type="color" value="#62745b"><span>Accent</span></label><label class="cl"><input id="customBg" type="color" value="#f5f1e9"><span>Background</span></label><label class="cl"><input id="customSurface" type="color" value="#fffdf8"><span>Cards</span></label></div></div></div></div>
  <div class="apanel" data-t="page" role="tabpanel" hidden><div class="fg"><div class="f" data-seg><b>Layout</b><select id="c-view"><option value="grid">Grid</option><option value="list">List</option></select></div><div class="f" data-seg><b>List style</b><select id="listStyle"><option value="cards">Cards</option><option value="plain">Plain</option></select></div><div class="f" data-seg><b>Home screen</b><select id="grpSel"><option value="on">Grouped</option><option value="off">One list</option></select></div><div class="f"><b>Sort by</b><select id="c-sort"><option value="manual">Custom order</option><option value="recent">Newest first</option><option value="popular">Most used</option><option value="az">A–Z</option></select></div><div class="f"><b>Icons per row</b><select id="c-cols"><option value="0">Auto</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="8">8</option></select></div><div class="f" data-seg><b>Spacing</b><select id="density"><option value="compact">Tight</option><option value="comfortable">Normal</option><option value="airy">Roomy</option></select></div><div class="f r"><b><span>Row spacing</span><output id="v-gap"></output></b><input id="c-gap" type="range" min="8" max="40"></div><div class="f" data-seg><b>Page width</b><select id="layoutWidth"><option value="narrow">Narrow</option><option value="normal">Normal</option><option value="wide">Wide</option></select></div><div class="f" data-seg><b>Top bar</b><select id="headerStyle"><option value="blur">Frosted</option><option value="solid">Solid</option><option value="clear">Clear</option></select></div><div class="f" data-seg><b>Header position</b><select id="headerPos"><option value="bottom">Bottom</option><option value="top">Top</option></select></div><div class="f" data-seg><b>Add button</b><select id="fabPos"><option value="left">Left</option><option value="center">Center</option><option value="right">Right</option></select></div><div class="f" data-seg><b>Category titles</b><select id="sectionHeads"><option value="show">Show</option><option value="hide">Hide</option></select></div></div></div>
@@ -1136,50 +1188,46 @@ body[data-lite="1"] main.sw{animation-name:pFade!important;animation-duration:.3
 <div class="f r" id="rowRad"><b><span>Corners</span><output id="v-rad"></output></b><input id="c-rad" type="range" min="0" max="50"></div>
 <div class="f w2" data-seg><b>Shape</b><select id="iconShape"><option value="rounded">Rounded</option><option value="circle">Circle</option><option value="squircle">Squircle</option><option value="square">Square</option></select></div>
 <div class="mgh">Colour</div>
-<div class="f w2"><b>Icon colors</b><select id="ictone"><option value="vivid">Vivid (original)</option><option value="soft">Soft (muted)</option><option value="pastel">Pastel tiles</option><option value="mono">Mono (black &amp; white)</option><option value="accent">Tinted (your accent)</option><option value="glass">Glass (see-through tiles)</option></select></div>
+<div class="f w2"><b>Icon colors</b><select id="ictone"><option value="vivid">Original</option><option value="soft">Muted</option><option value="pastel">Pastel</option><option value="mono">Monochrome</option><option value="accent">Accent tint</option><option value="glass">Translucent</option></select></div>
 <div class="mgh">Outline</div>
-<div class="f w2"><b>Outline style</b><select id="iconRing"><optgroup label="Lines"><option value="soft">Soft (default)</option><option value="none">None</option><option value="accent">Accent line</option><option value="double">Double line</option><option value="gradient">Gradient edge</option><option value="stitch">Stitched patch</option></optgroup><optgroup label="Glow"><option value="halo">Soft halo</option><option value="glow">Glow (breathing)</option><option value="neon">Neon</option><option value="pulse">Ripple pulse</option><option value="lifted">Lifted glow</option></optgroup><optgroup label="Spinning"><option value="spin">Comet ring</option><option value="aurora">Aurora ring</option><option value="rainbow">Rainbow</option><option value="holo">Holographic</option><option value="dash">Dashed orbit</option></optgroup><optgroup label="Metal &amp; finish"><option value="gold">Gold foil</option><option value="silver">Silver chrome</option><option value="rose">Rose gold</option><option value="glassedge">Glass edge</option><option value="bevel">3D bevel</option><option value="frame">Photo frame</option><option value="pearl">Pearls</option><option value="candy">Candy stripe</option></optgroup></select></div>
+<div class="f w2"><b>Outline style</b><select id="iconRing"><optgroup label="Lines"><option value="soft">Soft</option><option value="none">None</option><option value="accent">Accent line</option><option value="double">Double line</option><option value="gradient">Gradient edge</option><option value="stitch">Stitched patch</option></optgroup><optgroup label="Glow"><option value="halo">Soft halo</option><option value="glow">Glow</option><option value="neon">Neon</option><option value="pulse">Ripple pulse</option><option value="lifted">Lifted glow</option></optgroup><optgroup label="Spinning"><option value="spin">Comet ring</option><option value="aurora">Aurora ring</option><option value="rainbow">Rainbow</option><option value="holo">Holographic</option><option value="dash">Dashed orbit</option></optgroup><optgroup label="Metal &amp; finish"><option value="gold">Gold foil</option><option value="silver">Silver chrome</option><option value="rose">Rose gold</option><option value="glassedge">Glass edge</option><option value="bevel">3D bevel</option><option value="frame">Photo frame</option><option value="pearl">Pearls</option><option value="candy">Candy stripe</option></optgroup></select></div>
 <div class="f w2" data-seg><b>Outline thickness</b><select id="ringW"><option value="thin">Thin</option><option value="medium">Medium</option><option value="bold">Bold</option></select></div>
 <div class="mgh">Depth &amp; markers</div>
 <div class="f w2" data-seg><b>Icon shadow</b><select id="cardDepth"><option value="soft">Soft</option><option value="flat">Flat</option><option value="lifted">Lifted</option></select></div>
 <div class="f w2" data-seg><b>Pinned marker</b><select id="pinStyle"><option value="badge">Star</option><option value="ring">Ring</option><option value="hidden">None</option></select></div>
 </div></div>
  <div class="apanel" data-t="text" role="tabpanel" hidden><div class="fg"><div class="f"><b>App font</b><select id="c-ff"><option value="1">Apple / system</option><option value="4">Inter</option><option value="0">Bricolage</option><option value="5">Poppins</option><option value="6">Nunito</option><option value="7">DM Sans</option><option value="8">Space Grotesk</option><option value="10">Rounded</option><option value="11">Trebuchet</option><option value="12">Verdana</option><option value="2">Georgia (serif)</option><option value="9">Lora (serif)</option><option value="13">Palatino (serif)</option><option value="3">Mono</option></select></div><div class="f"><b>Headings</b><select id="c-hf"><option value="same">Same as app</option><option value="1">Apple / system</option><option value="4">Inter</option><option value="0">Bricolage</option><option value="5">Poppins</option><option value="6">Nunito</option><option value="7">DM Sans</option><option value="8">Space Grotesk</option><option value="10">Rounded</option><option value="11">Trebuchet</option><option value="12">Verdana</option><option value="2">Georgia (serif)</option><option value="9">Lora (serif)</option><option value="13">Palatino (serif)</option><option value="3">Mono</option></select></div><div class="f r"><b><span>App text size</span><output id="v-ts"></output></b><input id="c-ts" type="range" min="60" max="150" step="5"></div><div class="f r"><b><span>Name size</span><output id="v-fs"></output></b><input id="c-fs" type="range" min="9" max="22"></div><div class="f"><b>Names shown</b><select id="c-lines"><option value="0">Hidden</option><option value="1">1 line</option><option value="2">2 lines</option><option value="3">3 lines</option></select></div><div class="f" data-seg><b>Show website</b><select id="c-host"><option value="0">Hidden</option><option value="1">Shown</option></select></div><div class="f w2" data-seg><b>Name style</b><select id="labelWeight"><option value="regular">Regular</option><option value="medium">Medium</option><option value="bold">Bold</option></select></div></div></div>
- <div class="apanel" data-t="motion" role="tabpanel" hidden><div class="rmb" id="rmBanner" hidden><span>Your phone has “reduce motion” on, so animations are paused.</span><button type="button" id="rmPlay">Play anyway</button></div><div class="fg">
-<div class="f w2"><b>Quick style</b><div class="mpg" role="radiogroup" aria-label="Quick style"><div class="mph">Calm</div><button type="button" role="radio" data-p="calm"><i>🍃</i>Calm</button><button type="button" role="radio" data-p="zen"><i>🪷</i>Zen</button><button type="button" role="radio" data-p="dreamy"><i>☁️</i>Dreamy</button><button type="button" role="radio" data-p="breeze"><i>🌿</i>Breeze</button><div class="mph">Playful</div><button type="button" role="radio" data-p="lively"><i>🎈</i>Lively</button><button type="button" role="radio" data-p="bounce"><i>🏀</i>Bounce</button><button type="button" role="radio" data-p="candy"><i>🍬</i>Candy</button><button type="button" role="radio" data-p="spark"><i>✨</i>Spark</button><div class="mph">Elegant</div><button type="button" role="radio" data-p="silk"><i>🕊️</i>Silk</button><button type="button" role="radio" data-p="glass"><i>🔮</i>Glass</button><button type="button" role="radio" data-p="noir"><i>🌑</i>Noir</button><button type="button" role="radio" data-p="royal"><i>👑</i>Royal</button><div class="mph">Everyday</div><button type="button" role="radio" data-p="balanced"><i>⚖️</i>Balanced</button><button type="button" role="radio" data-p="night"><i>🌙</i>Night</button><button type="button" role="radio" data-p="quiet"><i>🤍</i>Quiet</button><button type="button" role="radio" data-p="snappy"><i>⚡</i>Snappy</button><button type="button" role="radio" data-p="cyber"><i>🛰️</i>Cyber</button><button type="button" role="radio" data-p="off"><i>⏸️</i>Off</button></div></div>
-<div class="mgh">Overall</div>
+ <div class="apanel" data-t="motion" role="tabpanel" hidden><div class="rmb" id="rmBanner" hidden><span>Reduced motion is on, so animations are paused.</span><button type="button" id="rmPlay">Play anyway</button></div><div class="fg">
+<div class="mgh">General</div>
 <div class="f r"><b><span>Intensity</span><output id="v-lvl"></output></b><input id="motionLevel" type="range" min="0" max="100"></div>
 <div class="f r"><b><span>Speed</span><output id="v-spd"></output></b><input id="motionSpeed" type="range" min="50" max="200" step="5"></div>
 <div class="mgh">Background</div>
-<div class="f w2"><b>Animated background</b><div class="mpg amb" id="ambPick" role="radiogroup" aria-label="Animated background"><div class="mph">Scenes</div><button type="button" role="radio" data-amb="ocean"><i>🌊</i>Ocean</button><button type="button" role="radio" data-amb="space"><i>🚀</i>Space</button><button type="button" role="radio" data-amb="pond"><i>🐸</i>Pond</button><button type="button" role="radio" data-amb="forest"><i>🌲</i>Forest</button><button type="button" role="radio" data-amb="rain"><i>🌧️</i>Rain</button><button type="button" role="radio" data-amb="desert"><i>🐪</i>Desert</button><button type="button" role="radio" data-amb="arctic"><i>🐧</i>Arctic</button><button type="button" role="radio" data-amb="sakura"><i>🌸</i>Sakura</button><button type="button" role="radio" data-amb="city"><i>🏙️</i>City</button><button type="button" role="radio" data-amb="seasons"><i>🍂</i>Seasons</button><div class="mph">Effects</div><button type="button" role="radio" data-amb="off"><i>⏸️</i>Off</button><button type="button" role="radio" data-amb="aurora"><i>🌌</i>Aurora</button><button type="button" role="radio" data-amb="fireflies"><i>✨</i>Fireflies</button><button type="button" role="radio" data-amb="net"><i>🕸️</i>Network</button><button type="button" role="radio" data-amb="orbs"><i>🔮</i>Orbs</button><button type="button" role="radio" data-amb="waves"><i>〰️</i>Waves</button><button type="button" role="radio" data-amb="stars"><i>⭐</i>Stars</button><button type="button" role="radio" data-amb="bubbles"><i>🫧</i>Bubbles</button><select id="ambient" hidden aria-hidden="true" tabindex="-1"><option value="ocean">Ocean</option><option value="space">Space</option><option value="pond">Pond</option><option value="forest">Forest</option><option value="rain">Rain</option><option value="desert">Desert</option><option value="arctic">Arctic</option><option value="sakura">Sakura</option><option value="city">City</option><option value="seasons">Seasons</option><option value="off">Off</option><option value="aurora">Aurora</option><option value="fireflies">Fireflies</option><option value="net">Network</option><option value="orbs">Orbs</option><option value="waves">Waves</option><option value="stars">Stars</option><option value="bubbles">Bubbles</option></select></div></div>
-<div class="f w2"><b>Still backdrop (under the animation)</b><select id="bgEffect"><optgroup label="Soft (uses your accent)"><option value="aurora">Soft aurora</option><option value="glow">Ambient glow</option><option value="wash">Gradient wash</option><option value="mesh">Mesh gradient</option><option value="spotlight">Spotlight</option><option value="haze">Rainbow haze</option></optgroup><optgroup label="Scenery (own colours)"><option value="sunset">Sunset sky</option><option value="midnight">Midnight sky</option><option value="oceanbg">Ocean depth</option><option value="forestbg">Forest mist</option><option value="candy">Candy pastel</option></optgroup><optgroup label="Illustrated scenes (still)"><option value="sc-mountains">Mountain dusk</option><option value="sc-lake">Moonlit lake</option><option value="sc-neon">Neon sunset</option><option value="sc-dunes">Desert sunset</option><option value="sc-aurora">Northern lights</option><option value="sc-galaxy">Galaxy horizon</option><option value="sc-hills">Green hills</option><option value="sc-sea">Sunrise sea</option></optgroup><optgroup label="Patterns"><option value="grain">Paper texture</option><option value="dots">Dot grid</option><option value="grid">Blueprint grid</option><option value="lines">Diagonal lines</option><option value="waves">Soft waves</option><option value="starsbg">Starry dots</option></optgroup><option value="plain">Plain</option></select></div>
-<div class="f r"><b><span>Backdrop strength</span><output id="v-bgs"></output></b><input id="bgStrength" type="range" min="20" max="100" step="5"></div>
+<div class="f w2"><b>Wallpaper</b><select id="bgEffect" hidden aria-hidden="true" tabindex="-1"><optgroup label="Accent"><option value="aurora">Aurora</option><option value="glow">Glow</option><option value="wash">Wash</option><option value="mesh">Mesh</option><option value="spotlight">Spotlight</option><option value="haze">Spectrum</option></optgroup><optgroup label="Colour"><option value="sunset">Sunset</option><option value="midnight">Midnight</option><option value="oceanbg">Ocean</option><option value="forestbg">Forest</option><option value="candy">Pastel</option></optgroup><optgroup label="Illustrations"><option value="sc-mountains">Mountain dusk</option><option value="sc-lake">Moonlit lake</option><option value="sc-neon">Neon sunset</option><option value="sc-dunes">Desert sunset</option><option value="sc-aurora">Northern lights</option><option value="sc-galaxy">Galaxy horizon</option><option value="sc-hills">Green hills</option><option value="sc-sea">Sunrise sea</option></optgroup><optgroup label="Patterns"><option value="grain">Paper</option><option value="dots">Dots</option><option value="grid">Grid</option><option value="lines">Lines</option><option value="waves">Waves</option><option value="starsbg">Stars</option></optgroup><option value="plain">None</option></select></div>
+<div class="f r w2"><b><span>Wallpaper opacity</span><output id="v-bgs"></output></b><input id="bgStrength" type="range" min="20" max="100" step="5"></div>
+<div class="f w2"><b>Effects overlay</b><select id="ambient" hidden aria-hidden="true" tabindex="-1"><option value="off">None</option><optgroup label="Scenes"><option value="ocean">Ocean</option><option value="space">Space</option><option value="pond">Pond</option><option value="forest">Forest</option><option value="rain">Rain</option><option value="desert">Desert</option><option value="arctic">Arctic</option><option value="sakura">Sakura</option><option value="city">City</option><option value="seasons">Seasons</option></optgroup><optgroup label="Ambient"><option value="aurora">Aurora</option><option value="fireflies">Fireflies</option><option value="net">Network</option><option value="orbs">Orbs</option><option value="waves">Waves</option><option value="stars">Stars</option><option value="bubbles">Bubbles</option></optgroup></select></div>
 <div class="mgh">Icons</div>
-<div class="f"><b>Icon motion</b><select id="motionStyle"><option value="none">None</option><option value="alive">Living (float + shine)</option><option value="bubbly">Bubbly (float &amp; bubbles)</option><option value="float">Floating</option><option value="breathe">Breathing</option><option value="jelly">Jelly</option><option value="drift">Drift (figure-8)</option><option value="orbit">Orbit</option><option value="sway">Sway (pendulum)</option><option value="hop">Hop (playful)</option><option value="glow">Soft light</option><option value="shimmer">Shimmer sweep</option><option value="pulse">Heartbeat</option></select></div>
-<div class="f"><b>Touch reaction</b><select id="iconReact"><option value="magnet">Magnetic</option><option value="repel">Water push</option><option value="depth">Depth tilt</option><option value="off">Off</option></select></div>
+<div class="f"><b>Icon motion</b><select id="motionStyle"><option value="none">None</option><option value="alive">Float and shine</option><option value="bubbly">Bubbles</option><option value="float">Float</option><option value="breathe">Breathe</option><option value="jelly">Jelly</option><option value="drift">Drift</option><option value="orbit">Orbit</option><option value="sway">Sway</option><option value="hop">Hop</option><option value="glow">Glow</option><option value="shimmer">Shimmer</option><option value="pulse">Pulse</option></select></div>
+<div class="f"><b>Touch reaction</b><select id="iconReact"><option value="magnet">Magnetic</option><option value="repel">Repel</option><option value="depth">Tilt</option><option value="off">None</option></select></div>
 <div class="mgh">Transitions</div>
-<div class="f"><b>Page switch</b><select id="tabSwitch"><optgroup label="Whole page"><option value="slide">Slide</option><option value="fade">Fade up</option><option value="zoom">Zoom</option><option value="flip">Glide</option><option value="blur">Focus</option><option value="curtain">Drop down</option><option value="rise">Rise &amp; settle</option><option value="swirl">Swirl</option></optgroup><optgroup label="Icons arrive"><option value="wave">Ripple wave</option><option value="ic-scatter">Scatter &amp; settle</option><option value="ic-vortex">Vortex</option><option value="ic-drop">Drop &amp; bounce</option><option value="ic-swing">Swing in</option><option value="ic-flip3d">Card flip</option><option value="ic-pop">Spin pop</option><option value="ic-spring">Bouncy</option><option value="ic-cascade">Cascade</option><option value="ic-zoom">Zoom in</option><option value="ic-blur">Soft focus</option><option value="ic-tilt">Tilt in</option><option value="ic-soft">Soft fade</option></optgroup><option value="none">None</option></select></div>
-<div class="f"><b>Tab bar</b><select id="tabAnim"><option value="slide">Slide in</option><option value="pop">Pop</option><option value="drop">Drop</option><option value="fade">Fade</option><option value="off">Off</option></select></div>
-<div class="f w2" data-seg><b>App open &amp; return animation</b><select id="launchAnim"><option value="auto">Auto</option><option value="on">Always</option><option value="off">Off</option></select></div>
-<div class="mgh">Accessibility, performance &amp; preview</div>
-<div class="f w2" data-seg><b>If phone has “reduce motion”</b><select id="motionSystem"><option value="follow">Follow my phone</option><option value="ignore">Always play</option></select></div>
+<div class="f"><b>Page transition</b><select id="tabSwitch"><optgroup label="Page"><option value="slide">Slide</option><option value="fade">Fade</option><option value="zoom">Zoom</option><option value="flip">Glide</option><option value="blur">Focus</option><option value="curtain">Drop</option><option value="rise">Rise</option><option value="swirl">Swirl</option></optgroup><optgroup label="Icons"><option value="wave">Ripple</option><option value="ic-scatter">Scatter</option><option value="ic-vortex">Vortex</option><option value="ic-drop">Drop bounce</option><option value="ic-swing">Swing</option><option value="ic-flip3d">Flip</option><option value="ic-pop">Pop</option><option value="ic-spring">Spring</option><option value="ic-cascade">Cascade</option><option value="ic-zoom">Grow</option><option value="ic-blur">Soft focus</option><option value="ic-tilt">Tilt</option><option value="ic-soft">Gentle</option></optgroup><option value="none">None</option></select></div>
+<div class="f"><b>Tab bar animation</b><select id="tabAnim"><option value="slide">Slide</option><option value="pop">Pop</option><option value="drop">Drop</option><option value="fade">Fade</option><option value="off">None</option></select></div>
+<div class="f w2" data-seg><b>App launch animation</b><select id="launchAnim"><option value="auto">Auto</option><option value="on">On</option><option value="off">Off</option></select></div>
+<div class="mgh">Accessibility &amp; performance</div>
+<div class="f w2" data-seg><b>Reduced motion</b><select id="motionSystem"><option value="follow">Follow system</option><option value="ignore">Always animate</option></select></div>
 <div class="f w2" data-seg><b>Performance</b><select id="perfMode"><option value="auto">Auto</option><option value="lite">Light</option><option value="full">Full</option></select></div>
-<div class="f"><button type="button" class="btn p" id="playAnim">▶ Preview</button></div>
-<div class="f"><button type="button" class="btn" id="resetMotion">Reset motion</button></div>
+<div class="f w2"><button type="button" class="btn" id="resetMotion">Reset motion</button></div>
 </div></div>
- <div class="apanel" data-t="tabs" role="tabpanel" hidden><div class="fg"><div class="f" data-seg><b>Tab style</b><select id="tabStyle"><option value="pills">Pills</option><option value="underline">Line</option><option value="minimal">Plain</option></select></div><div class="f" data-seg><b>Tab size</b><select id="tabSize"><option value="small">Small</option><option value="medium">Mid</option><option value="large">Large</option></select></div><div class="f" data-seg><b>Item counts</b><select id="tabCounts"><option value="show">Show</option><option value="hide">Hide</option></select></div><div class="f" data-seg><b>Open links in</b><select id="c-open"><option value="new">New tab</option><option value="same">Same tab</option></select></div><div class="f" data-seg><b>App opens on</b><select id="c-start"><option value="first">First tab</option><option value="last">Last used</option></select></div><div class="f"><b>Categories</b><button class="btn" id="tord" type="button">Reorder…</button></div></div></div>
- <div class="apanel" data-t="data" role="tabpanel" hidden><div class="fg"><div class="f w2"><button class="btn p" id="sync" type="button">Sync across devices</button></div><div class="f"><button class="btn" id="conn" type="button">Database</button></div><div class="f"><button class="btn" id="imp" type="button">Import bookmarks</button></div><div class="f"><button class="btn" id="exp" type="button">Export backup</button></div><div class="f"><button class="btn" id="resetAppearance" type="button">Reset appearance</button></div><p class="tip w2">Hold an icon to move it, or let go to open its menu. Swipe sideways to change category. Hold a category to delete it. On a computer: drag to move, right-click for menus.</p></div></div>
- <input type="file" id="file" accept=".html,.htm" hidden>
+ <div class="apanel" data-t="tabs" role="tabpanel" hidden><div class="fg"><div class="f" data-seg><b>Tab style</b><select id="tabStyle"><option value="pills">Pills</option><option value="underline">Line</option><option value="minimal">Plain</option></select></div><div class="f" data-seg><b>Item counts</b><select id="tabCounts"><option value="show">Show</option><option value="hide">Hide</option></select></div><div class="f" data-seg><b>Open links in</b><select id="c-open"><option value="new">New tab</option><option value="same">Same tab</option></select></div><div class="f" data-seg><b>App opens on</b><select id="c-start"><option value="first">First tab</option><option value="last">Last used</option></select></div><div class="f"><b>Categories</b><button class="btn" id="tord" type="button">Reorder…</button></div></div></div>
+ <div class="apanel" data-t="data" role="tabpanel" hidden><div class="fg"><div class="f w2"><button class="btn p" id="sync" type="button">Sync</button></div><div class="f"><button class="btn" id="conn" type="button">Database</button></div><div class="f"><button class="btn" id="imp" type="button">Import</button></div><div class="f"><button class="btn" id="exp" type="button">Export</button></div><div class="f"><button class="btn" id="resetAppearance" type="button">Reset appearance</button></div><p class="tip w2">Version 2.2 · build J</p></div></div>
+ <input type="file" id="file" accept=".json,.html,.htm,application/json,text/html" hidden>
 </dialog>
 
 <dialog id="cdlg"><form id="cf" autocomplete="off">
- <h3>Connect your database</h3>
- <p class="hint" style="margin-top:6px">Your bookmarks live in your own Supabase project. In Supabase, open Project Settings, then API, and copy these two values.</p>
+ <h3>Database</h3>
  <label for="cu">Project URL</label><input id="cu" type="text" inputmode="url" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="https://xxxx.supabase.co" required>
  <label for="ck">Publishable key</label><input id="ck" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="sb_publishable_..." required>
  <div class="err" id="cerr" role="alert"></div>
- <p class="hint" style="margin-top:0">Use the publishable key. Never paste the secret key.</p>
- <button class="btn" type="button" id="csql" style="width:100%;margin-top:12px">Copy database setup (SQL)</button><button class="btn" type="button" id="cai" style="width:100%;margin-top:8px">Copy AI prompt (for Supabase AI)</button><p class="hint" style="margin-top:8px">First time? Paste that SQL in Supabase, SQL Editor, and press Run.</p>
+ <button class="btn" type="button" id="cai" style="width:100%">Copy setup prompt</button>
  <div class="row"><button class="btn" type="button" id="x3">Cancel</button><button class="btn p" type="submit">Save</button></div>
 </form></dialog>
 <dialog id="ydlg"><form id="yf" autocomplete="off">
@@ -1313,7 +1361,7 @@ let looks={...LD};try{looks={...LD,...JSON.parse(ls.little_space_looks||"{}")}}c
 if(looks.preset==="cozy"&&looks.accent==="#b47758")Object.assign(looks,{accent:LD.accent,bg:LD.bg,surface:LD.surface});
 const mix=(a,b,t)=>{const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)),x=p(a),y=p(b);return"#"+x.map((c,i)=>Math.round(c+(y[i]-c)*t).toString(16).padStart(2,"0")).join("")};
 const hexHue=h=>{const n=parseInt(h.slice(1),16),r=(n>>16)/255,g=(n>>8&255)/255,b=(n&255)/255,mx=Math.max(r,g,b),mn=Math.min(r,g,b),d=mx-mn;if(!d)return 0;const x=mx===r?((g-b)/d)%6:mx===g?(b-r)/d+2:(r-g)/d+4;return Math.round((x*60+360)%360)};
-const LK={lookPreset:"preset",customAccent:"accent",customBg:"bg",customSurface:"surface",motionStyle:"motion",motionLevel:"level",bgEffect:"bgfx",density:"density",cardDepth:"depth",iconShape:"shape",ictone:"ictone",layoutWidth:"width",fabPos:"fab",tabStyle:"tabs",tabCounts:"counts",sectionHeads:"heads",darkStyle:"dark",labelWeight:"lw",pinStyle:"pin",iconRing:"ring",headerStyle:"hdr",tabSize:"tsize",tabAnim:"tanim",tabSwitch:"tsw",motionSpeed:"speed",motionSystem:"rm",headerPos:"bar",listStyle:"lst",ambient:"amb",iconReact:"react",launchAnim:"launch",ringW:"rw",bgStrength:"bgs",perfMode:"perf"};
+const LK={lookPreset:"preset",customAccent:"accent",customBg:"bg",customSurface:"surface",motionStyle:"motion",motionLevel:"level",bgEffect:"bgfx",density:"density",cardDepth:"depth",iconShape:"shape",ictone:"ictone",layoutWidth:"width",fabPos:"fab",tabStyle:"tabs",tabCounts:"counts",sectionHeads:"heads",darkStyle:"dark",labelWeight:"lw",pinStyle:"pin",iconRing:"ring",headerStyle:"hdr",tabAnim:"tanim",tabSwitch:"tsw",motionSpeed:"speed",motionSystem:"rm",headerPos:"bar",listStyle:"lst",ambient:"amb",iconReact:"react",launchAnim:"launch",ringW:"rw",bgStrength:"bgs",perfMode:"perf"};
 const saveLooks=()=>{try{ls.little_space_looks=JSON.stringify(looks)}catch{}cfg.looks={...looks};saveCfg()};
 function theme(){const d=document.documentElement,b=document.body,dark=dk(),L=looks,v=(k,x)=>d.style.setProperty(k,x);{const E=["soft","spring","cascade","zoom","blur","tilt","drop","swing","flip3d","pop","scatter","vortex","wave"];if(E.includes(L.motion)){if(L.motion==="wave")L.tsw="wave";else if(L.motion!=="soft"||L.tsw==="cards")L.tsw="ic-"+L.motion;L.motion="none"}if(L.tsw==="cards")L.tsw="ic-soft";if(L.motion==="off")L.motion="none"}let ac=L.accent,bg=L.bg,sf=L.surface;
  if(dark){const k=L.dark==="black",cu=L.preset==="custom";bg=k?"#000000":(cu?mix("#111211",L.bg,.1):mix("#131513",ac,.07));sf=k?(cu?mix("#0c0c0c",L.surface,.06):mix("#0c0c0c",ac,.08)):(cu?mix("#1b1c1b",L.surface,.09):mix("#1d201d",ac,.1));ac=mix(ac,"#ffffff",.32)}
@@ -1382,7 +1430,7 @@ $("#rimg").onclick=()=>{tmpImg="";$("#fim").value="";pv()};
 /* ---- swipe left/right to change category ---- */
 let sx=0,sy=0,sok=false;
 document.addEventListener("touchstart",e=>{const t=e.touches[0];sx=t.clientX;sy=t.clientY;sok=!e.target.closest("#tags,dialog,input,select,.top")},{passive:true});
-document.addEventListener("touchend",e=>{if(!sok||dg?.on||justDragged||mode==="watch")return;const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.abs(dx)<70||Math.abs(dx)<Math.abs(dy)*1.6)return;const ks=[...document.querySelectorAll("#tags .chip")].map(b=>b.dataset.tag),i=ks.indexOf(tag)+(dx<0?1:-1);if(i<0||i>=ks.length)return;setTag(ks[i])});
+document.addEventListener("touchend",e=>{if(!sok||dg?.on||justDragged||mode==="watch"||document.body.classList.contains("browsing"))return;const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.abs(dx)<70||Math.abs(dx)<Math.abs(dy)*1.6)return;const ks=[...document.querySelectorAll("#tags .chip")].map(b=>b.dataset.tag),i=ks.indexOf(tag)+(dx<0?1:-1);if(i<0||i>=ks.length)return;setTag(ks[i])});
 /* ---- drag to reorder (mouse: drag; touch: press and hold) ---- */
 let dg=null,justDragged=false;
 const canDrag=()=>tag==="all"&&!sel&&!$("#q").value.trim();
@@ -1422,24 +1470,24 @@ function menu(id,el){const b=B.find(x=>x.id===id);if(!b)return;const p=mn.firstC
   else if(a==="pin"){const v=!b.pinned;b.pinned=v;cache();draw();try{await db(`lp_bookmarks?id=eq.${id}`,{m:"PATCH",b:{pinned:v},p:"return=minimal"})}catch(er){b.pinned=!v;cache();draw();toast(er.message)}}
   else if(a==="del"){if(!confirm("Delete this bookmark?"))return;try{await db(`lp_bookmarks?id=eq.${id}`,{m:"DELETE",p:"return=minimal"});B=B.filter(x=>x.id!==id);cache();draw();toast("Deleted")}catch(er){toast(er.message)}}}}
 /* ---- Watchlist: links to come back to, with notes on why and how they help ---- */
-const WMSG="The watchlist needs a one-time database update. Open Settings, Database connection, copy the setup SQL and run it in Supabase.";
+const WMSG="The Saved list needs a database update. Open Settings, Database, and copy the setup prompt.";
 const missingW=e=>/lp_watchlist|schema cache|does not exist|relation|\(404\)/i.test(e.message||"");
 const ago=t=>{const d=(Date.now()-new Date(t))/864e5;return d<1?"today":d<2?"yesterday":d<30?Math.floor(d)+" days ago":new Date(t).toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"})};
-function modesUI(){$("#modes").dataset.m=mode;document.querySelectorAll("#modes [data-mode]").forEach(b=>{const on=b.dataset.mode===mode;b.classList.toggle("on",on);b.setAttribute("aria-selected",on)});const c=W.filter(w=>!w.done).length;$("#wc").textContent=c||"";const w=mode==="watch";$("#q").placeholder=w?"Search watchlist":"Search bookmarks";$("#q").setAttribute("aria-label",w?"Search watchlist":"Search bookmarks");$("#add").setAttribute("aria-label",w?"Add to watchlist":"Add bookmark")}
+function modesUI(){$("#modes").dataset.m=mode;document.querySelectorAll("#modes [data-mode]").forEach(b=>{const on=b.dataset.mode===mode;b.classList.toggle("on",on);b.setAttribute("aria-selected",on)});const c=W.filter(w=>!w.done).length;$("#wc").textContent=c||"";const w=mode==="watch";$("#q").placeholder=w?"Search saved":"Search bookmarks";$("#q").setAttribute("aria-label",w?"Search saved":"Search bookmarks");$("#add").setAttribute("aria-label",w?"Add to Saved":"Add bookmark")}
 function setMode(m){if(m===mode)return;if(sel)selMode(false);mode=m;try{ls.lp_mode=m}catch{}$("#q").value="";swDir=m==="watch"?1:-1;anim=true;draw();scrollTo(0,0)}
 $("#modes").onclick=e=>{const b=e.target.closest("[data-mode]");if(b)setMode(b.dataset.mode)};
-async function loadW(manual){try{W=await db("lp_watchlist?select=*&order=created_at.desc");wErr=""}catch(e){wErr=missingW(e)?"setup":(navigator.onLine?e.message:"")}wBusy=false;cache();if(manual&&!wErr)toast("Watchlist loaded");mode==="watch"?draw():modesUI()}
+async function loadW(manual){try{W=await db("lp_watchlist?select=*&order=created_at.desc");wErr=""}catch(e){wErr=missingW(e)?"setup":(navigator.onLine?e.message:"")}wBusy=false;cache();if(manual&&!wErr)toast("Saved list loaded");mode==="watch"?draw():modesUI()}
 function wvis(){const q=$("#q").value.trim().toLowerCase();return W.filter(w=>(wf==="all"||(wf==="todo"?!w.done:w.done))&&(!q||[w.title,w.url,w.why,w.benefit].some(x=>(x||"").toLowerCase().includes(q)))).sort((a,b)=>(a.done-b.done)||b.created_at.localeCompare(a.created_at))}
 function wrow(w,i){const u=esc(w.url);return `<article class="wrow${w.done?" done":""}" style="--i:${i}" data-id="${w.id}"><a class="wic" href="${u}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">${icon({url:w.url,title:w.title})}</a><div class="wbody"><a class="wt" href="${u}" target="_blank" rel="noopener noreferrer">${esc(w.title)}</a><div class="wh">${esc(host(w.url))} · ${ago(w.created_at)}</div>${w.why?`<div class="wn"><b>Why I saved it</b><p>${esc(w.why)}</p></div>`:""}${w.benefit?`<div class="wn"><b>How it helps me</b><p>${esc(w.benefit)}</p></div>`:""}</div><div class="wact"><button class="wchk" data-wdone="${w.id}" aria-pressed="${!!w.done}" aria-label="${w.done?"Move back to watch":"Mark as done"}"></button><button class="wmore" data-wmenu="${w.id}" aria-label="More actions for ${esc(w.title)}">⋯</button></div></article>`}
 function drawW(){const m=$("#main"),tb=$("#tags"),n=W.length,td=W.filter(w=>!w.done).length;
  tb.innerHTML=n?[["all","All",n],["todo","To watch",td],["done","Done",n-td]].map(([k,l,c])=>`<button class="chip ${wf===k?"on":""}" data-wf="${k}">${l}<b>${c}</b></button>`).join(""):"";tabWatch(tb);
  m.className="wl";
- if(C.url.startsWith("YOUR_")){m.innerHTML='<div class="empty"><h3>Connect your database</h3>Add your Supabase project URL and key to use the watchlist.<br><button class="cta" data-setup>Set up</button></div>';return}
+ if(C.url.startsWith("YOUR_")){m.innerHTML='<div class="empty"><h3>Connect your database</h3>Add your Supabase project URL and key to use Saved.<br><button class="cta" data-setup>Set up</button></div>';return}
  const v=wvis();$("#cnt").textContent=n?v.length+"/"+n:"";
- if(!n&&wErr==="setup"){m.innerHTML='<div class="empty"><h3>One-time setup needed</h3>The watchlist needs a new table in your database. Copy the setup SQL, run it once in Supabase (SQL Editor), then come back.<br><button class="cta" data-wsql>Copy setup SQL</button><br><button class="btn" data-wretry style="margin:12px auto 0;max-width:210px">I ran it, check again</button></div>';return}
- if(!n&&wErr){m.innerHTML=`<div class="empty"><h3>Couldn't load watchlist</h3>${esc(wErr)}<br><button class="cta" data-wretry>Try again</button></div>`;return}
+ if(!n&&wErr==="setup"){m.innerHTML='<div class="empty"><h3>Database update required</h3>The Saved list needs an additional table. Copy the setup prompt, run it with your Supabase AI, then check again.<br><button class="cta" data-wsql>Copy setup prompt</button><br><button class="btn" data-wretry style="margin:12px auto 0;max-width:210px">Check again</button></div>';return}
+ if(!n&&wErr){m.innerHTML=`<div class="empty"><h3>Couldn't load Saved</h3>${esc(wErr)}<br><button class="cta" data-wretry>Try again</button></div>`;return}
  if(!n&&S&&wBusy){m.innerHTML='<div class="wsk"></div>'.repeat(3);return}
- if(!n){m.innerHTML='<div class="empty"><h3>Your watchlist is empty</h3>Save links you want to come back to, and note why you saved them and how they will help you.<br><button class="cta" data-wadd>Add your first link</button></div>';return}
+ if(!n){m.innerHTML='<div class="empty"><h3>Nothing saved yet</h3>Save links you want to come back to, and note why you saved them and how they will help you.<br><button class="cta" data-wadd>Add your first link</button></div>';return}
  if(!v.length){m.innerHTML='<div class="empty"><h3>No matches</h3>Try a different word or filter.</div>';return}
  m.innerHTML=v.map(wrow).join("");
  if(anim){anim=false;const dir=swDir;swDir=0;if(dir){void m.offsetWidth;m.style.setProperty("--sd",dir);m.classList.add("sw")}if(!dir)m.classList.add("intro");(clearTimeout(window._it),window._it=setTimeout(()=>m.classList.remove("intro"),4500),clearTimeout(window._it2),window._it2=setTimeout(()=>m.classList.remove("sw"),/^ic-|^wave$/.test(looks.tsw)?4200:1400))}}
@@ -1449,9 +1497,9 @@ function wClick(e){const t=e.target;let b;
  else if(t.closest("[data-wadd]"))openW();
  else if(t.closest("[data-wsql]"))copySQL();
  else if(t.closest("[data-wretry]")){wBusy=true;wErr="";draw();loadW(true)}}
-function copySQL(){copyText(SQL,"Setup SQL copied. Run it in Supabase, SQL Editor.","Database setup SQL")}
+function copySQL(){copyText(setupPrompt(),"Setup prompt copied","Setup prompt")}
 async function wToggle(id){const w=W.find(x=>x.id===id);if(!w)return;const v=!w.done;w.done=v;cache();draw();try{await db(`lp_watchlist?id=eq.${id}`,{m:"PATCH",b:{done:v,updated_at:new Date().toISOString()},p:"return=minimal"})}catch(er){w.done=!v;cache();draw();toast(er.message)}}
-async function wDelete(id){if(!confirm("Remove this from your watchlist?"))return;try{await db(`lp_watchlist?id=eq.${id}`,{m:"DELETE",p:"return=minimal"});W=W.filter(x=>x.id!==id);cache();draw();toast("Removed")}catch(er){toast(er.message)}}
+async function wDelete(id){if(!confirm("Remove this item from Saved?"))return;try{await db(`lp_watchlist?id=eq.${id}`,{m:"DELETE",p:"return=minimal"});W=W.filter(x=>x.id!==id);cache();draw();toast("Removed")}catch(er){toast(er.message)}}
 function wmenu(id,el){const w=W.find(x=>x.id===id);if(!w)return;const p=mn.firstChild;navigator.vibrate?.(12);
  p.innerHTML=`<div class="mnh"><b>${esc(w.title)}</b><small>${esc(host(w.url))}</small></div><button data-a="open">Open link</button><button data-a="done">${w.done?"Move back to watch":"Mark as done"}</button><button data-a="copy">Copy link</button><button data-a="edit">Edit notes</button><button data-a="del" class="x">Delete</button>`;
  mna=false;mn.hidden=false;const r=el.getBoundingClientRect(),pw=p.offsetWidth,ph=p.offsetHeight,L=Math.max(10,Math.min(innerWidth-pw-10,r.right-pw));let T=r.bottom+6,up=false;if(T+ph>innerHeight-10){T=Math.max(10,r.top-6-ph);up=true}
@@ -1460,14 +1508,14 @@ function wmenu(id,el){const w=W.find(x=>x.id===id);if(!w)return;const p=mn.first
   if(a==="open")openLink(w.url);else if(a==="done")wToggle(id);else if(a==="edit")openW(id);
   else if(a==="copy"){try{await navigator.clipboard.writeText(w.url);toast("Link copied")}catch{toast("Couldn't copy the link")}}
   else if(a==="del")wDelete(id)}}
-function openW(id=null){if($("#wdlg").open)return;if(C.url.startsWith("YOUR_"))return openSetup();if(!S)return openSync();wEd=id;const w=W.find(x=>x.id===id);$("#wdt").textContent=w?"Edit watchlist item":"Add to watchlist";$("#wu").value=w?.url||"";$("#wt").value=w?.title||"";$("#ww").value=w?.why||"";$("#wb").value=w?.benefit||"";$("#wdel").hidden=!w;$("#werr").textContent="";$("#wdlg").showModal();if(!w)$("#wu").focus()}
+function openW(id=null){if($("#wdlg").open)return;if(C.url.startsWith("YOUR_"))return openSetup();if(!S)return openSync();wEd=id;const w=W.find(x=>x.id===id);$("#wdt").textContent=w?"Edit saved item":"Add to Saved";$("#wu").value=w?.url||"";$("#wt").value=w?.title||"";$("#ww").value=w?.why||"";$("#wb").value=w?.benefit||"";$("#wdel").hidden=!w;$("#werr").textContent="";$("#wdlg").showModal();if(!w)$("#wu").focus()}
 $("#wx").onclick=()=>$("#wdlg").close();
 $("#wdel").onclick=()=>{$("#wdlg").close();wDelete(wEd)};
 $("#wf").onsubmit=async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;try{const url=norm($("#wu").value),title=$("#wt").value.trim()||host(url),why=$("#ww").value.trim(),benefit=$("#wb").value.trim();
  if(wEd){const r=await db(`lp_watchlist?id=eq.${wEd}`,{m:"PATCH",b:{url,title,why,benefit,updated_at:new Date().toISOString()}});W=W.map(x=>x.id===wEd?((r&&r[0])||{...x,url,title,why,benefit}):x)}
  else{const r=await db("lp_watchlist",{m:"POST",b:{url,title,why,benefit}});if(!r||!r[0])throw Error("Couldn't save. Please try again.");W.unshift(r[0])}
- wErr="";cache();draw();$("#wdlg").close();toast("Saved to watchlist")}
- catch(er){$("#werr").textContent=/duplicate|23505/.test(er.message)?"This link is already in your watchlist.":missingW(er)?WMSG:er.message}
+ wErr="";cache();draw();$("#wdlg").close();toast("Saved")}
+ catch(er){$("#werr").textContent=/duplicate|23505/.test(er.message)?"This link is already saved.":missingW(er)?WMSG:er.message}
  btn.disabled=false};
 $("#kx").onclick=()=>$("#kdlg").close();
 $("#kcp").onclick=()=>{const t=$("#kta");t.focus();t.select();t.setSelectionRange(0,t.value.length);try{if(document.execCommand("copy"))toast("Copied")}catch{}};
@@ -1512,7 +1560,6 @@ function playAnim(mode){swDir=mode==="tab"?1:0;anim=true;draw();replayChips()}
 function pvOpen(){$("#sdlg").close();pvb.hidden=false;setTimeout(playAnim,150)}
 const pvb=document.createElement("div");pvb.id="pvb";pvb.hidden=true;pvb.innerHTML='<span>Preview</span><button data-a="re">▶ Replay</button><button data-a="back">Back to settings</button>';document.body.appendChild(pvb);
 pvb.onclick=e=>{const a=e.target.dataset.a;if(a==="re")playAnim();else if(a==="back"){pvb.hidden=true;settingsUI();$("#sdlg").showModal()}};
-$("#playAnim").onclick=pvOpen;
 $("#rmPlay").onclick=()=>{looks.rm="ignore";theme();saveLooks();playAnim()};
 /* ---- tabs: animate chips as they scroll into view ---- */
 let tabObs=null,tabLast=0;
@@ -1540,14 +1587,11 @@ function segSync(){mpSync();document.querySelectorAll("#sdlg .f[data-seg]").forE
 function quickUI(){const g=document.getElementById("grpSel");if(g)g.value=cfg.group===false?"off":"on";segSync()}
 function markQ(){quickUI()}
 /* ---- Motion tab: presets, live values, reset ---- */
-const MP={calm:{amb:"aurora",motion:"float",level:30,speed:80,react:"off",tsw:"fade",tanim:"fade"},zen:{amb:"waves",motion:"breathe",level:35,speed:70,react:"off",tsw:"fade",tanim:"fade"},dreamy:{amb:"orbs",motion:"drift",level:45,speed:80,react:"magnet",tsw:"swirl",tanim:"fade"},breeze:{amb:"aurora",motion:"sway",level:40,speed:90,react:"off",tsw:"slide",tanim:"slide"},lively:{amb:"bubbles",motion:"bubbly",level:85,speed:130,react:"repel",tsw:"wave",tanim:"pop"},bounce:{amb:"off",motion:"hop",level:70,speed:110,react:"magnet",tsw:"ic-spring",tanim:"pop"},candy:{amb:"bubbles",motion:"jelly",level:75,speed:110,react:"repel",tsw:"ic-pop",tanim:"pop"},spark:{amb:"fireflies",motion:"shimmer",level:60,speed:100,react:"magnet",tsw:"ic-zoom",tanim:"pop"},silk:{amb:"aurora",motion:"shimmer",level:45,speed:85,react:"depth",tsw:"slide",tanim:"fade"},glass:{amb:"orbs",motion:"breathe",level:40,speed:85,react:"depth",tsw:"blur",tanim:"fade"},noir:{amb:"stars",motion:"glow",level:45,speed:80,react:"magnet",tsw:"fade",tanim:"fade"},royal:{amb:"net",motion:"orbit",level:50,speed:90,react:"depth",tsw:"rise",tanim:"drop"},balanced:{amb:"aurora",motion:"alive",level:55,speed:100,react:"magnet",tsw:"slide",tanim:"slide"},night:{amb:"fireflies",motion:"glow",level:50,speed:90,react:"magnet",tsw:"blur",tanim:"fade"},quiet:{amb:"off",motion:"float",level:25,speed:70,react:"off",tsw:"fade",tanim:"off"},snappy:{amb:"off",motion:"none",level:50,speed:160,react:"off",tsw:"ic-soft",tanim:"fade"},cyber:{amb:"net",motion:"pulse",level:70,speed:120,react:"magnet",tsw:"ic-scatter",tanim:"slide"},off:{amb:"off",motion:"none",level:0,speed:100,react:"off",tsw:"none",tanim:"off"}};
 const MK=["amb","motion","level","speed","react","tsw","tanim","bgfx","bgs","rm","launch"];
-function mpSync(){document.querySelectorAll("#ambPick button").forEach(b=>{const on=b.dataset.amb===looks.amb;b.classList.toggle("on",on);b.setAttribute("aria-checked",on)});const bq=document.getElementById("v-bgs");if(bq)bq.textContent=(looks.bgs===undefined?100:looks.bgs)+"%";const l=document.getElementById("v-lvl"),p=document.getElementById("v-spd");if(l)l.textContent=+looks.level?looks.level+"%":"Off";if(p)p.textContent=((+looks.speed||100)/100).toFixed(2).replace(/0$/,"")+"×";document.querySelectorAll(".mpg:not(.amb) button").forEach(b=>{const q=MP[b.dataset.p],on=Object.keys(q).every(k=>String(looks[k])===String(q[k]));b.classList.toggle("on",on);b.setAttribute("aria-checked",on)})}
-document.querySelectorAll(".mpg:not(.amb)").forEach(g=>g.onclick=e=>{const b=e.target.closest("button");if(!b)return;const q=MP[b.dataset.p],w=Object.keys(q).length===1;Object.assign(looks,q);if(w&&!+looks.level)looks.level=55;theme();saveLooks();if(!w)playAnim()});
-document.getElementById("ambPick").onclick=e=>{const b=e.target.closest("button");if(!b)return;looks.amb=b.dataset.amb;if(b.dataset.amb!=="off"&&!+looks.level)looks.level=55;theme();saveLooks()};
+function mpSync(){if(window.lpStepSync)window.lpStepSync();const bn=document.getElementById("bgName");if(bn){const o=[...document.getElementById("bgEffect").options].find(x=>x.value===looks.bgfx);bn.textContent=o?o.textContent:"Plain"}document.querySelectorAll("#ambPick button").forEach(b=>{const on=b.dataset.amb===looks.amb;b.classList.toggle("on",on);b.setAttribute("aria-checked",on)});const bq=document.getElementById("v-bgs");if(bq)bq.textContent=(looks.bgs===undefined?100:looks.bgs)+"%";const l=document.getElementById("v-lvl"),p=document.getElementById("v-spd");if(l)l.textContent=+looks.level?looks.level+"%":"Off";if(p)p.textContent=((+looks.speed||100)/100).toFixed(2).replace(/0$/,"")+"×";}
 document.getElementById("resetMotion").onclick=()=>{MK.forEach(k=>looks[k]=LD[k]);theme();saveLooks();playAnim();toast("Motion reset")};
 let aTab="colors";try{aTab=ls.lp_atab||"colors"}catch{}
-function aShow(t){if(!document.querySelector(`.apanel[data-t="${t}"]`))t="colors";aTab=t;try{ls.lp_atab=t}catch{}document.querySelectorAll("#aTabs button").forEach(b=>{const on=b.dataset.t===t;b.classList.toggle("on",on);b.setAttribute("aria-selected",on)});document.querySelectorAll(".apanel").forEach(p=>{p.hidden=p.dataset.t!==t})}
+function aShow(t){if(!document.querySelector(`.apanel[data-t="${t}"]`))t="colors";aTab=t;try{ls.lp_atab=t}catch{}document.querySelectorAll("#aTabs button").forEach(b=>{const on=b.dataset.t===t;b.classList.toggle("on",on);b.setAttribute("aria-selected",on)});{const a=document.querySelector("#aTabs button.on"),bx=document.getElementById("aTabs");if(a&&bx)bx.scrollTo({left:a.offsetLeft-(bx.clientWidth-a.offsetWidth)/2,behavior:"smooth"})}document.querySelectorAll(".apanel").forEach(p=>{p.hidden=p.dataset.t!==t})}
 $("#aTabs").onclick=e=>{const b=e.target.closest("button");if(b)aShow(b.dataset.t)};
 segUp();aShow(aTab);quickUI();
 /* ---- resizable settings sheet: drag the handle up/down (drag very low to close) ---- */
@@ -1560,54 +1604,51 @@ const sheetEnd=()=>{if(!gd)return;gd=false;if(sd.getBoundingClientRect().height<
 grab.addEventListener("pointerup",sheetEnd);grab.addEventListener("pointercancel",sheetEnd);
 grab.addEventListener("dblclick",()=>{sd.style.height=sd.style.maxHeight="";try{delete ls.lp_sheet}catch{}});
 grab.addEventListener("keydown",e=>{if(e.key!=="ArrowUp"&&e.key!=="ArrowDown")return;e.preventDefault();sheetH(sd.getBoundingClientRect().height+(e.key==="ArrowUp"?40:-40));sheetSave()});
-$("#cfg").onclick=()=>{settingsUI();markQ();if(+ls.lp_sheet)sheetH(+ls.lp_sheet);sd.showModal()};
+$("#cfg").onclick=()=>{settingsUI();markQ();if(+ls.lp_sheet)sheetH(+ls.lp_sheet);sd.showModal();aShow(aTab)};
 $("#x2").onclick=()=>$("#sdlg").close();$("#x1").onclick=()=>$("#dlg").close();
 for(const d of document.querySelectorAll("dialog"))d.addEventListener("click",e=>{if(e.target===d)d.close()});
 $("#add").onclick=()=>C.url.startsWith("YOUR_")?openSetup():!S?openSync():mode==="watch"?openW():openForm();
-$("#exp").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify({bookmarks:B.map(({title,url,tags,pinned,icon_url,emoji})=>({title,url,tags,pinned,icon_url,emoji})),watchlist:W.map(({title,url,why,benefit,done,created_at})=>({title,url,why,benefit,done,created_at}))},null,2)],{type:"application/json"}));a.download="launchpad-bookmarks.json";a.click();URL.revokeObjectURL(a.href)};
+$("#exp").onclick=()=>{const data={app:"little-space",version:2,exported_at:new Date().toISOString(),bookmarks:B.map(({title,url,tags,pinned,icon_url,emoji})=>({title,url,tags,pinned,icon_url,emoji})),watchlist:W.map(({title,url,why,benefit,done,created_at})=>({title,url,why,benefit,done,created_at})),settings:{...cfg}};const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"}));a.download="little-space-"+new Date().toISOString().slice(0,10)+".json";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1500);toast("Exported "+B.length+" bookmarks")};
 $("#imp").onclick=()=>$("#file").click();
-$("#file").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(!f)return;try{const d=new DOMParser().parseFromString(await f.text(),"text/html"),seen=new Set(),rows=[];d.querySelectorAll("a[href^=http]").forEach(a=>{if(seen.has(a.href))return;seen.add(a.href);const h=a.closest("dl")?.previousElementSibling;rows.push({url:a.href,title:(a.textContent.trim()||host(a.href)).slice(0,80),tags:h&&h.tagName==="H3"&&h.textContent.trim()?["@"+h.textContent.trim().slice(0,30)]:[]})});if(!rows.length)throw Error("No bookmarks found in that file.");toast(`Importing ${rows.length}…`);for(let i=0;i<rows.length;i+=200)await db("lp_bookmarks?on_conflict=user_id,url",{m:"POST",b:rows.slice(i,i+200),p:"resolution=ignore-duplicates,return=minimal"});await load();$("#sdlg").close();toast("Import finished")}catch(er){toast(er.message)}};
+$("#file").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(!f)return;
+ try{const t=(await f.text()).replace(/^\uFEFF/,"").trim();let bm=[],wl=[],st=null;
+  if(/^[\[{]/.test(t)){let j;try{j=JSON.parse(t)}catch{throw Error("This file is not valid JSON.")}
+   bm=Array.isArray(j)?j:(Array.isArray(j.bookmarks)?j.bookmarks:[]);wl=Array.isArray(j)?[]:(Array.isArray(j.watchlist)?j.watchlist:[]);st=!Array.isArray(j)&&j.settings&&typeof j.settings==="object"?j.settings:null}
+  else{const d=new DOMParser().parseFromString(t,"text/html"),seen=new Set();d.querySelectorAll("a[href^=http]").forEach(a=>{if(seen.has(a.href))return;seen.add(a.href);const h=a.closest("dl")?.previousElementSibling;bm.push({url:a.href,title:a.textContent.trim(),category:h&&h.tagName==="H3"?h.textContent.trim():""})})}
+  const nb=[],seen=new Set();
+  for(const r of bm){if(!r||typeof r!=="object")continue;let u;try{u=norm(String(r.url||r.href||""))}catch{continue}if(seen.has(u))continue;seen.add(u);
+   const tags=Array.isArray(r.tags)?r.tags.filter(x=>typeof x==="string"&&x.trim()).map(x=>x.trim().slice(0,30)).slice(0,12):[],cat=r.category||r.folder;
+   if(typeof cat==="string"&&cat.trim()&&!tags.some(isC))tags.unshift("@"+cat.trim().slice(0,30));
+   const ic=typeof r.icon_url==="string"&&/^(https?:|data:image\/)/.test(r.icon_url)&&r.icon_url.length<200000?r.icon_url:null;
+   nb.push({url:u,title:String(r.title||r.name||host(u)).slice(0,80),tags,pinned:!!r.pinned,icon_url:ic,emoji:typeof r.emoji==="string"&&r.emoji?r.emoji.slice(0,8):null})}
+  const nw=[],sw=new Set();
+  for(const r of wl){if(!r||typeof r!=="object")continue;let u;try{u=norm(String(r.url||""))}catch{continue}if(sw.has(u))continue;sw.add(u);nw.push({url:u,title:String(r.title||host(u)).slice(0,120),why:String(r.why||"").slice(0,600),benefit:String(r.benefit||"").slice(0,600),done:!!r.done})}
+  if(!nb.length&&!nw.length)throw Error("No bookmarks found in this file.");
+  toast("Importing "+(nb.length+nw.length)+" items");
+  for(let i=0;i<nb.length;i+=200)await db("lp_bookmarks?on_conflict=user_id,url",{m:"POST",b:nb.slice(i,i+200),p:"resolution=ignore-duplicates,return=minimal"});
+  if(nw.length){try{for(let i=0;i<nw.length;i+=200)await db("lp_watchlist?on_conflict=user_id,url",{m:"POST",b:nw.slice(i,i+200),p:"resolution=ignore-duplicates,return=minimal"})}catch(er){if(missingW(er))toast(WMSG);else throw er}}
+  if(st&&confirm("Also restore the appearance settings saved in this file?")){cfg={...cfg,...renew(st)};if(cfg.looks)looks={...LD,...cfg.looks};saveCfg();theme()}
+  await load();$("#sdlg").close();toast("Imported "+nb.length+" bookmark"+(nb.length===1?"":"s")+(nw.length?" and "+nw.length+" saved":""))
+ }catch(er){toast(er.message)}};
 
 /* ---- connection setup (no code editing needed) ---- */
 const secret=k=>/^sb_secret_/.test(k)||(()=>{try{return JSON.parse(atob(k.split(".")[1].replace(/-/g,"+").replace(/_/g,"/"))).role==="service_role"}catch{return false}})();
 function openSetup(){if($("#cdlg").open)return;$("#cu").value=ls.lp_url||"";$("#ck").value=ls.lp_key||"";$("#cerr").textContent="";$("#cdlg").showModal()}
 $("#cf").onsubmit=async e=>{e.preventDefault();const b=e.submitter,old={...C},oS=S;b.disabled=true;try{const u=$("#cu").value.trim().replace(/\/+$/,"").replace(/\/(rest|auth)\/v1.*$/,""),k=$("#ck").value.trim();if(!/^https:\/\/[^\s/]+\.[^\s/]+$/.test(u))throw Error("The URL should look like https://abcd1234.supabase.co");if(secret(k))throw Error("That is the secret key. Use the publishable key instead.");if(k.length<20||/\s/.test(k))throw Error("Paste the full publishable key.");C.url=u;C.key=k;const r=await fetch(u+"/auth/v1/settings",{headers:{apikey:k}});if(!r.ok)throw Error("That URL or key doesn't match a Supabase project.");if(u!==old.url){S=null;delete ls.lp_session;delete ls.lp_code}ls.lp_url=u;ls.lp_key=k;$("#cdlg").close();toast("Connected");S?await load():openSync()}catch(er){C.url=old.url;C.key=old.key;S=oS;$("#cerr").textContent=er.message==="Failed to fetch"?"Couldn't reach that URL. Check it for typos.":er.message}b.disabled=false};
 $("#x3").onclick=()=>$("#cdlg").close();
-$("#csql").onclick=()=>copyText(SQL,"Setup SQL copied","Database setup SQL");
-$("#cai").onclick=async()=>{const P=`You have access to my Supabase project through your connected Supabase tools.
+function setupPrompt(){return `Set up the backend for my "Little Space" bookmarks app with your Supabase tools. Do each step yourself instead of only describing it.
 
-Set up the database for my "Little Space" bookmarks app. Do the steps directly where your tools allow, instead of only giving me instructions.
+1. Project: list my organizations and projects. Use the project named "little-space" if it exists. Otherwise create it (nearest region), show me the cost with get_cost, and ask me before confirming it. Wait until the project is active.
+2. Database: apply the SQL below as one migration named "little_space_setup". It is safe to run more than once.
+3. Auth: keep email sign-up enabled and turn "Confirm email" off. The app creates hidden logins for its sync codes. Explain this and ask before changing it. If your tools cannot change it, tell me where to do it.
+4. Verify and show evidence: tables lp_bookmarks, lp_settings and lp_watchlist exist; Row Level Security is on for all three; each policy limits rows to their owner; the function lp_reorder(uuid[]) exists; the authenticated role has the required grants; the schema cache is reloaded.
+5. Report: the Project URL, the publishable key (starts with sb_publishable_), the status of each step, and anything left for me to do.
 
-STEP 1 - Identify the project
-- List my available Supabase projects and use the one I name. If I have not named one, ask me which one is intended.
-- Never assume a project from another conversation is the right one.
-- Inspect the existing public schema first and preserve existing data.
-
-STEP 2 - Set up the database
-Run the SQL below against that project. It creates or updates public.lp_bookmarks, public.lp_settings, public.lp_watchlist and the function public.lp_reorder(uuid[]), plus indexes, grants and Row Level Security policies. It is safe to re-run. Review any destructive operation before running it.
-
-STEP 3 - Authentication
-- Keep email sign-up enabled.
-- This app creates hidden logins for its sync codes, so "Confirm email" must be OFF (Authentication, Sign In / Providers, Email). Ask me to confirm before changing it, explain that anyone can then sign up without verifying an email address, and change it only if your tools support it. If they do not, tell me exactly where to change it by hand.
-
-STEP 4 - Verify (show evidence, never assume)
-1. lp_bookmarks, lp_settings and lp_watchlist exist in the public schema, with their primary keys.
-2. Row Level Security is enabled on all three tables.
-3. The policies limit each user to their own rows.
-4. The function lp_reorder(uuid[]) exists.
-5. The authenticated role has the needed permissions.
-6. The PostgREST schema cache was reloaded.
-
-STEP 5 - Report back
-- Project name and reference, and the Project URL.
-- The publishable key (starts with sb_publishable_), if your tools can read it.
-- Status of the database setup, authentication and each verification.
-- Any manual steps or security warnings left.
-
-Never show the database password, the secret key, the service_role key, or any access or refresh token. If you cannot do something, say so instead of claiming it is done.
+Never show the database password, the secret key, the service_role key or any token. If you cannot do something, say so.
 
 SQL:
-${SQL}`;copyText(P,"AI prompt copied","AI prompt for Supabase")};
+${SQL}`}
+$("#cai").onclick=()=>copyText(setupPrompt(),"Setup prompt copied","Setup prompt");
 $("#conn").onclick=()=>{$("#sdlg").close();openSetup()};
 document.addEventListener("click",e=>{if(e.target.closest("[data-setup]"))openSetup();else if(e.target.closest("[data-retry]")){loaded=false;loadErr="";draw();S?load():openSync()}});
 /* ---- sync code: the same code on every device = the same bookmarks (no email) ---- */
@@ -1631,7 +1672,7 @@ $("#yout").onclick=()=>{if(!confirm("Turn off sync on this device? Your bookmark
 $("#ynew").onclick=async e=>{const b=e.currentTarget;b.disabled=true;$("#yerr").textContent="";try{await joinSync([...crypto.getRandomValues(new Uint8Array(16))].map(x=>AL[x%32]).join(""),true);ySet();toast("Sync is on. Save your code.")}catch(er){yerr(er)}b.disabled=false};
 $("#yf").onsubmit=async e=>{e.preventDefault();const b=e.submitter,c=nc($("#yc").value);if(c.length!==16){$("#yerr").textContent="Enter the full 16-character code.";return}b.disabled=true;$("#yerr").textContent="";try{await joinSync(c,false);ySet();toast("Sync is on")}catch(er){yerr(er)}b.disabled=false};
 /* ---- keyboard ---- */
-addEventListener("keydown",e=>{const typing=/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName);if(e.key==="/"&&!typing&&!document.querySelector("dialog[open]")){e.preventDefault();$("#q").focus()}else if(e.key==="Enter"&&document.activeElement===$("#q")){const f=mode==="watch"?wvis()[0]:sorted(visible())[0];if(f){openLink(f.url);if(mode!=="watch")opened(f.id)}}else if(e.key==="Escape"&&document.activeElement===$("#q")){$("#q").value="";$("#q").blur();draw()}});
+addEventListener("keydown",e=>{const typing=/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName);if(e.key==="/"&&!typing&&!document.querySelector("dialog[open]")){e.preventDefault();window.lpOpenSearch&&window.lpOpenSearch()}else if(e.key==="Enter"&&document.activeElement===$("#q")){const f=mode==="watch"?wvis()[0]:sorted(visible())[0];if(f){openLink(f.url);if(mode!=="watch")opened(f.id)}}else if(e.key==="Escape"&&document.activeElement===$("#q")){$("#q").value="";$("#q").blur();draw()}});
 addEventListener("online",()=>S&&load());
 
 /* ---- boot: paint cache instantly, then sync ---- */
@@ -1685,7 +1726,7 @@ window.setMode=function(m){
 let x0=0,y0=0,on=false,live=false;
 document.addEventListener("touchstart",e=>{
  const t=e.touches[0];x0=t.clientX;y0=t.clientY;on=false;
- live=!e.target.closest("#tags,dialog,input,select,.top")&&mode==="books"&&!reduce();
+ live=!e.target.closest("#tags,dialog,input,select,.top")&&mode==="books"&&!reduce()&&!document.body.classList.contains("browsing");
 },{passive:true});
 document.addEventListener("touchmove",e=>{
  if(!live||dg?.on)return;
@@ -2283,11 +2324,79 @@ async function check(){clearTimeout(timer);if(mode()!=="auto"||auto)return;
  if(document.hidden||document.querySelector("dialog[open]")||performance.now()<(window.lpQuiet||0)+300){timer=setTimeout(check,2500);return}
  const t=performance.now(),fps=await sample(2200);
  if((window.lpQuiet||0)>t){timer=setTimeout(check,2500);return}
- if(fps<38){low++;if(low>=2){auto=true;window.lpApplyLite();toast("Smooth mode is on to keep the app fast");return}timer=setTimeout(check,400)}else low=0}
+ if(fps<38){low++;if(low>=2){auto=true;window.lpApplyLite();toast("Light performance mode enabled");return}timer=setTimeout(check,400)}else low=0}
 window.lpPerfRecheck=()=>{low=0;clearTimeout(timer);timer=setTimeout(check,1800)};
 document.getElementById("sdlg").addEventListener("close",()=>window.lpPerfRecheck());
 window.lpApplyLite();setTimeout(check,3500);
 })();
+</script>
+<script>
+/* ===== One pattern for every long motion choice: ‹ name › with tap-to-browse full screen ===== */
+(()=>{
+const $=q=>document.querySelector(q),b=document.body;
+const CFG={
+ ambient:{t:"Effects overlay",eye:1},
+ bgEffect:{t:"Wallpaper",eye:1},
+ motionStyle:{t:"Icon motion"},
+ iconReact:{t:"Touch reaction",hint:"Touch the icons to try it",noswipe:1},
+ tabSwitch:{t:"Page transition",rp:()=>playAnim("tab")},
+ tabAnim:{t:"Tab bar animation",rp:()=>replayChips()}};
+const ids=Object.keys(CFG);
+for(const id of ids){const sel=$("#"+id),f=sel.closest(".f");f.classList.add("w2");sel.hidden=true;
+ const nav=document.createElement("div");nav.className="bgnav";nav.dataset.for=id;
+ nav.innerHTML='<button type="button" data-d="-1" aria-label="Previous">‹</button><button type="button" class="bgname" data-open="1" aria-label="Browse full screen"><b></b></button><button type="button" data-d="1" aria-label="Next">›</button>';
+ f.appendChild(nav)}
+const opts=id=>[...$("#"+id).options];
+const idx=id=>Math.max(0,opts(id).findIndex(o=>o.value===String(looks[LK[id]])));
+window.lpStepSync=()=>{for(const id of ids){const o=opts(id)[idx(id)],n=$('.bgnav[data-for="'+id+'"] b');if(n&&o)n.textContent=o.textContent}};
+function apply(id,v,save){looks[LK[id]]=v;theme();if(save)saveLooks();
+ if(id==="iconReact"&&v==="depth"&&typeof DeviceOrientationEvent!=="undefined"&&typeof DeviceOrientationEvent.requestPermission==="function")DeviceOrientationEvent.requestPermission().catch(()=>{});
+ const c=CFG[id];if(c.rp)setTimeout(c.rp,30)}
+function step(id,d,save){const o=opts(id);apply(id,o[(idx(id)+d+o.length)%o.length].value,save)}
+$("#sdlg").addEventListener("click",e=>{const n=e.target.closest(".bgnav[data-for]"),t=e.target.closest("button");if(!n||!t)return;const id=n.dataset.for;t.dataset.d?step(id,+t.dataset.d,true):open(id)});
+const ov=document.createElement("div");ov.id="bgo";ov.hidden=true;
+const bar=document.createElement("div");bar.id="bgb";bar.hidden=true;
+bar.innerHTML='<div class="r1"><button type="button" data-a="prev" aria-label="Previous">‹</button><div class="nm"><b></b><small></small></div><button type="button" data-a="next" aria-label="Next">›</button></div><div class="r2"><button type="button" class="btn" data-a="cancel">Cancel</button><button type="button" class="btn" data-a="third"></button><button type="button" class="btn p" data-a="use">Use this</button></div>';
+b.append(ov,bar);
+const third=bar.querySelector("[data-a=third]");
+let cur=null,orig=null,on=false;
+function label(){const o=opts(cur),i=idx(cur),g=o[i].parentElement.tagName==="OPTGROUP"?o[i].parentElement.label:CFG[cur].t;
+ bar.querySelector(".nm b").textContent=o[i].textContent;bar.querySelector(".nm small").textContent=(CFG[cur].hint||g)+" · "+(i+1)+" of "+o.length}
+function open(id){cur=id;orig=looks[LK[id]];on=true;const c=CFG[id];
+ third.hidden=!(c.eye||c.rp);third.textContent=c.eye?"Hide icons":"Replay";
+ $("#sdlg").close();ov.hidden=false;bar.hidden=false;b.classList.add("browsing");label();if(c.rp)setTimeout(c.rp,350)}
+function end(keep){on=false;if(keep)saveLooks();else if(orig!==null)apply(cur,orig,false);
+ ov.hidden=true;bar.hidden=true;b.classList.remove("browsing","hideicons");settingsUI();$("#sdlg").showModal()}
+const go=d=>{step(cur,d,false);label()};
+bar.onclick=e=>{const t=e.target.closest("[data-a]");if(!t)return;const a=t.dataset.a;
+ if(a==="prev")go(-1);else if(a==="next")go(1);
+ else if(a==="cancel")end(false);else if(a==="use")end(true);
+ else if(a==="third"){const c=CFG[cur];if(c.eye)t.textContent=b.classList.toggle("hideicons")?"Show icons":"Hide icons";else if(c.rp)c.rp()}};
+let x0=0;
+ov.addEventListener("touchstart",e=>{x0=e.touches[0].clientX},{passive:true});
+ov.addEventListener("touchend",e=>{if(!on||CFG[cur].noswipe)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)go(dx<0?1:-1)},{passive:true});
+addEventListener("keydown",e=>{if(!on)return;
+ if(e.key==="ArrowRight"){e.preventDefault();go(1)}
+ else if(e.key==="ArrowLeft"){e.preventDefault();go(-1)}
+ else if(e.key==="Escape"){e.preventDefault();end(false)}
+ else if(e.key==="Enter"&&!(e.target.closest&&e.target.closest("button"))){e.preventDefault();end(true)}});
+window.lpStepSync();
+})();
+</script>
+<script>
+(()=>{const h=document.querySelector("header"),q=document.getElementById("q");
+function openS(){h.classList.add("searching");q.focus()}
+function closeS(){const had=q.value;q.value="";h.classList.remove("searching");q.blur();if(had)draw()}
+document.getElementById("sbtn").onclick=openS;document.getElementById("sclose").onclick=closeS;
+addEventListener("keydown",e=>{if(e.key==="Escape"&&h.classList.contains("searching")&&!document.querySelector("dialog[open]"))closeS()});
+window.lpOpenSearch=openS})();
+</script>
+<script>
+(()=>{const sw=document.getElementById("modes");
+function fit(){const bs=sw.querySelectorAll("button");if(bs.length<2)return;const on=sw.dataset.m==="watch"?bs[1]:bs[0];if(!on.offsetWidth)return;sw.style.setProperty("--pw",on.offsetWidth+"px");sw.style.setProperty("--px",(on.offsetLeft-3)+"px")}
+if(window.ResizeObserver){const ro=new ResizeObserver(fit);ro.observe(sw);sw.querySelectorAll("button").forEach(b=>ro.observe(b))}
+new MutationObserver(fit).observe(sw,{attributes:true,attributeFilter:["data-m"]});
+addEventListener("resize",fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);fit()})();
 </script>
 </body>
 </html>
