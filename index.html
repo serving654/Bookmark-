@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <title>Little Space — Bookmarks</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23007aff'/%3E%3Ccircle cx='32' cy='32' r='12' fill='none' stroke='white' stroke-width='6'/%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@400;500;600;800&family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@400;500;600;800&family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Outfit:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Fraunces:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>:root{--bg:#f2f2f7;--sf:#fff;--sf2:rgba(118,118,128,.12);--fill:rgba(118,118,128,.12);--fill2:rgba(118,118,128,.2);--tx:#1d1d1f;--mu:#86868b;--ac:#007aff;--on:#fff;--rd:#ff3b30;--bd:rgba(60,60,67,.14);--sep:rgba(60,60,67,.16);--sh:0 .5px 1px rgba(0,0,0,.12),0 2px 6px rgba(0,0,0,.08),0 8px 18px -6px rgba(0,0,0,.18);--tile:56px;--rad:22%;--fs:12px;--lc:2;--gap:16px;--sp:cubic-bezier(.34,1.56,.64,1);color-scheme:light}
 [data-t=dark]{--bg:#000;--sf:#1c1c1e;--sf2:rgba(118,118,128,.24);--fill:rgba(118,118,128,.24);--fill2:rgba(118,118,128,.36);--tx:#f5f5f7;--mu:#98989f;--rd:#ff453a;--bd:rgba(84,84,88,.5);--sep:rgba(84,84,88,.55);--sh:0 .5px 1px rgba(0,0,0,.6),0 3px 10px rgba(0,0,0,.5);color-scheme:dark}
 [hidden]{display:none!important}
@@ -1151,9 +1151,24 @@ body::before{inset:auto;top:0;left:0;width:100%;height:100vh;height:100lvh;trans
 #bgb .nm small{display:block;margin-top:1px;font-size:calc(11px*min(var(--ts,1),1.1));font-weight:500;color:var(--mu);font-variant-numeric:tabular-nums}
 body.browsing.keeptop .top{opacity:1}
 body[data-bar=bottom].keeptop #bgb{bottom:calc(var(--barh,130px) + 12px)}
+body[data-bgfx=twilight]::before{background:linear-gradient(180deg,hsl(calc(var(--ah) + 200) 55% var(--bl2)/.42),hsl(calc(var(--ah) + 250) 60% var(--bl)/.34) 45%,hsl(calc(var(--ah) + 20) 85% var(--bl)/.38))}
+body[data-bgfx=silk]::before{background:repeating-linear-gradient(115deg,color-mix(in srgb,var(--ac) 14%,transparent) 0 46px,transparent 46px 120px),linear-gradient(180deg,color-mix(in srgb,var(--ac) 8%,transparent),transparent 60%)}
+body[data-bgfx=prism]::before{background:conic-gradient(from 210deg at 20% 15%,hsl(var(--ah) 80% var(--bl)/.32),hsl(calc(var(--ah) + 90) 80% var(--bl)/.28),hsl(calc(var(--ah) + 180) 80% var(--bl)/.3),hsl(calc(var(--ah) + 270) 80% var(--bl)/.28),hsl(var(--ah) 80% var(--bl)/.32))}
+.keep{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-top:8px}
+.keep>span{font-size:calc(11.5px*min(var(--ts,1),1));font-weight:600;color:var(--mu);margin-right:2px}
+.keep button{height:28px;padding:0 10px;border-radius:99px;background:var(--fill);color:var(--mu);font-size:calc(12px*min(var(--ts,1),1));font-weight:600}
+.keep button.on{background:var(--ac);color:var(--on)}
+.keep button.on::before{content:"✓ "}
+/* ===== Smaller add button ===== */
+.fab{width:calc(44px*var(--us,1))!important;height:calc(44px*var(--us,1))!important;border-radius:14px!important;right:calc(16px + env(safe-area-inset-right))!important;box-shadow:0 6px 14px color-mix(in srgb,var(--ac) 28%,transparent),inset 0 1px 0 rgba(255,255,255,.4)}
+.fab svg{width:20px!important;height:20px!important;stroke-width:2.4}
+body[data-fab=left] .fab{right:auto!important;left:calc(16px + env(safe-area-inset-left))!important}
+body[data-fab=center] .fab{right:auto!important;left:50%!important}
+body[data-bar=bottom] .fab{bottom:calc(var(--barh,130px) + 10px)}
 </style>
 </head>
 <body>
+<script>addEventListener("error",e=>{if(/ResizeObserver loop/i.test(e.message||"")){e.stopImmediatePropagation();e.preventDefault()}},true)</script>
 <noscript><p class="ns">Little Space needs JavaScript to run. Please enable it and reload.</p></noscript>
 <div class="top">
 <header>
@@ -1239,14 +1254,14 @@ body[data-bar=bottom].keeptop #bgb{bottom:calc(var(--barh,130px) + 12px)}
 <div class="f w2" data-seg><b>Icon shadow</b><select id="cardDepth"><option value="soft">Soft</option><option value="flat">Flat</option><option value="lifted">Lifted</option></select></div>
 <div class="f w2" data-seg><b>Pinned marker</b><select id="pinStyle"><option value="badge">Star</option><option value="ring">Ring</option><option value="hidden">None</option></select></div>
 </div></div>
- <div class="apanel" data-t="text" role="tabpanel" hidden><div class="fg"><div class="f"><b>App font</b><select id="c-ff"><option value="1">Apple / system</option><option value="4">Inter</option><option value="0">Bricolage</option><option value="5">Poppins</option><option value="6">Nunito</option><option value="7">DM Sans</option><option value="8">Space Grotesk</option><option value="10">Rounded</option><option value="11">Trebuchet</option><option value="12">Verdana</option><option value="2">Georgia (serif)</option><option value="9">Lora (serif)</option><option value="13">Palatino (serif)</option><option value="3">Mono</option></select></div><div class="f"><b>Headings</b><select id="c-hf"><option value="same">Same as app</option><option value="1">Apple / system</option><option value="4">Inter</option><option value="0">Bricolage</option><option value="5">Poppins</option><option value="6">Nunito</option><option value="7">DM Sans</option><option value="8">Space Grotesk</option><option value="10">Rounded</option><option value="11">Trebuchet</option><option value="12">Verdana</option><option value="2">Georgia (serif)</option><option value="9">Lora (serif)</option><option value="13">Palatino (serif)</option><option value="3">Mono</option></select></div><div class="f r"><b><span>App text size</span><output id="v-ts"></output></b><input id="c-ts" type="range" min="60" max="150" step="5"></div><div class="f r"><b><span>Name size</span><output id="v-fs"></output></b><input id="c-fs" type="range" min="9" max="22"></div><div class="f"><b>Names shown</b><select id="c-lines"><option value="0">Hidden</option><option value="1">1 line</option><option value="2">2 lines</option><option value="3">3 lines</option></select></div><div class="f" data-seg><b>Show website</b><select id="c-host"><option value="0">Hidden</option><option value="1">Shown</option></select></div><div class="f w2" data-seg><b>Name style</b><select id="labelWeight"><option value="regular">Regular</option><option value="medium">Medium</option><option value="bold">Bold</option></select></div></div></div>
+ <div class="apanel" data-t="text" role="tabpanel" hidden><div class="fg"><div class="f"><b>App font</b><select id="c-ff"><option value="1">Apple / system</option><option value="4">Inter</option><option value="0">Bricolage</option><option value="5">Poppins</option><option value="6">Nunito</option><option value="7">DM Sans</option><option value="8">Space Grotesk</option><option value="10">Rounded</option><option value="11">Trebuchet</option><option value="12">Verdana</option><option value="2">Georgia (serif)</option><option value="9">Lora (serif)</option><option value="13">Palatino (serif)</option><option value="14">Playfair (serif)</option><option value="15">Outfit</option><option value="16">Sora</option><option value="17">Fraunces (serif)</option><option value="3">Mono</option></select></div><div class="f"><b>Headings</b><select id="c-hf"><option value="same">Same as app</option><option value="1">Apple / system</option><option value="4">Inter</option><option value="0">Bricolage</option><option value="5">Poppins</option><option value="6">Nunito</option><option value="7">DM Sans</option><option value="8">Space Grotesk</option><option value="10">Rounded</option><option value="11">Trebuchet</option><option value="12">Verdana</option><option value="2">Georgia (serif)</option><option value="9">Lora (serif)</option><option value="13">Palatino (serif)</option><option value="14">Playfair (serif)</option><option value="15">Outfit</option><option value="16">Sora</option><option value="17">Fraunces (serif)</option><option value="3">Mono</option></select></div><div class="f r"><b><span>App text size</span><output id="v-ts"></output></b><input id="c-ts" type="range" min="60" max="150" step="5"></div><div class="f r"><b><span>Name size</span><output id="v-fs"></output></b><input id="c-fs" type="range" min="9" max="22"></div><div class="f"><b>Names shown</b><select id="c-lines"><option value="0">Hidden</option><option value="1">1 line</option><option value="2">2 lines</option><option value="3">3 lines</option></select></div><div class="f" data-seg><b>Show website</b><select id="c-host"><option value="0">Hidden</option><option value="1">Shown</option></select></div><div class="f w2" data-seg><b>Name style</b><select id="labelWeight"><option value="regular">Regular</option><option value="medium">Medium</option><option value="bold">Bold</option></select></div></div></div>
  <div class="apanel" data-t="motion" role="tabpanel" hidden><div class="rmb" id="rmBanner" hidden><span>Reduced motion is on, so animations are paused.</span><button type="button" id="rmPlay">Play anyway</button></div><div class="fg">
-<div class="f w2"><div class="shufrow"><button type="button" class="btn p" id="shuffle">🎲 Shuffle look</button><button type="button" class="btn" id="unshuffle" disabled>Undo</button></div></div>
+<div class="f w2"><div class="shufrow"><button type="button" class="btn p" id="shuffle">🎲 Shuffle look</button><button type="button" class="btn" id="unshuffle" disabled>Undo</button></div><div class="keep" id="keepRow"></div></div>
 <div class="mgh">General</div>
 <div class="f r"><b><span>Intensity</span><output id="v-lvl"></output></b><input id="motionLevel" type="range" min="0" max="100"></div>
 <div class="f r"><b><span>Speed</span><output id="v-spd"></output></b><input id="motionSpeed" type="range" min="50" max="200" step="5"></div>
 <div class="mgh">Background</div>
-<div class="f w2"><b>Wallpaper</b><select id="bgEffect" hidden aria-hidden="true" tabindex="-1"><optgroup label="Accent"><option value="aurora">Aurora</option><option value="glow">Glow</option><option value="wash">Wash</option><option value="mesh">Mesh</option><option value="spotlight">Spotlight</option><option value="haze">Spectrum</option></optgroup><optgroup label="Colour"><option value="sunset">Sunset</option><option value="midnight">Midnight</option><option value="oceanbg">Ocean</option><option value="forestbg">Forest</option><option value="candy">Pastel</option></optgroup><optgroup label="Illustrations"><option value="sc-mountains">Mountain dusk</option><option value="sc-lake">Moonlit lake</option><option value="sc-neon">Neon sunset</option><option value="sc-dunes">Desert sunset</option><option value="sc-aurora">Northern lights</option><option value="sc-galaxy">Galaxy horizon</option><option value="sc-hills">Green hills</option><option value="sc-sea">Sunrise sea</option></optgroup><optgroup label="Patterns"><option value="grain">Paper</option><option value="dots">Dots</option><option value="grid">Grid</option><option value="lines">Lines</option><option value="waves">Waves</option><option value="starsbg">Stars</option></optgroup><option value="plain">None</option></select></div>
+<div class="f w2"><b>Wallpaper</b><select id="bgEffect" hidden aria-hidden="true" tabindex="-1"><optgroup label="Accent"><option value="aurora">Aurora</option><option value="glow">Glow</option><option value="wash">Wash</option><option value="mesh">Mesh</option><option value="spotlight">Spotlight</option><option value="haze">Spectrum</option></optgroup><optgroup label="Colour"><option value="sunset">Sunset</option><option value="midnight">Midnight</option><option value="oceanbg">Ocean</option><option value="forestbg">Forest</option><option value="candy">Pastel</option><option value="twilight">Twilight</option><option value="silk">Silk</option><option value="prism">Prism</option></optgroup><optgroup label="Illustrations"><option value="sc-mountains">Mountain dusk</option><option value="sc-lake">Moonlit lake</option><option value="sc-neon">Neon sunset</option><option value="sc-dunes">Desert sunset</option><option value="sc-aurora">Northern lights</option><option value="sc-galaxy">Galaxy horizon</option><option value="sc-hills">Green hills</option><option value="sc-sea">Sunrise sea</option></optgroup><optgroup label="Patterns"><option value="grain">Paper</option><option value="dots">Dots</option><option value="grid">Grid</option><option value="lines">Lines</option><option value="waves">Waves</option><option value="starsbg">Stars</option></optgroup><option value="plain">None</option></select></div>
 
 <div class="f w2"><b>Effects overlay</b><select id="ambient" hidden aria-hidden="true" tabindex="-1"><option value="off">None</option><optgroup label="Scenes"><option value="ocean">Ocean</option><option value="space">Space</option><option value="pond">Pond</option><option value="forest">Forest</option><option value="rain">Rain</option><option value="desert">Desert</option><option value="arctic">Arctic</option><option value="sakura">Sakura</option><option value="city">City</option><option value="seasons">Seasons</option></optgroup><optgroup label="Ambient"><option value="aurora">Aurora</option><option value="fireflies">Fireflies</option><option value="net">Network</option><option value="orbs">Orbs</option><option value="waves">Waves</option><option value="stars">Stars</option><option value="bubbles">Bubbles</option></optgroup></select></div>
 <div class="f r w2"><b><span>Wallpaper opacity</span><output id="v-bgs"></output></b><input id="bgStrength" type="range" min="20" max="100" step="5"></div>
@@ -1615,7 +1630,7 @@ $("#tags").addEventListener("scroll",e=>{const x=e.target.scrollLeft;if(Math.abs
 function mark(id,v){document.querySelectorAll(`#${id} button`).forEach(b=>b.classList.toggle("on",b.dataset.v===v))}
 /* ---- customize ---- */
 const D={ts:100,hf:"same",cols:0,tile:60,gap:18,rad:24,fs:12,lines:2,ff:0,host:0,open:"new",start:"first"},gv=k=>cfg[k]??D[k];
-const FF=["'Bricolage Grotesque',system-ui,sans-serif","-apple-system,BlinkMacSystemFont,'SF Pro Text',Inter,system-ui,sans-serif","Georgia,serif","ui-monospace,Menlo,monospace","Inter,system-ui,sans-serif","Poppins,system-ui,sans-serif","Nunito,system-ui,sans-serif","'DM Sans',system-ui,sans-serif","'Space Grotesk',system-ui,sans-serif","Lora,Georgia,serif","ui-rounded,'SF Pro Rounded',Nunito,system-ui,sans-serif","'Trebuchet MS',system-ui,sans-serif","Verdana,system-ui,sans-serif","'Palatino Linotype',Palatino,serif"];
+const FF=["'Bricolage Grotesque',system-ui,sans-serif","-apple-system,BlinkMacSystemFont,'SF Pro Text',Inter,system-ui,sans-serif","Georgia,serif","ui-monospace,Menlo,monospace","Inter,system-ui,sans-serif","Poppins,system-ui,sans-serif","Nunito,system-ui,sans-serif","'DM Sans',system-ui,sans-serif","'Space Grotesk',system-ui,sans-serif","Lora,Georgia,serif","ui-rounded,'SF Pro Rounded',Nunito,system-ui,sans-serif","'Trebuchet MS',system-ui,sans-serif","Verdana,system-ui,sans-serif","'Palatino Linotype',Palatino,serif","'Playfair Display',Georgia,serif","Outfit,system-ui,sans-serif","Sora,system-ui,sans-serif","Fraunces,Georgia,serif"];
 const CT=[["ts","App text size","rng",50,100],["hf","Headings","sel",[["same","Same"]]],["theme","Theme","sel",[["auto","Auto"],["light","Light"],["dark","Dark"]]],["view","Layout","sel",[["grid","Grid"],["list","List"]]],["sort","Sort by","sel",[["manual","Custom"],["recent","Newest"],["popular","Most used"],["az","A–Z"]]],["cols","Columns","sel",[[0,"Auto"],[2,2],[3,3],[4,4],[5,5],[6,6],[8,8]]],["tile","Icon size","rng",44,96],["gap","Spacing","rng",8,40],["rad","Corners","rng",0,50],["fs","Text size","rng",10,18],["lines","Text lines","sel",[[0,"Hidden"],[1,"1 line"],[2,"2 lines"],[3,"3 lines"]]],["ff","Font","sel",[[1,"Apple system"],[0,"Bricolage"],[2,"Serif"],[3,"Mono"]]],["host","Website under name","sel",[[0,"Hidden"],[1,"Shown"]]],["open","Open links","sel",[["new","New tab"],["same","Same tab"]]],["start","Open on","sel",[["first","First tab"],["last","Last used tab"]]]];
 function settingsUI(){const DF={theme:"auto",view:"grid",sort:"manual"};for(const[k]of CT){const v=k==="ac"?(cfg.ac||(dk()?"#0a84ff":"#007aff")):(k in D?gv(k):(cfg[k]??DF[k]));$("#c-"+k).value=v;const o=$("#v-"+k);if(o)o.textContent=v+(k==="ts"?"%":"")}quickUI()}
 for(const[k]of CT)$("#c-"+k).oninput=e=>{const v=e.target.value;cfg[k]=typeof D[k]==="number"?+v:v;if(k==="theme"||k==="mood"||k==="ac")theme();applyGrid();if(k==="view"||k==="sort"||k==="open")draw();settingsUI();saveCfg()};
@@ -1793,7 +1808,7 @@ document.addEventListener("touchcancel",rel);
 
 /* 4. Track header height so floating buttons sit above a bottom header */
 const bar=document.querySelector(".top"),setH=()=>document.documentElement.style.setProperty("--barh",bar.offsetHeight+"px");
-if(window.ResizeObserver)new ResizeObserver(setH).observe(bar);setH();
+if(window.ResizeObserver)new ResizeObserver(()=>requestAnimationFrame(setH)).observe(bar);setH();
 
 /* 5. Per-icon values for the new animations (distance from centre, random scatter) */
 const fxRun=()=>{
@@ -2454,63 +2469,73 @@ const ready=()=>{fit();requestAnimationFrame(()=>requestAnimationFrame(()=>sw.cl
 setTimeout(()=>{if(!sw.classList.contains("ready"))ready()},1500)})();
 </script>
 <script>
-/* ===== Shuffle look: curated random recipes (never random chaos) ===== */
+/* ===== Shuffle: mood-based theme composer ===== */
 (()=>{
-const R=(a,b)=>a+Math.random()*(b-a),P=a=>a[Math.floor(Math.random()*a.length)],RI=(a,b)=>Math.round(R(a,b));
+const R=(a,b)=>a+Math.random()*(b-a),RI=(a,b)=>Math.round(R(a,b)),P=a=>a[Math.floor(Math.random()*a.length)];
 const hex=(h,s,l)=>{s/=100;l/=100;const k=n=>(n+h/30)%12,a=s*Math.min(l,1-l),f=n=>l-a*Math.max(-1,Math.min(k(n)-3,Math.min(9-k(n),1)));return"#"+[f(0),f(8),f(4)].map(x=>Math.round(x*255).toString(16).padStart(2,"0")).join("")};
-/* ff/hf: 0 Bricolage, 1 System, 4 Inter, 5 Poppins, 6 Nunito, 7 DM Sans, 8 Space Grotesk, 9 Lora, 10 Rounded */
-const RC=[
- {n:"Cozy Garden",h:[85,150],s:[28,45],bg:["grain","aurora","wash"],amb:["fireflies","forest","off"],mo:["float","sway","breathe"],ring:["soft","stitch","halo"],tone:["vivid","soft"],shape:["rounded","squircle"],tsw:["fade","rise","ic-soft"],tab:["slide","fade"],re:["magnet","depth"],ff:[6,9,7],hf:[9,0]},
- {n:"Neon Night",h:[275,335],s:[70,90],bg:["grid","mesh","midnight"],amb:["net","stars","orbs"],mo:["pulse","glow","shimmer"],ring:["neon","aurora","spin"],tone:["vivid","glass"],shape:["squircle","rounded"],tsw:["ic-scatter","ic-vortex","wave"],tab:["pop","drop"],re:["magnet","repel"],ff:[8,4],hf:[8],dk:1},
- {n:"Deep Ocean",h:[188,212],s:[50,70],bg:["oceanbg","wash","waves"],amb:["ocean","bubbles","waves"],mo:["breathe","float","drift"],ring:["halo","glow","soft"],tone:["vivid","soft"],shape:["rounded","circle"],tsw:["ic-soft","blur","wave"],tab:["slide","drop"],re:["magnet","depth"],ff:[7,4,0],hf:[0,7]},
- {n:"Golden Hour",h:[14,42],s:[65,85],bg:["sunset","sc-dunes","sc-mountains"],amb:["orbs","off","desert"],mo:["alive","float","glow"],ring:["gradient","lifted","soft"],tone:["vivid","soft"],shape:["circle","squircle"],tsw:["rise","ic-spring","slide"],tab:["pop","slide"],re:["magnet"],ff:[5,0,6],hf:[0,5]},
- {n:"Candy Pop",h:[310,350],s:[60,80],bg:["candy","dots","mesh"],amb:["bubbles","off"],mo:["bubbly","jelly","hop"],ring:["candy","double","pearl"],tone:["pastel","vivid"],shape:["circle","squircle"],tsw:["ic-pop","ic-spring","ic-zoom"],tab:["pop"],re:["magnet","repel"],ff:[6,10,5],hf:[6,5]},
- {n:"Northern Lights",h:[150,185],s:[55,75],bg:["sc-aurora","aurora","spotlight"],amb:["aurora","stars","arctic"],mo:["shimmer","float","breathe"],ring:["aurora","glow","glassedge"],tone:["vivid","glass"],shape:["rounded","squircle"],tsw:["blur","fade","ic-blur"],tab:["fade","slide"],re:["depth","magnet"],ff:[4,7],hf:[0,7],dk:1},
- {n:"Gold Luxe",h:[36,48],s:[55,75],bg:["spotlight","grain","plain"],amb:["stars","off"],mo:["glow","shimmer","none"],ring:["gold","frame","bevel"],tone:["vivid","soft"],shape:["squircle","rounded"],tsw:["fade","curtain","zoom"],tab:["fade","slide"],re:["depth","off"],ff:[9,0],hf:[9],bold:1},
- {n:"Soft Mono",h:[0,0],s:[0,4],bg:["plain","dots","lines"],amb:["off"],mo:["none","float"],ring:["none","soft","glassedge"],tone:["mono","soft"],shape:["rounded","square"],tsw:["fade","slide"],tab:["fade","off"],re:["off","magnet"],ff:[4,1],hf:[4],mono:1},
- {n:"Pine Forest",h:[115,150],s:[35,55],bg:["forestbg","sc-hills","grain"],amb:["forest","fireflies"],mo:["sway","float","breathe"],ring:["stitch","soft","halo"],tone:["soft","vivid"],shape:["rounded","squircle"],tsw:["ic-soft","rise","fade"],tab:["slide","drop"],re:["magnet"],ff:[9,6],hf:[9,0]},
- {n:"Deep Space",h:[245,275],s:[60,80],bg:["midnight","sc-galaxy","starsbg"],amb:["space","stars"],mo:["orbit","float","glow"],ring:["spin","comet","glow"].map(x=>x==="comet"?"spin":x),tone:["vivid","glass"],shape:["circle","rounded"],tsw:["ic-vortex","ic-scatter","blur"],tab:["pop","drop"],re:["repel","depth","magnet"],ff:[8,4],hf:[8],dk:1},
- {n:"Sakura Spring",h:[335,352],s:[45,65],bg:["haze","wash","candy"],amb:["sakura","off"],mo:["float","sway","breathe"],ring:["pearl","soft","halo"],tone:["soft","pastel"],shape:["circle","rounded"],tsw:["ic-soft","fade","ic-blur"],tab:["fade","slide"],re:["magnet","depth"],ff:[6,10,9],hf:[9,6]},
- {n:"Retro Arcade",h:[300,330],s:[75,92],bg:["sc-neon","grid","lines"],amb:["off","net"],mo:["hop","pulse","jelly"],ring:["rainbow","dash","bevel"],tone:["vivid"],shape:["square","squircle"],tsw:["ic-drop","ic-swing","ic-flip3d"],tab:["drop","pop"],re:["repel","magnet"],ff:[8,5],hf:[8],bold:1,dk:1},
- {n:"Rainy Window",h:[205,225],s:[18,32],bg:["plain","haze","grain"],amb:["rain"],mo:["float","none"],ring:["soft","glassedge"],tone:["soft","mono"],shape:["rounded"],tsw:["fade","blur"],tab:["fade"],re:["off","depth"],ff:[7,4],hf:[7]},
- {n:"City Lights",h:[220,260],s:[45,65],bg:["mesh","spotlight","sc-lake"],amb:["city","stars"],mo:["glow","float"],ring:["glow","neon","soft"],tone:["vivid","glass"],shape:["squircle","rounded"],tsw:["rise","slide","ic-cascade"],tab:["slide"],re:["magnet","depth"],ff:[4,7,8],hf:[8,0],dk:1}
-];
-let lastN="",snap=null;const TK=["theme","ff","hf","ts","fs","lines","host"];
-const KEYS=["preset","accent","bg","surface","motion","level","bgfx","bgs","amb","react","ictone","shape","ring","rw","depth","lw","tabs","tsw","tanim","speed","pin","dark","hdr"];
-function shuffle(){
- let r;do r=P(RC);while(r.n===lastN&&RC.length>1);lastN=r.n;
- snap={looks:Object.fromEntries(KEYS.map(k=>[k,looks[k]])),cfg:Object.fromEntries(TK.map(k=>[k,cfg[k]]))};
- const h=r.mono?0:Math.round(R(r.h[0],r.h[1])),sat=R(r.s[0],r.s[1]),mono=!!r.mono,
-  L={};
- L.preset="custom";
- L.accent=hex(h,sat,mono?42:R(38,50));
- L.bg=hex(h,mono?3:R(22,34),mono?95:R(93,96));
- L.surface=hex(h,mono?3:R(35,50),mono?99:R(98,99.5));
- L.motion=P(r.mo);L.bgfx=P(r.bg);L.amb=P(r.amb);L.react=P(r.re);
- L.ictone=P(r.tone);L.shape=P(r.shape);L.ring=P(r.ring);L.rw=P(["thin","medium","medium","bold"]);
- L.depth=P(["soft","soft","lifted","flat"]);L.lw=r.bold?"bold":P(["medium","medium","bold","regular"]);
- L.tabs=P(["pills","pills","minimal","underline"]);L.tsw=P(r.tsw);L.tanim=P(r.tab);
- L.level=RI(50,80);L.speed=RI(85,125);L.bgs=RI(70,100);L.pin=P(["badge","badge","ring"]);
- L.dark=P(["soft","soft","black"]);
- if(L.amb!=="off"&&/^sc-/.test(L.bgfx))L.bgfx=P(["aurora","wash","mesh"]);
+/* weighted pick: options sharing more tags with the mood are likelier; "wild" picks anything for a surprise */
+const W=(pool,tags,wild)=>{if(wild)return P(pool)[0];const w=pool.map(([v,...t])=>.35+3*t.filter(x=>tags.includes(x)).length);let r=Math.random()*w.reduce((a,b)=>a+b,0);for(let i=0;i<pool.length;i++){r-=w[i];if(r<=0)return pool[i][0]}return pool[0][0]};
+const BG=[["aurora","calm","soft","nature","cosmic"],["glow","soft","calm","elegant"],["wash","soft","calm","playful","cool"],["mesh","vivid","playful","cosmic","soft"],["spotlight","elegant","dark","cosmic","dramatic"],["haze","vivid","playful","dreamy"],["sunset","warm","vivid","dramatic","soft"],["midnight","dark","cosmic","vivid"],["oceanbg","cool","calm","nature"],["forestbg","nature","calm"],["candy","playful","soft","vivid"],["grain","elegant","calm","soft","minimal"],["dots","playful","retro","minimal"],["grid","retro","tech","minimal","dark"],["lines","minimal","elegant"],["waves","calm","cool"],["starsbg","cosmic","dark"],["twilight","dreamy","soft","dramatic","cosmic"],["silk","elegant","soft","minimal"],["prism","vivid","playful","dreamy","tech"],["sc-mountains","warm","nature","dramatic"],["sc-lake","dark","calm","nature"],["sc-neon","retro","vivid","dark"],["sc-dunes","warm","nature","dramatic"],["sc-aurora","dark","cosmic","nature"],["sc-galaxy","dark","cosmic","dreamy"],["sc-hills","calm","nature","soft"],["sc-sea","warm","calm","dreamy"],["plain","minimal"]];
+const SCENES=["ocean","space","pond","forest","rain","desert","arctic","sakura","city"];
+const AMB=[["off","minimal","elegant","calm"],["fireflies","nature","calm","dark","dreamy"],["stars","cosmic","dark","elegant"],["bubbles","playful","cool","soft"],["net","tech","dark","vivid"],["orbs","soft","vivid","cosmic","dreamy"],["waves","calm","cool"],["aurora","cosmic","nature","dark","dreamy"],["ocean","cool","calm","nature"],["space","cosmic","dark"],["pond","calm","nature","soft"],["forest","nature","calm"],["rain","calm","dark","soft","cool"],["desert","warm","nature"],["arctic","cool","calm"],["sakura","soft","playful","warm","dreamy"],["city","tech","dark","vivid"]];
+const MO=[["none","minimal","elegant"],["alive","soft","vivid","warm"],["bubbly","playful","cool"],["float","calm","soft","nature"],["breathe","calm","soft"],["jelly","playful"],["drift","calm","cosmic","dreamy"],["orbit","cosmic","tech"],["sway","nature","calm"],["hop","playful","retro"],["glow","elegant","dark","vivid","dreamy"],["shimmer","elegant","vivid","cosmic","dreamy"],["pulse","tech","retro","vivid"]];
+const RING=[["soft","minimal","calm","elegant"],["none","minimal"],["accent","calm","tech"],["double","elegant","retro"],["gradient","soft","vivid","dreamy"],["stitch","nature","warm","playful"],["halo","soft","calm","dreamy"],["glow","dark","cosmic","vivid"],["neon","dark","tech","retro","vivid"],["pulse","tech","playful","cool"],["lifted","warm","soft","elegant"],["spin","cosmic","tech","dark"],["aurora","cosmic","dreamy","dark"],["rainbow","playful","retro","vivid"],["holo","dreamy","vivid","cosmic"],["dash","tech","retro","minimal"],["gold","elegant","warm","dramatic"],["silver","elegant","cool","minimal"],["rose","soft","warm","dreamy","elegant"],["glassedge","cool","elegant","soft","tech"],["bevel","retro","playful","warm"],["frame","elegant","warm","minimal"],["pearl","soft","dreamy","elegant"],["candy","playful","soft"]];
+const TONE=[["vivid","vivid","playful","warm","retro"],["soft","calm","soft","nature","elegant"],["pastel","playful","soft","dreamy"],["mono","minimal","elegant","dark"],["accent","elegant","tech","cool","minimal"],["glass","dreamy","cool","tech","dark"]];
+const SHAPE=[["rounded","calm","soft","minimal","elegant"],["circle","playful","dreamy","soft","cool"],["squircle","tech","elegant","vivid","dreamy"],["square","retro","minimal","tech"]];
+const TSW=[["slide","calm","minimal"],["fade","calm","elegant","minimal","soft"],["zoom","tech","vivid"],["flip","soft","calm"],["blur","dreamy","cosmic","elegant"],["curtain","dramatic","elegant"],["rise","warm","soft","elegant"],["swirl","playful","dreamy"],["wave","cool","calm","playful","soft"],["ic-scatter","playful","vivid","cosmic"],["ic-vortex","cosmic","dramatic","vivid"],["ic-drop","playful","retro"],["ic-swing","retro","playful","warm"],["ic-flip3d","tech","retro","vivid"],["ic-pop","playful","vivid"],["ic-spring","playful","warm","soft"],["ic-cascade","elegant","calm","soft"],["ic-zoom","tech","vivid"],["ic-blur","dreamy","soft","elegant"],["ic-tilt","playful","warm"],["ic-soft","calm","soft","minimal","nature"]];
+const TAB=[["slide","calm","minimal","soft"],["pop","playful","vivid","retro"],["drop","dramatic","tech","playful"],["fade","elegant","dreamy","minimal"]];
+const RE=[["magnet","playful","calm","soft","vivid"],["repel","retro","tech","playful"],["depth","elegant","cosmic","dreamy","cool"],["off","minimal"]];
+const FF=[[6,"soft","playful","calm"],[9,"elegant","nature","calm"],[7,"calm","minimal","cool","tech"],[0,"playful","vivid","warm"],[5,"playful","vivid","warm"],[8,"tech","retro","dark","cosmic"],[4,"minimal","tech"],[10,"soft","playful","dreamy"],[14,"elegant","warm","dramatic"],[15,"minimal","cool","soft"],[16,"tech","cosmic","vivid","dreamy"],[17,"elegant","warm","playful","dreamy"],[2,"elegant"],[3,"tech","retro"]];
+const MOODS=[
+ {n:"Cozy",t:["calm","soft","nature","warm"],h:[[20,45],[90,150]],s:[30,50],d:.2,lv:[45,65]},
+ {n:"Ocean",t:["cool","calm","nature","soft"],h:[[185,215]],s:[50,70],d:.25,lv:[45,70]},
+ {n:"Neon",t:["vivid","tech","dark","retro"],h:[[270,335]],s:[70,92],d:.8,lv:[60,85]},
+ {n:"Cosmic",t:["cosmic","dark","elegant","dreamy"],h:[[235,280]],s:[55,80],d:.85,lv:[55,80]},
+ {n:"Sunset",t:["warm","vivid","soft","dramatic"],h:[[8,40],[320,350]],s:[65,85],d:.2,lv:[55,80]},
+ {n:"Candy",t:["playful","soft","vivid"],h:[[300,350],[170,190]],s:[55,80],d:.1,lv:[60,85]},
+ {n:"Forest",t:["nature","calm"],h:[[105,155]],s:[35,55],d:.35,lv:[45,65]},
+ {n:"Elegant",t:["elegant","minimal","warm","dramatic"],h:[[30,48],[330,350]],s:[35,60],d:.35,lv:[40,60],bold:1},
+ {n:"Minimal",t:["minimal","calm","elegant"],h:[[205,225]],s:[6,16],d:.4,lv:[30,55]},
+ {n:"Arcade",t:["retro","vivid","playful","tech"],h:[[290,330],[170,190],[40,55]],s:[70,92],d:.6,lv:[65,85],bold:1},
+ {n:"Dream",t:["dreamy","soft","playful","cosmic"],h:[[260,330]],s:[45,70],d:.3,lv:[50,75]},
+ {n:"Rain",t:["calm","dark","soft","cool"],h:[[200,225]],s:[18,35],d:.55,lv:[40,60]}];
+const G={colors:{n:"Colors",L:["preset","accent","bg","surface","dark"],C:["theme"]},backdrop:{n:"Backdrop",L:["bgfx","bgs","amb"],C:[]},icons:{n:"Icons",L:["motion","react","ictone","shape","ring","rw","depth","pin"],C:[]},text:{n:"Text",L:["lw"],C:["ff","hf","ts","fs","lines","host"]},motion:{n:"Motion",L:["tsw","tanim","tabs","level","speed"],C:[]}};
+let keep=new Set();try{keep=new Set(JSON.parse(localStorage.lp_keep||"[]"))}catch{}
+const kr=document.getElementById("keepRow");
+kr.innerHTML="<span>Keep</span>"+Object.keys(G).map(g=>`<button type="button" data-g="${g}" class="${keep.has(g)?"on":""}" aria-pressed="${keep.has(g)}">${G[g].n}</button>`).join("");
+kr.onclick=e=>{const b=e.target.closest("[data-g]");if(!b)return;const g=b.dataset.g;keep.has(g)?keep.delete(g):keep.add(g);b.classList.toggle("on",keep.has(g));b.setAttribute("aria-pressed",keep.has(g));try{localStorage.lp_keep=JSON.stringify([...keep])}catch{}};
+let lastN="",stack=[];
+const wl=(id,v)=>{const o=document.querySelector("#"+id+' option[value="'+v+'"]');return o?o.textContent:v};
+function compose(m){
+ const T=m.t,pk=pool=>W(pool,T,Math.random()<.14),L={},C={};
+ const [h0,h1]=P(m.h),h=Math.round(R(h0,h1)),sat=R(m.s[0],m.s[1]);
+ L.preset="custom";L.accent=hex(h,sat,R(38,50));L.bg=hex(h,Math.min(40,sat*.55),R(93,96));L.surface=hex(h,Math.min(55,sat*.8),R(98,99.5));
+ L.dark=P(["soft","soft","black"]);C.theme=Math.random()<m.d?"dark":"light";
+ L.bgfx=pk(BG);L.amb=pk(AMB);L.bgs=RI(70,100);
+ if(SCENES.includes(L.amb)&&L.bgfx.startsWith("sc-"))L.bgfx=W(BG.filter(x=>!x[0].startsWith("sc-")),T);
+ if(L.bgfx.startsWith("sc-")&&!["off","fireflies","stars","bubbles"].includes(L.amb))L.amb="off";
+ L.motion=pk(MO);L.react=pk(RE);L.ictone=pk(TONE);L.shape=pk(SHAPE);L.ring=pk(RING);
+ L.rw=P(["thin","medium","medium","bold"]);L.depth=P(["soft","soft","lifted","flat"]);L.pin=P(["badge","badge","ring"]);
  if(L.motion==="bubbly"&&L.amb==="bubbles")L.amb="off";
  if(L.ring==="neon"&&L.ictone==="glass")L.ictone="vivid";
- Object.assign(looks,L);
- cfg.ff=P(r.ff);cfg.hf=Math.random()<.5?"same":P(r.hf);
- cfg.theme=Math.random()<(r.dk?.85:mono?.5:.25)?"dark":"light";
- cfg.ts=P([95,100,100,105,110]);cfg.fs=P([11,12,12,13]);cfg.lines=P([1,2,2]);cfg.host=Math.random()<.2?1:0;
- theme();saveLooks();saveCfg();draw();settingsUI();
- const u=document.getElementById("unshuffle");if(u)u.disabled=false;
+ C.ff=pk(FF);C.hf=Math.random()<.5?"same":pk(FF);L.lw=m.bold?"bold":P(["medium","medium","bold","regular"]);
+ C.ts=P([95,100,100,105,110]);C.fs=P([11,12,12,13]);C.lines=P([1,2,2]);C.host=Math.random()<.2?1:0;
+ L.tsw=pk(TSW);L.tanim=pk(TAB);L.tabs=P(["pills","pills","minimal","underline"]);L.level=RI(m.lv[0],m.lv[1]);L.speed=RI(85,125);
+ return{L,C}}
+const snapNow=()=>{const L={},C={};for(const g in G){G[g].L.forEach(k=>L[k]=looks[k]);G[g].C.forEach(k=>C[k]=cfg[k])}return{L,C}};
+function restore(sn){Object.assign(looks,sn.L);for(const k in sn.C){if(sn.C[k]===undefined)delete cfg[k];else cfg[k]=sn.C[k]}}
+function refresh(){theme();saveLooks();saveCfg();draw();settingsUI()}
+function shuffle(){
+ let m;do m=P(MOODS);while(m.n===lastN);lastN=m.n;
+ stack.push(snapNow());if(stack.length>12)stack.shift();
+ const {L,C}=compose(m);
+ for(const g in G){if(keep.has(g))continue;G[g].L.forEach(k=>looks[k]=L[k]);G[g].C.forEach(k=>cfg[k]=C[k])}
+ refresh();
+ document.getElementById("unshuffle").disabled=false;
  const b=document.getElementById("shuffle");b.classList.remove("spin");void b.offsetWidth;b.classList.add("spin");
- toast("Shuffled: "+r.n+" ("+cfg.theme+")");
- setTimeout(()=>playAnim("tab"),60);
-}
-function undo(){
- if(!snap)return;Object.assign(looks,snap.looks);
- for(const k of TK){if(snap.cfg[k]===undefined)delete cfg[k];else cfg[k]=snap.cfg[k]}
- snap=null;theme();saveLooks();saveCfg();draw();settingsUI();
- document.getElementById("unshuffle").disabled=true;toast("Previous look restored");
-}
+ toast("Shuffled: "+m.n+" · "+wl("bgEffect",looks.bgfx));
+ setTimeout(()=>playAnim("tab"),60)}
+function undo(){const sn=stack.pop();if(!sn)return;restore(sn);refresh();document.getElementById("unshuffle").disabled=!stack.length;toast("Previous look restored")}
 document.getElementById("shuffle").onclick=shuffle;
 document.getElementById("unshuffle").onclick=undo;
 })();
