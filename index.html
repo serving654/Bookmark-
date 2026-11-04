@@ -14,6 +14,7 @@
 #adlg{width:min(88vw,360px)}#adlg h3{font-size:calc(19px*var(--ts,1))}#adlg .hint{margin-top:6px}#adlg .btn.dp{background:var(--rd);color:#fff}
 .toast .tu{pointer-events:auto;margin-left:14px;padding:4px 2px;font-weight:700;text-decoration:underline;color:inherit}
 .logo{position:relative}.logo[data-s]::after{content:"";position:absolute;right:-3px;top:-3px;width:11px;height:11px;border-radius:50%;background:var(--rd);box-shadow:0 0 0 2px var(--bg)}
+#ap{white-space:pre-line}
 </style>
 <link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 </head>
@@ -132,7 +133,7 @@
 <div class="f w2"><button type="button" class="btn" id="resetMotion">Reset motion</button></div>
 </div></div>
  <div class="apanel" data-t="tabs" role="tabpanel" hidden><div class="fg"><div class="f" data-seg><b>Tab style</b><select id="tabStyle"><option value="pills">Pills</option><option value="underline">Line</option><option value="minimal">Plain</option></select></div><div class="f" data-seg><b>Item counts</b><select id="tabCounts"><option value="show">Show</option><option value="hide">Hide</option></select></div><div class="f" data-seg><b>Open links in</b><select id="c-open"><option value="new">New tab</option><option value="same">Same tab</option></select></div><div class="f" data-seg><b>App opens on</b><select id="c-start"><option value="first">First tab</option><option value="last">Last used</option></select></div><div class="f"><b>Categories</b><button class="btn" id="tord" type="button">Reorder…</button></div></div></div>
- <div class="apanel" data-t="data" role="tabpanel" hidden><div class="fg"><div class="f w2"><button class="btn p" id="sync" type="button">Sync</button></div><div class="f"><button class="btn" id="conn" type="button">Database</button></div><div class="f"><button class="btn" id="imp" type="button">Import</button></div><div class="f"><button class="btn" id="exp" type="button">Export</button></div><div class="f"><button class="btn" id="resetAppearance" type="button">Reset appearance</button></div><p class="tip w2">Version 2.4 · build O</p></div></div>
+ <div class="apanel" data-t="data" role="tabpanel" hidden><div class="fg"><div class="f w2"><button class="btn p" id="sync" type="button">Sync</button></div><div class="f"><button class="btn" id="conn" type="button">Database</button></div><div class="f"><button class="btn" id="imp" type="button">Import</button></div><div class="f"><button class="btn" id="exp" type="button">Export</button></div><div class="f"><button class="btn" id="resetAppearance" type="button">Reset appearance</button></div><div class="f w2"><button class="btn" id="chk" type="button">Check install &amp; sharing</button></div><p class="tip w2">Version 2.4 · build P</p></div></div>
  <input type="file" id="file" accept=".json,.html,.htm,application/json,text/html" hidden>
 </dialog>
 
@@ -807,7 +808,15 @@ async function joinSync(c,make){
  if(make)saveCfg();
  B=[];await load()}
 const yerr=er=>$("#yerr").textContent=er.message==="Failed to fetch"?"No connection. Try again.":er.message;
-$("#sync").onclick=()=>{$("#sdlg").close();openSync()};$("#x4").onclick=()=>$("#ydlg").close();
+$("#sync").onclick=()=>{$("#sdlg").close();openSync()};
+$("#chk").onclick=async()=>{const L=[],ok=(b,t)=>L.push((b?"✓ ":"✗ ")+t),img=async u=>{try{const r=await fetch(u,{cache:"no-store"});return r.ok&&/image/.test(r.headers.get("content-type")||"")}catch{return false}};
+ ok(location.protocol==="https:","Opened over https");
+ let m=null;try{const r=await fetch("manifest.webmanifest",{cache:"no-store"});m=r.ok?await r.json():null}catch{}
+ ok(!!m,"Manifest file found");ok(!!(m&&m.share_target),"Manifest has the share entry");
+ ok(await img("icons/icon-192.png"),"icons/icon-192.png found");ok(await img("icons/icon-512.png"),"icons/icon-512.png found");
+ const reg=navigator.serviceWorker?await navigator.serviceWorker.getRegistration():null;ok(!!reg,"Service worker registered");ok(!!(navigator.serviceWorker&&navigator.serviceWorker.controller),"Service worker in control");
+ ok(matchMedia("(display-mode: standalone)").matches,"Running as the installed app");
+ ask("Install & sharing check","Close",L.join("\n"),false)};$("#x4").onclick=()=>$("#ydlg").close();
 $("#ycopy").onclick=async()=>{copyText(fc(ls.lp_code),"Code copied","Your sync code")};
 $("#yout").onclick=async()=>{if(!await ask("Turn off sync on this device?","Turn off","Your bookmarks stay saved under your code.",false))return;for(const k of["lp_session","lp_code","lp_cache"])delete ls[k];location.reload()};
 $("#ynew").onclick=async e=>{const b=e.currentTarget;b.disabled=true;$("#yerr").textContent="";try{await joinSync([...crypto.getRandomValues(new Uint8Array(16))].map(x=>AL[x%32]).join(""),true);ySet();toast("Sync is on. Save your code.")}catch(er){yerr(er)}b.disabled=false};
